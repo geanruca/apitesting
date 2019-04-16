@@ -1,5 +1,7 @@
 {
-    "content-hash": "35f9539a37defe8a14bab2147dd3fe81",
+
+    "content-hash": "12242a45f048288a6348683ad72e8dc9",
+
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
