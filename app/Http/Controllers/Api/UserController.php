@@ -69,7 +69,7 @@ class UserController extends Controller
             'name' => 'required', 
             'email' => 'required|email', 
             'password' => 'required', 
-            'id_empresa' => 'required', 
+            // 'id_empresa' => 'required', 
             // 'c_password' => 'required|same:password', 
         ]);
 
