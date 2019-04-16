@@ -13,8 +13,6 @@ class ProductController extends Controller
     public function index()
     {
         
-        // $id_empresa = Auth::user()->id_empresa;
-        // $data = User::All();
 
         return response()->json([
             'status'=>true,
@@ -28,7 +26,6 @@ class ProductController extends Controller
         $producto->nombre         = $r->nombre;
         $producto->descripcion    = $r->descripcion;
         $producto->precio_inicial = $r->precio_inicial;
-        $producto->id_empresa     = Auth::user()->id_empresa;
 
         $producto->imagen         = $r->imagen;
 
@@ -56,7 +53,6 @@ class ProductController extends Controller
         $producto->nombre         = $r->nombre;
         $producto->descripcion    = $r->descripcion;
         $producto->precio_inicial = $r->precio_inicial;
-        $producto->id_empresa     = Auth::user()->id_empresa;
 
         $producto->imagen         = $r->imagen;
 

@@ -69,7 +69,6 @@ class UserController extends Controller
             'name' => 'required', 
             'email' => 'required|email', 
             'password' => 'required', 
-            // 'id_empresa' => 'required', 
             // 'c_password' => 'required|same:password', 
         ]);
 
@@ -83,7 +82,6 @@ class UserController extends Controller
         $user->name           = $request->name;
         $user->role_id        = 2;
         $user->email          = $request->email;
-        // $user->id_empresa     = $request->id_empresa ?? 1;
         $user->password       = bcrypt($request->password);
         // $user->remember_token = $token,
         $user->save();

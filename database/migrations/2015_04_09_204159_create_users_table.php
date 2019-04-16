@@ -31,8 +31,8 @@ class CreateUsersTable extends Migration
             // FK
             $table->unsignedBigInteger('id_comuna')->nullable();
             $table->foreign('id_comuna')->references('id')->on('comunas');
-            $table->unsignedBigInteger('id_empresa')->nullable();
-            $table->foreign('id_empresa')->references('id')->on('empresas');
+            // $table->unsignedBigInteger('id_empresa')->nullable();
+            // $table->foreign('id_empresa')->references('id')->on('empresas');
             // For drivers
             $table->string('zona')->nullable();
             //INDEXES

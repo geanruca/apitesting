@@ -26,8 +26,8 @@ class CrearTablaProductos extends Migration
             $table->string('notas')->nullable();
 
             // FK
-            $table->unsignedBigInteger('id_empresa')->nullable();
-            $table->foreign('id_empresa')->references('id')->on('empresas');
+            // $table->unsignedBigInteger('id_empresa')->nullable();
+            // $table->foreign('id_empresa')->references('id')->on('empresas');
             // llaves combinadas
             $table->string('SKU')->nullable();
             $table->timestamps();

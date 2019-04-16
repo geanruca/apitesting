@@ -42,10 +42,6 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->belongsToMany('App\Pedido','id_usuario');
     }
-    public function empresa()
-    {
-        return $this->belongsTo('App\Empresa','id','id_empresa');
-    }
     public function accessTokens()
     {
         return $this->hasMany('App\OauthAccessToken');
