@@ -83,7 +83,7 @@ class UserController extends Controller
         $user->name           = $request->name;
         $user->role_id        = 2;
         $user->email          = $request->email;
-        $user->id_empresa     = $request->id_empresa;
+        // $user->id_empresa     = $request->id_empresa ?? 1;
         $user->password       = bcrypt($request->password);
         // $user->remember_token = $token,
         $user->save();
@@ -121,4 +121,5 @@ class UserController extends Controller
         $user = Auth::user(); 
         return response()->json(['success' => $user], 200); 
     } 
+   
 }

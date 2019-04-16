@@ -24,5 +24,6 @@ Route::middleware(['auth:api'])
     Route::post('details', 'UserController@details');
     Route::apiResource('productos','ProductController');
     Route::apiResource('empresas','EmpresaController');
+    Route::apiResource('usuarios','UsuariosController');
 });
 

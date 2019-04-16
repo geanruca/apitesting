@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\User;
 use App\Producto;
-use Illuminate\Support\Facades\Auth; 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth; 
 
 class ProductController extends Controller
 {
     public function index()
     {
         
-        $id_empresa = Auth::user()->id_empresa;
-        $data = Producto::where('id_empresa',$id_empresa);
+        // $id_empresa = Auth::user()->id_empresa;
+        // $data = User::All();
 
         return response()->json([
             'status'=>true,
-            'msg'=>$data
+            'msg'=>"hola"
         ]);
     }
 

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Empresa extends Model
 {
-    public function usuarios(){
-        return $this->hasMany('App\User','id_empresa','id');
-    }
+    // public function usuarios(){
+    //     return $this->hasMany('App\User','id_empresa','id');
+    // }
 }

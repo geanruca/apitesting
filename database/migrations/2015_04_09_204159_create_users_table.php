@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('celular')->nullable();
             $table->string('direccion')->nullable();
             $table->string('notas')->nullable();
+            $table->longtext('api_token')->nullable();
             // FK
             $table->unsignedBigInteger('id_comuna')->nullable();
             $table->foreign('id_comuna')->references('id')->on('comunas');
