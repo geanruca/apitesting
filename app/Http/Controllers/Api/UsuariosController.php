@@ -88,19 +88,16 @@ class UsuariosController extends Controller
     {
         $user = User::find($id); 
 
-        $user->role_id           = $request->role_id;
-        $user->name              = $request->name;
-        $user->last_name         = $request->last_name;
-        $user->email             = $request->email;
-        $user->avatar            = $request->avatar;
-        $user->email_verified_at = $request->email_verified_at;
-        $user->rut               = $request->rut;
-        $user->celular           = $request->celular;
-        $user->direccion         = $request->direccion;
-        $user->notas             = $request->notas;
-        $user->api_token         = $request->api_token;
-        $user->id_comuna         = $request->id_comuna;
-        $user->zona              = $request->zona;
+        $user->role_id           = $request->role_id ?? $user->role_id;
+        $user->name              = $request->name ?? $user->name;
+        $user->last_name         = $request->last_name ?? $user->last_name;
+        $user->email             = $request->email ?? $user->email;
+        $user->avatar            = $request->avatar ?? $user->avatar;
+        $user->celular           = $request->celular ?? $user->celular;
+        $user->direccion         = $request->direccion ?? $user->direccion;
+        $user->notas             = $request->notas ?? $user->notas;
+        $user->id_comuna         = $request->id_comuna ?? $user->id_comuna;
+        $user->zona              = $request->zona ?? $user->zona;
         $user->save();
         return response()->json(['success' => $user], 200); 
     }
