@@ -16,7 +16,10 @@ class UsuariosController extends Controller
     public function index()
     {
             $users = User::All(); 
-            return response()->json(['success' => $users], 200); 
+            return response()->json([
+                'status' => true,
+                'data'   => $users,
+        ], 200); 
     }
 
     /**
@@ -86,10 +89,11 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id); 
+        // dd($request->name);
+        $user = User::findOrFail($id); 
 
-        $user->role_id           = $request->role_id ?? $user->role_id;
         $user->name              = $request->name ?? $user->name;
+        $user->role_id           = $request->role_id ?? $user->role_id;
         $user->last_name         = $request->last_name ?? $user->last_name;
         $user->email             = $request->email ?? $user->email;
         $user->avatar            = $request->avatar ?? $user->avatar;
@@ -99,6 +103,7 @@ class UsuariosController extends Controller
         $user->id_comuna         = $request->id_comuna ?? $user->id_comuna;
         $user->zona              = $request->zona ?? $user->zona;
         $user->save();
+        
         return response()->json(['success' => $user], 200); 
     }
 
