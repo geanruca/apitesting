@@ -48,7 +48,8 @@ class UserController extends Controller
 
         return response()->json([
             'status' => true,
-            'data' => $accessToken
+            'token' => $accessToken,
+            'role_id' => $user->role_id,
 
         ], 
             200); 
