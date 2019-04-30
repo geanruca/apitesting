@@ -23,25 +23,26 @@ class PedidosController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(Request $r)
     {
-        //
+        $pedido = new Pedido();
+        $pedido->estado_pago       = $r->estado_pago;
+        $pedido->estado_despacho   = $r->estado_despacho;
+        $pedido->medio_de_pago     = $r->medio_de_pago;
+        $pedido->total_pago        = $r->total_pago;
+        $pedido->detalle_productos = $r->detalle_productos;
+        $pedido->horario_recepcion = $r->horario_recepcion;
+        $pedido->notas             = $r->notas;
+        $pedido->id_usuario        = $r->id_usuario;
+        $pedido->id_comuna         = $r->id_comuna;
+        $pedido->id_conductor      = $r->id_conductor;
+        $pedido->save();
+
+        return response()->json([
+            "status"=>true,
+            "data"=>"Pedido guardado"
+        ]);
     }
 
     /**
@@ -52,40 +53,43 @@ class PedidosController extends Controller
      */
     public function show($id)
     {
-        //
+        $a = Pedidos::find($id);
+
+        return response()->json([
+            "status"=>true,
+            "data"=>$a
+        ]); 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update(Request $r, $id)
     {
-        //
+        $pedido = Pedido::find($id);
+        $pedido->estado_pago       = $r->estado_pago;
+        $pedido->estado_despacho   = $r->estado_despacho;
+        $pedido->medio_de_pago     = $r->medio_de_pago;
+        $pedido->total_pago        = $r->total_pago;
+        $pedido->detalle_productos = $r->detalle_productos;
+        $pedido->horario_recepcion = $r->horario_recepcion;
+        $pedido->notas             = $r->notas;
+        $pedido->id_usuario        = $r->id_usuario;
+        $pedido->id_comuna         = $r->id_comuna;
+        $pedido->id_conductor      = $r->id_conductor;
+        $pedido->save();
+
+        return response()->json([
+            "status"=>true,
+            "data"=>"Pedido guardado"
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
-        //
+        $pedido = Pedido::find($id);
+        $pedido->delete();
+        return response()->json([
+            "status"=>true,
+            "data"=>"Pedido borrado"
+        ]);
     }
 }
