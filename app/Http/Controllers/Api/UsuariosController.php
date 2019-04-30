@@ -91,7 +91,6 @@ class UsuariosController extends Controller
     {
         // dd($request->name);
         $user = User::findOrFail($id); 
-
         $user->name              = $request->name ?? $user->name;
         $user->role_id           = $request->role_id ?? $user->role_id;
         $user->last_name         = $request->last_name ?? $user->last_name;

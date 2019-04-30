@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "811d0b0b6743916acf7754169fd57ca3",
+    "content-hash": "0443fdd92181bdb0aa36e49bea22f312",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -67,6 +67,54 @@
                 "widgets"
             ],
             "time": "2019-03-25T14:20:55+00:00"
+        },
+        {
+            "name": "cokecancino/laravel-flow",
+            "version": "1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cokecancino/laravel-flow.git",
+                "reference": "b192ee6ae2d89aa5742cce4392d04751608f06da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cokecancino/laravel-flow/zipball/b192ee6ae2d89aa5742cce4392d04751608f06da",
+                "reference": "b192ee6ae2d89aa5742cce4392d04751608f06da",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CokeCancino\\LaravelFlow\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jorge Cancino Flores",
+                    "email": "jorgecancinof@gmail.com"
+                }
+            ],
+            "description": "Laravel package para la integración de pagos con Flow (https://www.flow.cl)",
+            "homepage": "https://github.com/cokecancino/laravel-flow",
+            "keywords": [
+                "chile",
+                "flow",
+                "laravel",
+                "multicaja",
+                "pagos",
+                "servipag",
+                "transbank",
+                "webpay"
+            ],
+            "time": "2017-12-22T02:06:45+00:00"
         },
         {
             "name": "composer/ca-bundle",

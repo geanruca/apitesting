@@ -1,0 +1,17 @@
+--MODELS--
+php artisan migrate:fresh
+
+--VOYAGER INSTALL--
+php artisan voyager:install --with-dummy
+
+--PASSPORT--
+php artisan passport:client --personal
+
+--FACTORIES--
+php artisan db:seed --class=DatabaseSeeder
+--RESUME--
+php artisan migrate:fresh
+php artisan voyager:install --with-dummy
+php artisan passport:client --personal
+personal
+php artisan db:seed --class=DatabaseSeeder

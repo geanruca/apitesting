@@ -24,6 +24,7 @@ class CrearTablaProductos extends Migration
             $table->string('imagenes')->nullable();
             $table->string('estado')->nullable();
             $table->string('notas')->nullable();
+            $table->string('path')->nullable();
 
             // FK
             // $table->unsignedBigInteger('id_empresa')->nullable();

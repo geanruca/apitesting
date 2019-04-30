@@ -19,6 +19,9 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        // 'flow/*',
+        // // 'http://aguaclean.xl/flow/exito',
+        // // 'http://aguaclean.xl/flow/fracaso',
+        // // 'http://aguaclean.xl/flow/confirmacion',
     ];
 }

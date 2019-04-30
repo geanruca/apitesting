@@ -7,6 +7,7 @@ use App\Producto;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -26,9 +27,10 @@ class ProductController extends Controller
         $producto->nombre         = $r->nombre;
         $producto->descripcion    = $r->descripcion;
         $producto->precio_inicial = $r->precio_inicial;
+        // $producto->imagen      = $r->imagen;
+        $producto->imagen         = $r->file('imagen')->store('productos','public');
 
-        $producto->imagen         = $r->imagen;
-
+        $producto->save();
         return response()->json([
             'status'=>true,
             'msg'=>"Producto agregado"

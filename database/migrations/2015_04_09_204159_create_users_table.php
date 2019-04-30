@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             // $table->string('avatar')->default('users/default.png');
             // $table->bigInteger('role_id')->nullable();
            
+            $table->string('username')->unique()->nullable();
             $table->string('name');
             $table->string('last_name')->nullable();
             $table->string('email')->unique();
@@ -27,6 +28,8 @@ class CreateUsersTable extends Migration
             $table->string('celular')->nullable();
             $table->string('direccion')->nullable();
             $table->string('notas')->nullable();
+            $table->string('cargo')->nullable();
+            $table->string('descuento')->nullable();
             $table->longtext('api_token')->nullable();
             // FK
             $table->unsignedBigInteger('id_comuna')->nullable();

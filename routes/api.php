@@ -24,5 +24,8 @@ Route::middleware(['auth:api'])
     Route::post('details', 'UserController@details');
     Route::apiResource('productos','ProductController');
     Route::apiResource('usuarios','UsuariosController');
+    // Route::apiResource('payments','FlowController');
+    Route::get('signature','FlowController@signature');
+    Route::post('payments','FlowController@create');
 });
 
