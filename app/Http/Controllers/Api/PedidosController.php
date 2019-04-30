@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Pedidos;
+use App\Pedido;
 
 class PedidosController extends Controller
 {
@@ -15,7 +15,7 @@ class PedidosController extends Controller
      */
     public function index()
     {
-        $pedidos = Pedidos::All();
+        $pedidos = Pedido::All();
 
         return response()->json([
             "status"=>true,
@@ -53,7 +53,7 @@ class PedidosController extends Controller
      */
     public function show($id)
     {
-        $a = Pedidos::find($id);
+        $a = Pedido::find($id);
 
         return response()->json([
             "status"=>true,
