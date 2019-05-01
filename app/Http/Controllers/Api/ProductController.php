@@ -20,17 +20,19 @@ class ProductController extends Controller
 
     public function store(Request $r)
     {
+        $user = Auth::user();
         $producto = new Producto;
         $producto->nombre         = $r->nombre;
         $producto->descripcion    = $r->descripcion;
         $producto->precio_inicial = $r->precio_inicial;
         // $producto->imagen      = $r->imagen;
-        $producto->imagen         = $r->file('imagen')->store('productos','public');
-
+        $producto->imagenes         = $r->file('imagenes')->store('productos/'.$user->id,'public');
+        $url = Storage::url($producto->imagenes);
+        $producto->path = $url;
         $producto->save();
         return response()->json([
             'status'=>true,
-            'msg'=>"Producto agregado"
+            'msg'=>"Uloaded to the URL: $url"
         ]);
     }
 
@@ -50,7 +52,7 @@ class ProductController extends Controller
         $producto->descripcion    = $r->descripcion;
         $producto->precio_inicial = $r->precio_inicial;
 
-        $producto->imagen         = $r->imagen;
+        $producto->imagenes         = $r->imagenes;
 
         return response()->json([
             'status'=>true,
