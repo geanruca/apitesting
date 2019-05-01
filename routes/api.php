@@ -25,8 +25,9 @@ Route::middleware(['auth:api'])
     Route::apiResource('productos','ProductController');
     Route::apiResource('usuarios','UsuariosController');
     Route::apiResource('pedidos','PedidosController');
-    Route::apiResource('comunas','ComunasController');
-    // Route::apiResource('payments','FlowController');
+    Route::get('comunas','ComunasController@index');
+    
+    // Flow
     Route::get('signature','FlowController@signature');
     Route::post('payments','FlowController@create');
 });
