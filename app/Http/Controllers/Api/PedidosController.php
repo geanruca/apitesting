@@ -33,11 +33,14 @@ class PedidosController extends Controller
         $pedido->total_pago        = $r->total_pago;
         $pedido->detalle_productos = $r->detalle_productos;
         $pedido->horario_recepcion = $r->horario_recepcion;
+        $pedido->fecha_recepcion   = $r->fecha_recepcion;
         $pedido->notas             = $r->notas;
+        
         $pedido->id_usuario        = $r->id_usuario;
         $pedido->id_comuna         = $r->id_comuna;
         $pedido->id_conductor      = $r->id_conductor;
         $pedido->save();
+
 
         return response()->json([
             "status"=>true,
@@ -92,4 +95,5 @@ class PedidosController extends Controller
             "data"=>"Pedido borrado"
         ]);
     }
+
 }
