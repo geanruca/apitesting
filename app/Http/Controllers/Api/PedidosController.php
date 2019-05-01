@@ -17,7 +17,7 @@ class PedidosController extends Controller
      */
     public function index()
     {
-        $pedidos = Pedido::join('Users as u','id_usuario','=','u.id')->select(
+        $pedidos = Pedido::join('users as u','id_usuario','=','u.id')->select(
         'u.direccion',
         'u.zona',
         'u.cargo',
@@ -32,8 +32,7 @@ class PedidosController extends Controller
         'total_pago',
         'detalle_productos',
         'horario_recepcion',
-        'fecha_recepcion',
-        'notas'
+        'fecha_recepcion'
         )->get();
 
         return response()->json($pedidos);
