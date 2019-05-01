@@ -2,6 +2,9 @@
 
 namespace App;
 
+use App\User;
+use App\Pedido;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
 
 class Pedido extends Model
@@ -17,4 +20,5 @@ class Pedido extends Model
     public function comuna(){
         return $this->hasOne('App\Comuna','id','id_comuna');
     }
+
 }

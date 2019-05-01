@@ -10,8 +10,8 @@ $factory->define(Pedido::class, function (Faker $faker) {
     
     $user_ids         = User  ::where('role_id','4')->pluck('id')->toArray();
     $conductor_ids    = User  ::where('role_id','3')->pluck('id')->toArray();
-    
-    $numeros          = [1,2,3,4,5,6,7,8,9,12,13,10,1,2,3,4,5];
+    // dd($conductor_ids);
+    $numeros          = [1,2,3,0];
     $comunas_ids      = Comuna::pluck('id')->toArray();
     $estados_pago     = ['PAGADO','POR PAGAR'];
     $medio_de_pago    = ['EFECTIVO','REDCOMPRA'];
@@ -56,20 +56,6 @@ $factory->define(Pedido::class, function (Faker $faker) {
             array_push($total_pago,$i);
         }
     }
-    // dd($total_pago);
-    // dd('todo bien');
-    // Pedido::insert([
-    //     'id_usuario'=>$faker->randomElement($user_ids),
-    //     'id_comuna'=>$faker->randomElement($comunas_id),
-    //     'id_conductor'=>$faker->optional->$faker->randomElement($conductor_ids),
-    //     'estado_pago'=>$faker->randomElement($estados_pago),
-    //     'estado_despacho'=>$faker->randomElement($estados_despacho),
-    //     'medio_de_pago'=>$faker->randomElement($medio_de_pago),
-    //     'total_pago'=>$faker->randomElement($total_pago),
-    //     'detalle_productos'=>'Bidon de 20 lts x 2, Bidon de 12 lts x 3',
-    //     'horario_recepcion'=>'14:00 - 19:00',
-    //     'fecha_recepcion'=>Carbon::now()->addDay($faker->randomElement($numeros)),
-    // ]);
     
     return [
 

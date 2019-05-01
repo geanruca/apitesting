@@ -36,21 +36,21 @@ class UsersTableSeeder extends Seeder
                 'email'          => 'user@aguaclean.app',
                 'password'       => bcrypt('password'),
                 'remember_token' => Str::random(60),
-                'role_id'        => 2,
+                'role_id'        => 4,
             ]);
             User::create([
                 'name'           => 'Secretaria',
                 'email'          => 'secretaria@aguaclean.app',
                 'password'       => bcrypt('password'),
                 'remember_token' => Str::random(60),
-                'role_id'        => 3,
+                'role_id'        => 2,
             ]);
             User::create([
                 'name'           => 'Conductor',
                 'email'          => 'conductor@aguaclean.app',
                 'password'       => bcrypt('password'),
                 'remember_token' => Str::random(60),
-                'role_id'        => 4,
+                'role_id'        => 3,
             ]);
             
         }

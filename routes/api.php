@@ -29,7 +29,9 @@ Route::middleware(['auth:api'])
     Route::get('conductor_asignado','PedidosController@conductor_asignado');
     Route::get('pedidos_sin_conductor_asignado','PedidosController@pedidos_sin_conductor_asignado');
     Route::get('conductores_disponibles_hoy','PedidosController@conductores_disponibles_hoy');
-    Route::get('conductores_disponibles/{date}','PedidosController@conductores_disponibles');
+    Route::get('conductor_asignado/{id_pedido}','PedidosController@conductor_asignado');
+    Route::get('conductores_disponibles_por_fecha/{date}','PedidosController@conductores_disponibles_por_fecha');
+    Route::get('auto_asignacion_de_pedidos_por_comuna/{id_comuna}','PedidosController@auto_asignacion_de_pedidos_por_comuna');
 
     // Flow
     Route::get('signature','FlowController@signature');

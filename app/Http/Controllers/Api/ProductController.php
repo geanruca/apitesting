@@ -61,9 +61,9 @@ class ProductController extends Controller
         $producto->notas          = $r->notas ?? $producto->notas;
         $producto->SKU            = $r->SKU ?? $producto->SKU;
         if($r->imagenes <> null){
-            $producto->imagenes       = $r->file('imagenes')->store('productos/'.$user_id,'public');
-            $url                      = Storage::url($producto->imagenes);
-            $producto->path           = $url;
+            $producto->imagenes = $r->file('imagenes')->store('productos/'.$user_id,'public');
+            $url                = Storage::url($producto->imagenes);
+            $producto->path     = $url;
         }
         $producto->save();
 

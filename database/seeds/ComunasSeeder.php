@@ -67,7 +67,8 @@ class ComunasSeeder extends Seeder
 
         foreach($comunas as $comuna){
             Comuna::insert([
-                'nombre'=>$comuna
+                'nombre'=>$comuna,
+                'se_cubre'=>'1'
             ]);
         }
     }
