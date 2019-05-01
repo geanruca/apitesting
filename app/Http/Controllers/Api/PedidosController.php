@@ -39,7 +39,8 @@ class PedidosController extends Controller
             'detalle_productos',
             'horario_recepcion',
             'fecha_recepcion'
-        )->get();
+        )->orderBy('id_pedido','desc')
+        ->get();
 
         return response()->json($pedidos);
     }
@@ -72,7 +73,7 @@ class PedidosController extends Controller
         return response()->json($conductor);
     }
     
-    public function auto_asignacion_de_pedidos_por_comuna($fecha){
+    public function auto_asignacion_de_pedidos_por_fecha($fecha){
         $pedidos_no_asignados = Pedido::where('id_conductor',null)->get();
         $limite               = 32;
         $total_para_viajar    = 9500;
@@ -94,8 +95,8 @@ class PedidosController extends Controller
                 array_push($conductores_copados,$conductor->id);
             }
         }
-        $conductores_disponibles = Pedido::ConductoresDisponiblesPorFecha($fecha);
-        dd($conductores_disponibles);
+        $conductores_disponibles = User::ConductoresDisponiblesPorFecha($fecha);
+        // dd($conductores_disponibles->count());
 
         // $conductores_disponibles_ids = $conductores_disponibles->pluck('id')->toArray();
         $comunas = Comuna::where('se_cubre','1')->get();
