@@ -13,12 +13,9 @@ class ProductController extends Controller
 {
     public function index()
     {
-        
+        $a = Producto::All();
 
-        return response()->json([
-            'status'=>true,
-            'msg'=>"hola"
-        ]);
+        return response()->json($a);
     }
 
     public function store(Request $r)
@@ -42,10 +39,7 @@ class ProductController extends Controller
     {
        $producto = Producto::findOrFail($id);
 
-       return response()->json([
-            'status'=>true,
-            'msg'=>$producto
-        ]);
+       return response()->json($producto);
     }
 
     
