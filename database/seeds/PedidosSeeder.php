@@ -23,7 +23,7 @@ class PedidosSeeder extends Seeder
             'total_pago'=>'9800',
             'detalle_productos'=>'Bidon de 20 lts x 2, Bidon de 12 lts x 3',
             'horario_recepcion'=>'14:00 - 19:00',
-            // 'fecha_recepcion'=>Carbon::now()->addDay(),
+            'fecha_recepcion'=>Carbon::now()->addDay(),
             'notas'=>'Usuario que nunca paga',
         ]);
         Pedido::insert([
