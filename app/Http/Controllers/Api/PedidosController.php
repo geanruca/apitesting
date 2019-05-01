@@ -17,16 +17,20 @@ class PedidosController extends Controller
      */
     public function index()
     {
-        $pedidos = Pedido::join('users as u','id_usuario','=','u.id')->select(
-        'pedidos.id',
-        'u.direccion',
-        'u.zona',
-        'u.cargo',
-        'u.descuento',
-        'u.celular',
-        'u.email',
-        'u.name',
-        'u.last_name',
+        $pedidos = Pedido::join('users as u','id_usuario','=','u.id')
+        ->join('comunas as c','c.id','pedidos.id_comuna')
+        ->select(
+        'pedidos.id as id_pedido',
+        'pedidos.id_comuna as id_comuna_from_pedido',
+        'c.nombre as nombre_comuna',
+        'u.direccion as user_direccion',
+        'u.zona as user_zona',
+        'u.cargo as user_cargo',
+        'u.descuento as user_descuento',
+        'u.celular as user_celular',
+        'u.email as user_email',
+        'u.name as user_name',
+        'u.last_name as user_last_name',
         'estado_pago',
         'estado_despacho',
         'medio_de_pago',
