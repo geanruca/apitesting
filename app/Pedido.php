@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pedido extends Model
 {
+    // protected $dateFormat = 'd.m.Y';
+    
     public function user(){
         return $this->hasOne('App\User','id','id_usuario');
     }

@@ -17,10 +17,7 @@ class PedidosController extends Controller
     {
         $pedidos = Pedido::All();
 
-        return response()->json([
-            "status"=>true,
-            "data"=>$pedidos
-        ]);
+        return response()->json($pedidos);
     }
 
 
