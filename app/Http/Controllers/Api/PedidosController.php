@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\User;
+use App\Comuna;
+use App\Pedido;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Pedido;
-use App\User;
-use Carbon\Carbon;
 
 class PedidosController extends Controller
 {
@@ -95,38 +96,45 @@ class PedidosController extends Controller
                 array_push($conductores_copados,$conductor->id);
             }
         }
+
+        // Conductores disponibles para ser asignados
         $conductores_disponibles = User::ConductoresDisponiblesPorFecha($fecha);
-        // dd($conductores_disponibles->count());
-
-        // $conductores_disponibles_ids = $conductores_disponibles->pluck('id')->toArray();
+        $conductores_disponibles_ids = $conductores_disponibles->pluck('id_conductor')->toArray();
         $comunas = Comuna::where('se_cubre','1')->get();
+        dd($comunas);
 
+        // Pedidos no asignados
         foreach($comunas as $comuna){
             //contar los pedidos en cada comuna para asignarlos a un día en específico
             $pedidos_cercanos = Pedido::where('id_conductor',null)
             ->where('fecha_recepcion',$fecha)
-            ->join('comunas as c','id_comuna','=',$comuna->id)
+            ->join('comunas as c','pedidos.id_comuna','=','c.id')
             ->where('c.cargo_por_producto','<=','100')
+            ->select('c.nombre')
             ->get();
+            dd($pedidos_cercanos);
             foreach($pedidos_cercanos as $pedido_c){
                 foreach($conductores_disponibles as $conductor){
-                    $pedidos_por_conductor = Pedido::where('id_conductor',$conductor->id)->get()->count();
+                    $pedidos_por_conductor = Pedido::where('id_conductor',$conductor->id)->where('fecha_recepcion',$fecha)->get()->count();
                     if($pedidos_por_conductor <= 32){
                         $pedido_c->id_conductor = $conductor->id;
                         $pedido_c->save();
                     }
                 }
             }
+            dd('pedidos cercanos asignados');
 
             $pedidos_lejanos = Pedido::where('id_conductor',null)
             ->where('fecha_recepcion',$fecha)
             ->join('comunas as c','id_comuna','=',$comuna->id)
             ->where('c.cargo_por_producto','>','100')
+            ->where('c.cargo_por_producto','<','150')
             ->where('total_pago','>',$total_para_viajar)
             ->get();
+
             foreach($pedidos_lejanos as $pedido_l){
                 foreach($conductores_disponibles as $conductor){
-                    $pedidos_por_conductor = Pedido::where('id_conductor',$conductor->id)->get()->count();
+                    $pedidos_por_conductor = Pedido::where('id_conductor',$conductor->id)->where('fecha_recepcion',$fecha)->get()->count();
                     if($pedidos_por_conductor <= 32){
                         $pedido_l->id_conductor = $conductor->id;
                         $pedido_l->save();
@@ -137,7 +145,7 @@ class PedidosController extends Controller
             $pedidos_lejanos_acumulados = Pedido::where('id_conductor',null)
             ->where('fecha_recepcion',$fecha)
             ->join('comunas as c','id_comuna','=',$comuna->id)
-            ->where('c.cargo_por_producto','>','100')
+            ->where('c.cargo_por_producto','>=','150')
             ->select('total_pago')
             ->whereRaw('SUM(total_pago)','>',$total_para_viajar)
             ->get();
@@ -145,7 +153,7 @@ class PedidosController extends Controller
             dd($pedidos_lejanos_acumulados);
             foreach($pedidos_lejanos as $pedido_l){
                 foreach($conductores_disponibles as $conductor){
-                    $pedidos_por_conductor = Pedido::where('id_conductor',$conductor->id)->get()->count();
+                    $pedidos_por_conductor = Pedido::where('id_conductor',$conductor->id)->where('fecha_recepcion',$fecha)->get()->count();
                     if($pedidos_por_conductor <= 32){
                         $pedido_l->id_conductor = $conductor->id;
                         $pedido_l->save();

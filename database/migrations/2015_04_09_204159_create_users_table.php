@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('notas')->nullable();
             $table->string('cargo')->nullable();
             $table->string('descuento')->nullable();
+            $table->string('estado')->default('disponible');
             $table->longtext('api_token')->nullable();
             // FK
             $table->unsignedBigInteger('id_comuna')->nullable();

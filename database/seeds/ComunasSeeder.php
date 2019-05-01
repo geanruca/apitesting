@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Comuna;
+use Faker\Generator as Faker;
 
 class ComunasSeeder extends Seeder
 {
@@ -10,8 +11,9 @@ class ComunasSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
+        
         $comunas = ['Colina',
             'Til Til',
             'Puente Alto',
@@ -64,11 +66,17 @@ class ComunasSeeder extends Seeder
             'Padre Hurtado',
             'Peñaflor'];
         sort($comunas);
-
+        $cargo=[0,50,100,200,300,500];
+        $dias=['L','M','X','J','V','S','D'];
+        $numeros = [1,2,3,4,5,6,7,8,9,10];
         foreach($comunas as $comuna){
             Comuna::insert([
                 'nombre'=>$comuna,
-                'se_cubre'=>'1'
+                'se_cubre'=>'1',
+                'cargo_por_producto'=>$faker->randomElement($cargo),
+                'dias_de_despacho'=>$faker->randomElement($dias),
+                'pedido_minimo'=>$faker->randomElement($numeros),
+
             ]);
         }
     }

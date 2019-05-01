@@ -64,7 +64,9 @@ class User extends \TCG\Voyager\Models\User
         }
         return $query->whereIn('id',$conductores_ids)
         ->whereNotIn('id',$conductores_copados)
-        ->select('id as id_conductor','name','celular')
+        ->where('estado','disponible')
+        ->select('id as id_conductor','name as nombre','celular')
+        ->orderby('id_conductor','desc')
         ->get();
 
         
