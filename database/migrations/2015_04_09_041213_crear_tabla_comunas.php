@@ -18,6 +18,7 @@ class CrearTablaComunas extends Migration
             $table->string('nombre')->nullable();
             $table->string('cargo_por_producto')->nullable();
             $table->string('pedido_minimo')->nullable();
+            $table->string('se_cubre')->nullable();
             $table->string('dias_de_despacho')->nullable();
             $table->string('pais')->nullable();
             $table->string('region')->nullable();

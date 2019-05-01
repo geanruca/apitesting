@@ -26,7 +26,11 @@ Route::middleware(['auth:api'])
     Route::apiResource('usuarios','UsuariosController');
     Route::apiResource('pedidos','PedidosController');
     Route::get('comunas','ComunasController@index');
-    
+    Route::get('conductor_asignado','PedidosController@conductor_asignado');
+    Route::get('pedidos_sin_conductor_asignado','PedidosController@pedidos_sin_conductor_asignado');
+    Route::get('conductores_disponibles_hoy','PedidosController@conductores_disponibles_hoy');
+    Route::get('conductores_disponibles/{date}','PedidosController@conductores_disponibles');
+
     // Flow
     Route::get('signature','FlowController@signature');
     Route::post('payments','FlowController@create');

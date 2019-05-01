@@ -36,7 +36,7 @@ class CrearTablaPedidos extends Migration
             $table->foreign('id_comuna')->references('id')->on('comunas');
 
             // Datos del conductor que hará la entrega del producto
-            $table->unsignedBigInteger('id_conductor');
+            $table->unsignedBigInteger('id_conductor')->nullable();
             $table->foreign('id_conductor')->references('id')->on('users');
 
             $table->timestamps();
