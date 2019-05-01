@@ -8,8 +8,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Pedido::class, function (Faker $faker) {
     
-    $user_ids         = User  ::where('role_id','2')->pluck('id')->toArray();
-    $conductor_ids    = User  ::where('role_id','4')->pluck('id')->toArray();
+    $user_ids         = User  ::where('role_id','4')->pluck('id')->toArray();
+    $conductor_ids    = User  ::where('role_id','3')->pluck('id')->toArray();
     
     $numeros          = [1,2,3,4,5,6,7,8,9,12,13,10,1,2,3,4,5];
     $comunas_ids      = Comuna::pluck('id')->toArray();
@@ -51,9 +51,12 @@ $factory->define(Pedido::class, function (Faker $faker) {
     }
     
 
-    for ($i=2900; $i%100 ; $i++) { 
-        array_push($total_pago,$i);
+    for ($i=2900; $i<=40000 ; $i=$i+100) { 
+        if($i%100==0){
+            array_push($total_pago,$i);
+        }
     }
+    // dd($total_pago);
     // dd('todo bien');
     // Pedido::insert([
     //     'id_usuario'=>$faker->randomElement($user_ids),

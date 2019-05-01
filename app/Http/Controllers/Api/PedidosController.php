@@ -44,7 +44,7 @@ class PedidosController extends Controller
     }
     public function pedidos_sin_conductor_asignado()
     {
-        $pedidos = Pedido::where('id_conductor','=','')->get();
+        $pedidos = Pedido::where('id_conductor',null)->where('estado_despacho','SIN ASIGNAR')->get();
 
         return response()->json($pedidos);
     }

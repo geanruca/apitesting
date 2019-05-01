@@ -47,24 +47,29 @@ class ProductController extends Controller
     
     public function update(Request $r, $id)
     {
+        $user = Auth::user();
+        $user_id = $user->id;
+        // dd($user->id);
         $producto                 = Producto::findOrFail($id);
-        $producto->nombre         = $r->nombre;
-        $producto->tallas         = $r->tallas;
-        $producto->colores        = $r->colores;
-        $producto->descripcion    = $r->descripcion;
-        $producto->precio_inicial = $r->precio_inicial;
-        $producto->precio_actual  = $r->precio_actual;
-        $producto->estado         = $r->estado;
-        $producto->notas          = $r->notas;
-        $producto->SKU            = $r->SKU;
-        $producto->imagenes       = $r->file('imagenes')->store('productos/'.$user->id,'public');
-        $url                      = Storage ::url($producto->imagenes);
-        $producto->path           = $url;
+        $producto->nombre         = $r->nombre ?? $producto->nombre;
+        $producto->tallas         = $r->tallas ?? $producto->tallas;
+        $producto->colores        = $r->colores ?? $producto->colores;
+        $producto->descripcion    = $r->descripcion ?? $producto->descripcion;
+        $producto->precio_inicial = $r->precio_inicial ?? $producto->precio_inicial;
+        $producto->precio_actual  = $r->precio_actual ?? $producto->precio_actual;
+        $producto->estado         = $r->estado ?? $producto->estado;
+        $producto->notas          = $r->notas ?? $producto->notas;
+        $producto->SKU            = $r->SKU ?? $producto->SKU;
+        if($r->imagenes <> null){
+            $producto->imagenes       = $r->file('imagenes')->store('productos/'.$user_id,'public');
+            $url                      = Storage::url($producto->imagenes);
+            $producto->path           = $url;
+        }
         $producto->save();
 
         return response()->json([
             'status'=>true,
-            'msg'=>"Producto editado"
+            'msg'=>"Producto actualizado"
         ]);
     }
 
