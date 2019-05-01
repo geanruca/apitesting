@@ -18,6 +18,7 @@ class PedidosController extends Controller
     public function index()
     {
         $pedidos = Pedido::join('users as u','id_usuario','=','u.id')->select(
+        'pedidos.id',
         'u.direccion',
         'u.zona',
         'u.cargo',
