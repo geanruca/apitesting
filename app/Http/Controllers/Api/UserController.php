@@ -51,6 +51,7 @@ class UserController extends Controller
             'status' => true,
             'token' => $accessToken,
             'role_id' => $user->role_id,
+            'id_usuario' => $user->id,
 
         ], 
             200); 
