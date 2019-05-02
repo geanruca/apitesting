@@ -15,7 +15,7 @@ $factory->define(Pedido::class, function (Faker $faker) {
     $comunas_ids      = Comuna::pluck('id')->toArray();
     $estados_pago     = ['PAGADO','POR PAGAR'];
     $medio_de_pago    = ['EFECTIVO','REDCOMPRA'];
-    $estados_despacho = ['ENTREGADO','EN CAMINO','RECHAZADO','SIN ASIGNAR','ASIGNADO'];
+    $estados_despacho = ['ENTREGADO','EN CAMINO','CANCELADO','SIN ASIGNAR','ASIGNADO'];
     $total_pago       = [];
     $horario          = '';
     $horas_entrega    = [];

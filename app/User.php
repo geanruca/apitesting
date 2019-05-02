@@ -53,15 +53,20 @@ class User extends \TCG\Voyager\Models\User
         $conductores_copados = [];
         $conductores = User::where('role_id','3')->get();
         $conductores_ids = $conductores->pluck('id')->toArray();
+        // dd($conductores_ids);
         foreach($conductores as $conductor){
+            // Pedidos ya asignados
             $pedidos = Pedido::where('id_conductor','=',$conductor->id)
             ->where('fecha_recepcion',$fecha)
+            ->whereIn('estado_despacho',['ENTREGADO','EN CAMINO','ASIGNADO'])
+            ->orderBy('horario_recepcion','desc')
             ->get();
-
+            // dd($conductor->id);
             if($pedidos->count()>=$lim){
                 array_push($conductores_copados,$conductor->id);
             }
         }
+        // dd($conductores_copados);
         return $query->whereIn('id',$conductores_ids)
         ->whereNotIn('id',$conductores_copados)
         ->where('estado','disponible')

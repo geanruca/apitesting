@@ -162,11 +162,13 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
         TCG\Voyager\VoyagerServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         
         /*
          * Application Service Providers...
