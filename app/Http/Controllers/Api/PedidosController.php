@@ -53,34 +53,62 @@ class PedidosController extends Controller
     }
     public function pedidos_por_conductor_y_fecha($id_conductor,$fecha,$estado)
     {
-        $pedidos = Pedido::where('id_conductor',$id_conductor)
-        ->join('comunas as c','pedidos.id_comuna','=','c.id')
-        ->leftJoin('users as u','u.id','=','pedidos.id_usuario')
-        ->where('estado_despacho',$estado)
-        ->where('fecha_recepcion',$fecha)
-        ->orderBy('pedidos.id_comuna','desc')
-        ->orderBy('c.id','desc')
-        ->select(
-            'c.nombre as nombre_comuna',
-            'u.name as user_name',
-            'u.celular as user_celular',
-            'u.email as user_email',
-            'u.direccion',
-            'pedidos.id as id_pedido',
-            'pedidos.id_conductor',
-            'pedidos.notas as notas_pedido',
-            'pedidos.estado_pago',
-            'pedidos.estado_despacho',
-            'pedidos.medio_de_pago',
-            'pedidos.total_pago',
-            'pedidos.detalle_productos',
-            'pedidos.horario_recepcion',
-            'pedidos.fecha_recepcion'
-            )
-            ->get();
+        if($estado = '0'){
+            $pedidos = Pedido::where('id_conductor',$id_conductor)
+            ->join('comunas as c','pedidos.id_comuna','=','c.id')
+            ->leftJoin('users as u','u.id','=','pedidos.id_usuario')
+            ->where('fecha_recepcion',$fecha)
+            ->orderBy('pedidos.id_comuna','desc')
+            ->orderBy('c.id','desc')
+            ->select(
+                'c.nombre as nombre_comuna',
+                'u.name as user_name',
+                'u.celular as user_celular',
+                'u.email as user_email',
+                'u.direccion',
+                'pedidos.id as id_pedido',
+                'pedidos.id_conductor',
+                'pedidos.notas as notas_pedido',
+                'pedidos.estado_pago',
+                'pedidos.estado_despacho',
+                'pedidos.medio_de_pago',
+                'pedidos.total_pago',
+                'pedidos.detalle_productos',
+                'pedidos.horario_recepcion',
+                'pedidos.fecha_recepcion'
+                )
+                ->get();
+        }else{
+            $pedidos = Pedido::where('id_conductor',$id_conductor)
+            ->join('comunas as c','pedidos.id_comuna','=','c.id')
+            ->leftJoin('users as u','u.id','=','pedidos.id_usuario')
+            ->where('estado_despacho',$estado)
+            ->where('fecha_recepcion',$fecha)
+            ->orderBy('pedidos.id_comuna','desc')
+            ->orderBy('c.id','desc')
+            ->select(
+                'c.nombre as nombre_comuna',
+                'u.name as user_name',
+                'u.celular as user_celular',
+                'u.email as user_email',
+                'u.direccion',
+                'pedidos.id as id_pedido',
+                'pedidos.id_conductor',
+                'pedidos.notas as notas_pedido',
+                'pedidos.estado_pago',
+                'pedidos.estado_despacho',
+                'pedidos.medio_de_pago',
+                'pedidos.total_pago',
+                'pedidos.detalle_productos',
+                'pedidos.horario_recepcion',
+                'pedidos.fecha_recepcion'
+                )
+                ->get();
+        }
 
         return response()->json($pedidos);
     }
+    
     public function conductores_disponibles_hoy()
     {
         $limite = 32;
