@@ -64,9 +64,8 @@ class PedidosController extends Controller
     public function conductores_disponibles_hoy()
     {
         $limite = 32;
-        $today = Carbon::today()->format('Y-m-d');
+        $today  = Carbon::today()->format('Y-m-d');
         $conductores_disponibles = User::ConductoresDisponiblesPorFecha($today,$limite);       
-
         return response()->json($conductores_disponibles);
     }
     public function conductores_disponibles_por_fecha($fecha)
@@ -83,6 +82,13 @@ class PedidosController extends Controller
 
         return response()->json($conductor);
     }
+    public function asignacion_manual($id_pedido,$id_conductor){
+        $pedido = Pedido::find($id_pedido);
+        $pedido->id_conductor = $id_conductor;
+        $pedido->save();
+
+        return response()->json($conductor);
+    }
     
     public function auto_asignacion_de_pedidos_por_fecha($fecha){
         $pedidos_no_asignados = Pedido::where('id_conductor',null)->get();
@@ -93,11 +99,6 @@ class PedidosController extends Controller
         $conductores_copados  = [];
         $conductores          = User::where('role_id','3')->get();
         $conductores_ids      = $conductores->pluck('id')->toArray();
-        // $hora_actual          = Carbon::now()->format('H:i');
-        // dd($hora_actual);
-        // if($hora_actual > '10:00'){
-
-        // }
 
         foreach($conductores as $conductor){
 
