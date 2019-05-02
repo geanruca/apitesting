@@ -58,26 +58,26 @@ class PedidosController extends Controller
         ->leftJoin('users as u','u.id','=','pedidos.id_usuario')
         ->whereNotIn('estado_despacho',['SIN ASIGNAR','RECHAZADO','CANCELADO'])
         ->where('fecha_recepcion',$fecha)
-        ->orderBy('id_comuna','desc')
+        ->orderBy('pedidos.id_comuna','desc')
         ->orderBy('c.id','desc')
         ->select(
-        'pedidos.id as id_pedido',
-        'pedidos.id_conductor',
-        'c.nombre as nombre_comuna',
-        'pedidos.direccion',
-        'u.name as user_name ',
-        'pedidos.notas as notas_pedido',
-        'u.celular as user_celular',
-        'u.email as user_email',
-        'pedidos.estado_pago',
-        'pedidos.estado_despacho',
-        'pedidos.medio_de_pago',
-        'pedidos.total_pago',
-        'pedidos.detalle_productos',
-        'pedidos.horario_recepcion',
-        'pedidos.fecha_recepcion'
-        )
-        ->get();
+            'c.nombre as nombre_comuna',
+            'u.name as user_name',
+            'u.celular as user_celular',
+            'u.email as user_email',
+            'u.direccion',
+            'pedidos.id as id_pedido',
+            'pedidos.id_conductor',
+            'pedidos.notas as notas_pedido',
+            'pedidos.estado_pago',
+            'pedidos.estado_despacho',
+            'pedidos.medio_de_pago',
+            'pedidos.total_pago',
+            'pedidos.detalle_productos',
+            'pedidos.horario_recepcion',
+            'pedidos.fecha_recepcion'
+            )
+            ->get();
 
         return response()->json($pedidos);
     }
