@@ -34,7 +34,12 @@ Route::middleware(['auth:api'])
     Route::get('auto_asignacion_de_pedidos_por_fecha/{fecha}','PedidosController@auto_asignacion_de_pedidos_por_fecha');
     Route::get('auto_asignacion_de_pedidos_por_fecha_y_comuna/{fecha}','PedidosController@auto_asignacion_de_pedidos_por_fecha_y_comuna');
     Route::get('auto_asignacion_de_pedidos_por_fecha_y_comuna/{fecha}','PedidosController@auto_asignacion_de_pedidos_por_fecha_y_comuna');
-    Route::get('pedidos_por_conductor_y_fecha/{id_conductor}/{fecha}','PedidosController@pedidos_por_conductor_y_fecha');
+    /**
+     @ESTADOS: ['ENTREGADO','EN CAMINO','CANCELADO','SIN ASIGNAR','ASIGNADO']
+     Ejemplo: api/pedidos_por_conductor_y_fecha/5/2019-5-1/ASIGNADO
+     Ejemplo: api/pedidos_por_conductor_y_fecha/5/2019-5-1/SIN%20ASIGNAR
+     */
+    Route::get('pedidos_por_conductor_y_fecha/{id_conductor}/{fecha}/{estado}','PedidosController@pedidos_por_conductor_y_fecha');
     Route::get('asignacion_manual/{id_pedido}/{id_conductor}','PedidosController@asignacion_manual');
 
     // Flow

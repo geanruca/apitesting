@@ -51,12 +51,12 @@ class PedidosController extends Controller
 
         return response()->json($pedidos);
     }
-    public function pedidos_por_conductor_y_fecha($id_conductor,$fecha)
+    public function pedidos_por_conductor_y_fecha($id_conductor,$fecha,$estado)
     {
         $pedidos = Pedido::where('id_conductor',$id_conductor)
         ->join('comunas as c','pedidos.id_comuna','=','c.id')
         ->leftJoin('users as u','u.id','=','pedidos.id_usuario')
-        ->whereNotIn('estado_despacho',['SIN ASIGNAR','RECHAZADO','CANCELADO'])
+        ->where('estado_despacho',$estado)
         ->where('fecha_recepcion',$fecha)
         ->orderBy('pedidos.id_comuna','desc')
         ->orderBy('c.id','desc')
@@ -156,6 +156,7 @@ class PedidosController extends Controller
                 // dd($pedidos_por_conductor);
                 if($pedidos_por_conductor <= 32){
                     $pedido_c->id_conductor = $conductor->id;
+                    $pedido_c->estado_despacho = 'ASIGNADO';
                     $pedido_c->save();
                     // dd('pedido cercanos asignados');
                 }else{
@@ -178,6 +179,7 @@ class PedidosController extends Controller
                 $pedidos_por_conductor = Pedido::where('id_conductor',$conductor->id)->whereIn('estado_despacho',['ENTREGADO','EN CAMINO','ASIGNADO'])->where('fecha_recepcion',$fecha)->get()->count();
                 if($pedidos_por_conductor <= 32){
                     $pedido_l->id_conductor = $conductor->id;
+                    $pedido_l->estado_despacho = 'ASIGNADO';
                     $pedido_l->save();
                 }else{
                     \Log::info("Limite de asignaciones alcanzado para el $conductor->name");
