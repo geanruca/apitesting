@@ -53,7 +53,7 @@ class PedidosController extends Controller
     }
     public function pedidos_por_conductor_y_fecha($id_conductor,$fecha,$estado)
     {
-        if($estado = '0'){
+        if($estado == '0'){
             $pedidos = Pedido::where('id_conductor',$id_conductor)
             ->join('comunas as c','pedidos.id_comuna','=','c.id')
             ->leftJoin('users as u','u.id','=','pedidos.id_usuario')
