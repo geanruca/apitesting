@@ -23,7 +23,8 @@ class CrearTablaPedidos extends Migration
 
 
             $table->string('detalle_productos')->nullable();
-            $table->string('horario_recepcion')->nullable();
+            $table->string('horario_recepcion_inicio')->nullable();
+            $table->string('horario_recepcion_final')->nullable();
             $table->date('fecha_recepcion')->nullable();
             $table->string('notas')->nullable();
 

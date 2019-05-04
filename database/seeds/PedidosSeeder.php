@@ -15,7 +15,7 @@ class PedidosSeeder extends Seeder
     public function run()
     {
         factory(App\User::class, 20)->create();
-        factory(App\Pedido::class, 1000)->create();
+        factory(App\Pedido::class, 100)->create();
         
     }
 }

@@ -22,9 +22,10 @@ $factory->define(Pedido::class, function (Faker $faker) {
     $horarios_entrega = [];
     
     for ($i=9; $i < 23; $i++) { 
-        $horario = $i.':00';
-        array_push($horas_entrega,$horario);
+            $horario = $i.':00';
+            array_push($horas_entrega,$horario);
     }
+
     
     for ($i=0; $i <10 ; $i++) { 
         $kfrom = array_rand($horas_entrega);
@@ -56,7 +57,8 @@ $factory->define(Pedido::class, function (Faker $faker) {
             array_push($total_pago,$i);
         }
     }
-    
+
+    $hora = explode(' - ',$faker->randomElement($horarios_entrega));
     return [
 
         'id_usuario'        => $faker->randomElement($user_ids),
@@ -67,7 +69,8 @@ $factory->define(Pedido::class, function (Faker $faker) {
         'medio_de_pago'     => $faker->randomElement($medio_de_pago),
         'total_pago'        => $faker->randomElement($total_pago),
         'detalle_productos' => 'Bidon de 20 lts x 2, Bidon de 12 lts x 3',
-        'horario_recepcion' => $faker->randomElement($horarios_entrega),
+        'horario_recepcion_inicio' => $hora[0],
+        'horario_recepcion_final' => $hora[1],
         'fecha_recepcion'   => Carbon::now()->addDay($faker->randomElement($numeros)),
 
     ];

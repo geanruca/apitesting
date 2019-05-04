@@ -21,10 +21,26 @@ class CrearTablaProductos extends Migration
             $table->string('descripcion')->nullable();
             $table->string('precio_inicial')->nullable();
             $table->string('precio_actual')->nullable();
-            $table->string('imagenes')->nullable();
             $table->string('estado')->nullable();
             $table->string('notas')->nullable();
-            $table->string('path')->nullable();
+            $table->string('img1')->nullable();
+            $table->string('img2')->nullable();
+            $table->string('img3')->nullable();
+            $table->string('img4')->nullable();
+            $table->string('img5')->nullable();
+            $table->string('img6')->nullable();
+            $table->string('img7')->nullable();
+            $table->string('img8')->nullable();
+            $table->string('img9')->nullable();
+            $table->string('path1')->nullable();
+            $table->string('path2')->nullable();
+            $table->string('path3')->nullable();
+            $table->string('path4')->nullable();
+            $table->string('path5')->nullable();
+            $table->string('path6')->nullable();
+            $table->string('path7')->nullable();
+            $table->string('path8')->nullable();
+            $table->string('path9')->nullable();
 
             // FK
             // $table->unsignedBigInteger('id_empresa')->nullable();

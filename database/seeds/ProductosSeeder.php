@@ -15,21 +15,21 @@ class ProductosSeeder extends Seeder
         Producto::insert([
             'nombre'         =>'Bidon de agua Purificada 20 lts', 
             'precio_inicial' =>'2900', 
-            'imagenes'       =>'', 
-            'path'           =>'https://i.imgur.com/zpXK6XG.png', 
+            'img1'       =>'', 
+            'path1'           =>'https://i.imgur.com/zpXK6XG.png', 
         ]);
         
         Producto::insert([
             'nombre'         =>'Bidon de agua Purificada 12 lts', 
             'precio_inicial' =>'1700', 
-            'imagenes'       =>'', 
-            'path'           =>'https://i.imgur.com/0rKY34P.png', 
+            'img1'       =>'', 
+            'path1'           =>'https://i.imgur.com/0rKY34P.png', 
         ]);
         Producto::insert([
             'nombre'         =>'Maquina Frio Calor tipo pedestal', 
             'precio_inicial' =>'120000', 
-            'imagenes'       =>'', 
-            'path'           =>'https://i.imgur.com/r9HaHjP.png', 
+            'img1'       =>'', 
+            'path1'           =>'https://i.imgur.com/r9HaHjP.png', 
         ]);
             
     }
