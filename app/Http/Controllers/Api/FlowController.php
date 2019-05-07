@@ -7,11 +7,7 @@ use App\Http\Controllers\Controller;
 
 class FlowController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     
     
     public function signature()
@@ -72,11 +68,7 @@ class FlowController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create(Request $r)
     {
         // REAL
@@ -146,68 +138,16 @@ class FlowController extends Controller
             throw new Exception($error, 1);
         } 
         $info = curl_getinfo($ch);
-        // if(!in_array($info['http_code'], array('200', '400', '401')) {
-        //     throw new Exception('Unexpected error occurred. HTTP_CODE: '.$info['http_code'] , $info['http_code']);
-        // }
-        echo $response;
+       
+        $response_final = str_replace('\\','',$response);
+        $coleccion = json_decode($response_final);
+        $coleccion->url_final = $coleccion->url.'?token='.$coleccion->token;
+        return response()->json(
+            $coleccion
+        );
+        // echo()
         } catch (Exception $e) {
         echo 'Error: ' . $e->getCode() . ' - ' . $e->getMessage();
         }
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
