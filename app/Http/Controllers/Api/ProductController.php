@@ -20,65 +20,74 @@ class ProductController extends Controller
 
     public function store(Request $r)
     {
+
+        $user = Auth::user();
+        \Log::info('stored_product',[
+        'user_id'        => $user->id,
+        'username'       => $user->name,
+        'nombre'         => $r->nombre,
+        'descripcion'    => $r->descripcion,
+        'precio_inicial' => $r->precio_inicial,
+        ]);
         $user = Auth::user();
         $producto = new Producto;
         $producto->nombre         = $r->nombre;
         $producto->descripcion    = $r->descripcion;
         $producto->precio_inicial = $r->precio_inicial;
         if($r->img1 <> null){
-            $producto->img1 = $r->file('img1')->store('productos/'.$user_id,'public');
+            $producto->img1 = $r->file('img1')->store('productos/'.$user->id,'public');
             $url1                = Storage::url($producto->img1);
-            $producto->path     = $url1;
+            $producto->path1     = $url1;
         }
         if($r->img2 <> null){
-            $producto->img2 = $r->file('img2')->store('productos/'.$user_id,'public');
+            $producto->img2 = $r->file('img2')->store('productos/'.$user->id,'public');
             $url2                = Storage::url($producto->img2);
-            $producto->path     = $url2;
+            $producto->path2     = $url2;
         }
         if($r->img3 <> null){
-            $producto->img3 = $r->file('img3')->store('productos/'.$user_id,'public');
+            $producto->img3 = $r->file('img3')->store('productos/'.$user->id,'public');
             $url3                = Storage::url($producto->img3);
-            $producto->path     = $url3;
+            $producto->path3     = $url3;
         }
         if($r->img4 <> null){
-            $producto->img4 = $r->file('img4')->store('productos/'.$user_id,'public');
+            $producto->img4 = $r->file('img4')->store('productos/'.$user->id,'public');
             $url4                = Storage::url($producto->img4);
-            $producto->path     = $url4;
+            $producto->path4     = $url4;
         }
         if($r->img5 <> null){
-            $producto->img5 = $r->file('img5')->store('productos/'.$user_id,'public');
+            $producto->img5 = $r->file('img5')->store('productos/'.$user->id,'public');
             $url5                = Storage::url($producto->img5);
-            $producto->path     = $url5;
+            $producto->path5     = $url5;
         }
         if($r->img6 <> null){
-            $producto->img6 = $r->file('img6')->store('productos/'.$user_id,'public');
+            $producto->img6 = $r->file('img6')->store('productos/'.$user->id,'public');
             $url6                = Storage::url($producto->img6);
-            $producto->path     = $url6;
+            $producto->path6     = $url6;
         }
         if($r->img7 <> null){
-            $producto->img7 = $r->file('img7')->store('productos/'.$user_id,'public');
+            $producto->img7 = $r->file('img7')->store('productos/'.$user->id,'public');
             $url7                = Storage::url($producto->img7);
-            $producto->path     = $url7;
+            $producto->path7     = $url7;
         }
         if($r->img8 <> null){
-            $producto->img8 = $r->file('img8')->store('productos/'.$user_id,'public');
+            $producto->img8 = $r->file('img8')->store('productos/'.$user->id,'public');
             $url8                = Storage::url($producto->img8);
-            $producto->path     = $url8;
+            $producto->path8     = $url8;
         }
         if($r->img8 <> null){
-            $producto->img8 = $r->file('img8')->store('productos/'.$user_id,'public');
+            $producto->img8 = $r->file('img8')->store('productos/'.$user->id,'public');
             $url8                = Storage::url($producto->img8);
-            $producto->path     = $url8;
+            $producto->path8     = $url8;
         }
         if($r->img9 <> null){
-            $producto->img9 = $r->file('img9')->store('productos/'.$user_id,'public');
+            $producto->img9 = $r->file('img9')->store('productos/'.$user->id,'public');
             $url9                = Storage::url($producto->img9);
-            $producto->path     = $url9;
+            $producto->path9     = $url9;
         }
         $producto->save();
         return response()->json([
             'status'=>true,
-            'msg'=>"Uloaded to the URL: $url"
+            'msg'=>"Uploaded"
         ]);
     }
 
@@ -94,7 +103,7 @@ class ProductController extends Controller
     public function update(Request $r, $id)
     {
         $user = Auth::user();
-        $user_id = $user->id;
+        $user->id = $user->id;
         // dd($user->id);
         $producto                 = Producto::findOrFail($id);
         $producto->nombre         = $r->nombre ?? $producto->nombre;
@@ -107,54 +116,54 @@ class ProductController extends Controller
         $producto->notas          = $r->notas ?? $producto->notas;
         $producto->SKU            = $r->SKU ?? $producto->SKU;
         if($r->img1 <> null){
-            $producto->img1 = $r->file('img1')->store('productos/'.$user_id,'public');
+            $producto->img1 = $r->file('img1')->store('productos/'.$user->id,'public');
             $url1                = Storage::url($producto->img1);
-            $producto->path     = $url1;
+            $producto->path1     = $url1;
         }
         if($r->img2 <> null){
-            $producto->img2 = $r->file('img2')->store('productos/'.$user_id,'public');
+            $producto->img2 = $r->file('img2')->store('productos/'.$user->id,'public');
             $url2                = Storage::url($producto->img2);
-            $producto->path     = $url2;
+            $producto->path2     = $url2;
         }
         if($r->img3 <> null){
-            $producto->img3 = $r->file('img3')->store('productos/'.$user_id,'public');
+            $producto->img3 = $r->file('img3')->store('productos/'.$user->id,'public');
             $url3                = Storage::url($producto->img3);
-            $producto->path     = $url3;
+            $producto->path3     = $url3;
         }
         if($r->img4 <> null){
-            $producto->img4 = $r->file('img4')->store('productos/'.$user_id,'public');
+            $producto->img4 = $r->file('img4')->store('productos/'.$user->id,'public');
             $url4                = Storage::url($producto->img4);
-            $producto->path     = $url4;
+            $producto->path4     = $url4;
         }
         if($r->img5 <> null){
-            $producto->img5 = $r->file('img5')->store('productos/'.$user_id,'public');
+            $producto->img5 = $r->file('img5')->store('productos/'.$user->id,'public');
             $url5                = Storage::url($producto->img5);
-            $producto->path     = $url5;
+            $producto->path5     = $url5;
         }
         if($r->img6 <> null){
-            $producto->img6 = $r->file('img6')->store('productos/'.$user_id,'public');
+            $producto->img6 = $r->file('img6')->store('productos/'.$user->id,'public');
             $url6                = Storage::url($producto->img6);
-            $producto->path     = $url6;
+            $producto->path6     = $url6;
         }
         if($r->img7 <> null){
-            $producto->img7 = $r->file('img7')->store('productos/'.$user_id,'public');
+            $producto->img7 = $r->file('img7')->store('productos/'.$user->id,'public');
             $url7                = Storage::url($producto->img7);
-            $producto->path     = $url7;
+            $producto->path7     = $url7;
         }
         if($r->img8 <> null){
-            $producto->img8 = $r->file('img8')->store('productos/'.$user_id,'public');
+            $producto->img8 = $r->file('img8')->store('productos/'.$user->id,'public');
             $url8                = Storage::url($producto->img8);
-            $producto->path     = $url8;
+            $producto->path8     = $url8;
         }
         if($r->img8 <> null){
-            $producto->img8 = $r->file('img8')->store('productos/'.$user_id,'public');
+            $producto->img8 = $r->file('img8')->store('productos/'.$user->id,'public');
             $url8                = Storage::url($producto->img8);
-            $producto->path     = $url8;
+            $producto->path8     = $url8;
         }
         if($r->img9 <> null){
-            $producto->img9 = $r->file('img9')->store('productos/'.$user_id,'public');
+            $producto->img9 = $r->file('img9')->store('productos/'.$user->id,'public');
             $url9                = Storage::url($producto->img9);
-            $producto->path     = $url9;
+            $producto->path9     = $url9;
         }
 
         $producto->save();
