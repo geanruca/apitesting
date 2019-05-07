@@ -21,8 +21,9 @@ Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/auth/facebook', 'SocialAuthController@facebook');
 Route::get('/auth/facebook/callback', 'SocialAuthController@callback');
+
 Route::post('/auth/facebook/register', 'SocialAuthController@register');
-Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 });

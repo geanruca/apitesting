@@ -38,7 +38,8 @@ class PedidosController extends Controller
             'medio_de_pago',
             'total_pago',
             'detalle_productos',
-            'horario_recepcion',
+            'horario_recepcion_inicio',
+            'horario_recepcion_final',
             'fecha_recepcion'
         )->orderBy('id_pedido','desc')
         ->get();
@@ -74,7 +75,8 @@ class PedidosController extends Controller
                 'pedidos.medio_de_pago',
                 'pedidos.total_pago',
                 'pedidos.detalle_productos',
-                'pedidos.horario_recepcion',
+                'pedidos.horario_recepcion_inicio',
+                'pedidos.horario_recepcion_final',
                 'pedidos.fecha_recepcion'
                 )
                 ->get();
@@ -100,7 +102,8 @@ class PedidosController extends Controller
                 'pedidos.medio_de_pago',
                 'pedidos.total_pago',
                 'pedidos.detalle_productos',
-                'pedidos.horario_recepcion',
+                'pedidos.horario_recepcion_inicio',
+                'pedidos.horario_recepcion_final',
                 'pedidos.fecha_recepcion'
                 )
                 ->get();
@@ -241,18 +244,19 @@ class PedidosController extends Controller
 
     public function store(Request $r)
     {
-        $pedido = new Pedido();
-        $pedido->estado_pago       = $r->estado_pago;
-        $pedido->estado_despacho   = $r->estado_despacho;
-        $pedido->medio_de_pago     = $r->medio_de_pago;
-        $pedido->total_pago        = $r->total_pago;
-        $pedido->detalle_productos = $r->detalle_productos;
-        $pedido->horario_recepcion = $r->horario_recepcion;
-        $pedido->fecha_recepcion   = $r->fecha_recepcion;
-        $pedido->notas             = $r->notas;
+        $pedido                           = new Pedido();
+        $pedido->estado_pago              = $r->estado_pago;
+        $pedido->estado_despacho          = $r->estado_despacho;
+        $pedido->medio_de_pago            = $r->medio_de_pago;
+        $pedido->total_pago               = $r->total_pago;
+        $pedido->detalle_productos        = $r->detalle_productos;
+        $pedido->horario_recepcion_inicio = $r->horario_recepcion_inicio;
+        $pedido->horario_recepcion_final  = $r->horario_recepcion_final;
+        $pedido->fecha_recepcion          = $r->fecha_recepcion;
+        $pedido->notas                    = $r->notas;
         
-        $pedido->id_usuario        = $r->id_usuario;
-        $pedido->id_comuna         = $r->id_comuna;
+        $pedido->id_usuario               = $r->id_usuario;
+        $pedido->id_comuna                = $r->id_comuna;
         $pedido->id_conductor      = $r->id_conductor;
         $pedido->save();
 
@@ -287,7 +291,8 @@ class PedidosController extends Controller
         $pedido->medio_de_pago     = $r->medio_de_pago     ?? $pedido->medio_de_pago;
         $pedido->total_pago        = $r->total_pago        ?? $pedido->total_pago;
         $pedido->detalle_productos = $r->detalle_productos ?? $pedido->detalle_productos;
-        $pedido->horario_recepcion = $r->horario_recepcion ?? $pedido->horario_recepcion;
+        $pedido->horario_recepcion_inicio = $r->horario_recepcion_inicio ?? $pedido->horario_recepcion_inicio;
+        $pedido->horario_recepcion_final = $r->horario_recepcion_final ?? $pedido->horario_recepcion_final;
         $pedido->notas             = $r->notas             ?? $pedido->notas;
         $pedido->id_usuario        = $r->id_usuario        ?? $pedido->id_usuario;
         $pedido->id_comuna         = $r->id_comuna         ?? $pedido->id_comuna;
