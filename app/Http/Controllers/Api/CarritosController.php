@@ -40,68 +40,68 @@ class CarritosController extends Controller
         // $subtotal_producto           = $r->subtotal_producto0;
         // $descuento_subtotal_producto = $r->descuento_subtotal_producto0;
 
-        $carrito->nombre_producto_1             = $r->nombre_producto_1 ?? null;
-        $carrito->cantidad_producto_1           = $r->cantidad_producto_1 ?? null;
-        $carrito->precio_producto_1             = $r->precio_producto_1 ?? null;
-        $carrito->subtotal_producto_1           = $r->subtotal_producto_1 ?? null;
-        $carrito->descuento_subtotal_producto_1 = $r->descuento_subtotal_producto_1 ?? null;
+        $carrito->nombre_producto_1             = $r->nombre_producto_1 ?? $carrito->nombre_producto_1;
+        $carrito->cantidad_producto_1           = $r->cantidad_producto_1 ?? $carrito->cantidad_producto_1;
+        $carrito->precio_producto_1             = $r->precio_producto_1 ?? $carrito->precio_producto_1;
+        $carrito->subtotal_producto_1           = $r->subtotal_producto_1 ?? $carrito->subtotal_producto_1;
+        $carrito->descuento_subtotal_producto_1 = $r->descuento_subtotal_producto_1 ?? $carrito->descuento_subtotal_producto_1;
 
-        $carrito->nombre_producto_2              = $r->nombre_producto_2 ?? null;
-        $carrito->cantidad_producto_2            = $r->cantidad_producto_2 ?? null;
-        $carrito->precio_producto_2              = $r->precio_producto_2 ?? null;
-        $carrito->subtotal_producto_2            = $r->subtotal_producto_2 ?? null;
-        $carrito->descuento_subtotal_producto_2  = $r->descuento_subtotal_producto_2 ?? null;
+        $carrito->nombre_producto_2              = $r->nombre_producto_2 ?? $carrito->nombre_producto_2;
+        $carrito->cantidad_producto_2            = $r->cantidad_producto_2 ?? $carrito->cantidad_producto_2;
+        $carrito->precio_producto_2              = $r->precio_producto_2 ?? $carrito->precio_producto_2;
+        $carrito->subtotal_producto_2            = $r->subtotal_producto_2 ?? $carrito->subtotal_producto_2;
+        $carrito->descuento_subtotal_producto_2  = $r->descuento_subtotal_producto_2 ?? $carrito->descuento_subtotal_producto_2;
 
-        $carrito->nombre_producto_3              = $r->nombre_producto_3 ?? null;
-        $carrito->cantidad_producto_3            = $r->cantidad_producto_3 ?? null;
-        $carrito->precio_producto_3              = $r->precio_producto_3 ?? null;
-        $carrito->subtotal_producto_3            = $r->subtotal_producto_3 ?? null;
-        $carrito->descuento_subtotal_producto_3  = $r->descuento_subtotal_producto_3 ?? null;
+        $carrito->nombre_producto_3              = $r->nombre_producto_3 ?? $carrito->nombre_producto_3;
+        $carrito->cantidad_producto_3            = $r->cantidad_producto_3 ?? $carrito->cantidad_producto_3;
+        $carrito->precio_producto_3              = $r->precio_producto_3 ?? $carrito->precio_producto_3;
+        $carrito->subtotal_producto_3            = $r->subtotal_producto_3 ?? $carrito->subtotal_producto_3;
+        $carrito->descuento_subtotal_producto_3  = $r->descuento_subtotal_producto_3 ?? $carrito->descuento_subtotal_producto_3;
 
-        $carrito->nombre_producto_4              = $r->nombre_producto_4 ?? null;
-        $carrito->cantidad_producto_4            = $r->cantidad_producto_4 ?? null;
-        $carrito->precio_producto_4              = $r->precio_producto_4 ?? null;
-        $carrito->subtotal_producto_4            = $r->subtotal_producto_4 ?? null;
-        $carrito->descuento_subtotal_producto_4  = $r->descuento_subtotal_producto_4 ?? null;
+        $carrito->nombre_producto_4              = $r->nombre_producto_4 ?? $carrito->nombre_producto_4;
+        $carrito->cantidad_producto_4            = $r->cantidad_producto_4 ?? $carrito->cantidad_producto_4;
+        $carrito->precio_producto_4              = $r->precio_producto_4 ?? $carrito->precio_producto_4;
+        $carrito->subtotal_producto_4            = $r->subtotal_producto_4 ?? $carrito->subtotal_producto_4;
+        $carrito->descuento_subtotal_producto_4  = $r->descuento_subtotal_producto_4 ?? $carrito->descuento_subtotal_producto_4;
 
-        $carrito->nombre_producto_5              = $r->nombre_producto_5 ?? null;
-        $carrito->cantidad_producto_5            = $r->cantidad_producto_5 ?? null;
-        $carrito->precio_producto_5              = $r->precio_producto_5 ?? null;
-        $carrito->subtotal_producto_5            = $r->subtotal_producto_5 ?? null;
-        $carrito->descuento_subtotal_producto_5  = $r->descuento_subtotal_producto_5 ?? null;
+        $carrito->nombre_producto_5              = $r->nombre_producto_5 ?? $carrito->nombre_producto_5;
+        $carrito->cantidad_producto_5            = $r->cantidad_producto_5 ?? $carrito->cantidad_producto_5;
+        $carrito->precio_producto_5              = $r->precio_producto_5 ?? $carrito->precio_producto_5;
+        $carrito->subtotal_producto_5            = $r->subtotal_producto_5 ?? $carrito->subtotal_producto_5;
+        $carrito->descuento_subtotal_producto_5  = $r->descuento_subtotal_producto_5 ?? $carrito->descuento_subtotal_producto_5;
 
-        $carrito->nombre_producto_6              = $r->nombre_producto_6 ?? null;
-        $carrito->cantidad_producto_6            = $r->cantidad_producto_6 ?? null;
-        $carrito->precio_producto_6              = $r->precio_producto_6 ?? null;
-        $carrito->subtotal_producto_6            = $r->subtotal_producto_6 ?? null;
-        $carrito->descuento_subtotal_producto_6  = $r->descuento_subtotal_producto_6 ?? null;
+        $carrito->nombre_producto_6              = $r->nombre_producto_6 ?? $carrito->nombre_producto_6;
+        $carrito->cantidad_producto_6            = $r->cantidad_producto_6 ?? $carrito->cantidad_producto_6;
+        $carrito->precio_producto_6              = $r->precio_producto_6 ?? $carrito->precio_producto_6;
+        $carrito->subtotal_producto_6            = $r->subtotal_producto_6 ?? $carrito->subtotal_producto_6;
+        $carrito->descuento_subtotal_producto_6  = $r->descuento_subtotal_producto_6 ?? $carrito->descuento_subtotal_producto_6;
 
-        $carrito->nombre_producto_7              = $r->nombre_producto_7 ?? null;
-        $carrito->cantidad_producto_7            = $r->cantidad_producto_7 ?? null;
-        $carrito->precio_producto_7              = $r->precio_producto_7 ?? null;
-        $carrito->subtotal_producto_7            = $r->subtotal_producto_7 ?? null;
-        $carrito->descuento_subtotal_producto_7  = $r->descuento_subtotal_producto_7 ?? null;
+        $carrito->nombre_producto_7              = $r->nombre_producto_7 ?? $carrito->nombre_producto_7;
+        $carrito->cantidad_producto_7            = $r->cantidad_producto_7 ?? $carrito->cantidad_producto_7;
+        $carrito->precio_producto_7              = $r->precio_producto_7 ?? $carrito->precio_producto_7;
+        $carrito->subtotal_producto_7            = $r->subtotal_producto_7 ?? $carrito->subtotal_producto_7;
+        $carrito->descuento_subtotal_producto_7  = $r->descuento_subtotal_producto_7 ?? $carrito->descuento_subtotal_producto_7;
 
-        $carrito->nombre_producto_8              = $r->nombre_producto_8 ?? null;
-        $carrito->cantidad_producto_8            = $r->cantidad_producto_8 ?? null;
-        $carrito->precio_producto_8              = $r->precio_producto_8 ?? null;
-        $carrito->subtotal_producto_8            = $r->subtotal_producto_8 ?? null;
-        $carrito->descuento_subtotal_producto_8  = $r->descuento_subtotal_producto_8 ?? null;
+        $carrito->nombre_producto_8              = $r->nombre_producto_8 ?? $carrito->nombre_producto_8;
+        $carrito->cantidad_producto_8            = $r->cantidad_producto_8 ?? $carrito->cantidad_producto_8;
+        $carrito->precio_producto_8              = $r->precio_producto_8 ?? $carrito->precio_producto_8;
+        $carrito->subtotal_producto_8            = $r->subtotal_producto_8 ?? $carrito->subtotal_producto_8;
+        $carrito->descuento_subtotal_producto_8  = $r->descuento_subtotal_producto_8 ?? $carrito->descuento_subtotal_producto_8;
         
-        $carrito->nombre_producto_9              = $r->nombre_producto_9 ?? null;
-        $carrito->cantidad_producto_9            = $r->cantidad_producto_9 ?? null;
-        $carrito->precio_producto_9              = $r->precio_producto_9 ?? null;
-        $carrito->subtotal_producto_9            = $r->subtotal_producto_9 ?? null;
-        $carrito->descuento_subtotal_producto_9  = $r->descuento_subtotal_producto_9 ?? null;
+        $carrito->nombre_producto_9              = $r->nombre_producto_9 ?? $carrito->nombre_producto_9;
+        $carrito->cantidad_producto_9            = $r->cantidad_producto_9 ?? $carrito->cantidad_producto_9;
+        $carrito->precio_producto_9              = $r->precio_producto_9 ?? $carrito->precio_producto_9;
+        $carrito->subtotal_producto_9            = $r->subtotal_producto_9 ?? $carrito->subtotal_producto_9;
+        $carrito->descuento_subtotal_producto_9  = $r->descuento_subtotal_producto_9 ?? $carrito->descuento_subtotal_producto_9;
         
-        $carrito->nombre_producto_10             = $r->nombre_producto_10 ?? null;
-        $carrito->cantidad_producto_10           = $r->cantidad_producto_10 ?? null;
-        $carrito->precio_producto_10             = $r->precio_producto_10 ?? null;
-        $carrito->subtotal_producto_10           = $r->subtotal_producto_10 ?? null;
-        $carrito->descuento_subtotalp_roducto_10 = $r->descuento_subtotalp_roducto_10 ?? null;
+        $carrito->nombre_producto_10             = $r->nombre_producto_10 ?? $carrito->nombre_producto_10;
+        $carrito->cantidad_producto_10           = $r->cantidad_producto_10 ?? $carrito->cantidad_producto_10;
+        $carrito->precio_producto_10             = $r->precio_producto_10 ?? $carrito->precio_producto_10;
+        $carrito->subtotal_producto_10           = $r->subtotal_producto_10 ?? $carrito->subtotal_producto_10;
+        $carrito->descuento_subtotalp_roducto_10 = $r->descuento_subtotalp_roducto_10 ?? $carrito->descuento_subtotalp_roducto_10;
         
-        $carrito->descuento_total                = $r->descuento_total ?? null;
-        $carrito->total_a_pagar                  = $r->total_a_pagar ?? null;
+        $carrito->descuento_total                = $r->descuento_total ?? $carrito->descuento_total;
+        $carrito->total_a_pagar                  = $r->total_a_pagar ?? $carrito->total_a_pagar;
 
         $carrito->save();
         return response()->json('Carrito guardado');
