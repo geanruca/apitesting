@@ -30,8 +30,10 @@ class CarritosController extends Controller
     public function store(Request $r){
             
         $carrito = Carrito::where('id_usuario',$r->id_usuario)->first();
-        ($carrito) ? $carrito : $carrito = new Carrito();
-        $carrito->id_usuario         = $r->id_usuario;
+        if(!$carrito){
+            $carrito = new Carrito();
+            $carrito->id_usuario         = $r->id_usuario;
+        } 
         $nombre_producto             = $r->nombre_producto;        $cantidad_producto           = $r->cantidad_producto;
         $precio_producto             = $r->precio_producto;
         $subtotal_producto           = $r->subtotal_producto;
