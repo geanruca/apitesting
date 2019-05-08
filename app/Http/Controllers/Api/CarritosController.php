@@ -34,11 +34,11 @@ class CarritosController extends Controller
             $carrito = new Carrito();
             $carrito->id_usuario         = $r->id_usuario;
         } 
-        $nombre_producto             = $r->nombre_producto[];        
-        $cantidad_producto           = $r->cantidad_producto[];
-        $precio_producto             = $r->precio_producto[];
-        $subtotal_producto           = $r->subtotal_producto[];
-        $descuento_subtotal_producto = $r->descuento_subtotal_producto[];
+        $nombre_producto             = $r->nombre_producto;        
+        $cantidad_producto           = $r->cantidad_producto;
+        $precio_producto             = $r->precio_producto;
+        $subtotal_producto           = $r->subtotal_producto;
+        $descuento_subtotal_producto = $r->descuento_subtotal_producto;
 
         $carrito->nombre_producto_1             = $nombre_producto[0] ?? null;
         $carrito->cantidad_producto_1           = $cantidad_producto[0] ?? null;
