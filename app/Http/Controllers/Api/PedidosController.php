@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\User;
 use App\Comuna;
 use App\Pedido;
+use App\Carrito;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -260,6 +261,10 @@ class PedidosController extends Controller
         $pedido->id_conductor      = $r->id_conductor;
         $pedido->save();
 
+        if($pedido->save()){
+            $limpa_carro = Carrito::where('id_usuario',$pedido->id_usuario)->first();
+            $limpia_carro->delete();
+        }
 
         return response()->json([
             "status"=>true,
@@ -298,6 +303,11 @@ class PedidosController extends Controller
         $pedido->id_comuna         = $r->id_comuna         ?? $pedido->id_comuna;
         $pedido->id_conductor      = $r->id_conductor      ?? $pedido->id_conductor;
         $pedido->save();
+
+        if($pedido->save()){
+            $limpa_carro = Carrito::where('id_usuario',$pedido->id_usuario)->first();
+            $limpia_carro->delete();
+        }
 
         return response()->json([
             "status"=>true,

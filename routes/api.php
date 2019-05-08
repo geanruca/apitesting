@@ -36,6 +36,12 @@ Route::middleware(['auth:api'])
     Route::get('auto_asignacion_de_pedidos_por_fecha_y_comuna/{fecha}','PedidosController@auto_asignacion_de_pedidos_por_fecha_y_comuna');
     Route::get('pedidos_filtro_por_estado/{fecha}/{estado}','PedidosController@pedidos_filtro_por_estado');
     Route::get('pedidos_del_dia/{fecha}/{id_conductor}','PedidosController@pedidos_del_dia');
+    //Carrito de compras
+    Route::get('carrito/carrito_contador/{id_usuario}','CarritosController@carrito_contador');
+    Route::get('carrito/{id_usuario}','CarritosController@show');
+    Route::get('carrito/delete/{id_usuario}','CarritosController@delete');
+    Route::post('carrito','CarritosController@store');
+
     
     /**
      @ESTADOS: ['ENTREGADO','ENCAMINO','CANCELADO','SINASIGNAR','ASIGNADO']

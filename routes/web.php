@@ -17,7 +17,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
+Route::get('/pagoconfirmado',function(){
+    return view('flow.exito');
+});
+Route::get('/fracaso',function(){
+    return view('flow.fracaso');
+});
+// Route::get('/pagoconfirmado',function(){
+//     return view('flow.exito');
+// });
 // Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/auth/facebook', 'SocialAuthController@facebook');
 Route::get('/auth/facebook/callback', 'SocialAuthController@callback');
