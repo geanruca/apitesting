@@ -28,7 +28,7 @@ class CarritosController extends Controller
     }
 
     public function store(Request $r){
-            
+        \Log::info('store_carrito',[$r]);
         $carrito = Carrito::where('id_usuario',$r->id_usuario)->first();
         if(!$carrito){
             $carrito = new Carrito();
