@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class CarritosController extends Controller
 {
+    public function total($id_usuario){
+        $todos = Carrito::where('id_usuario',$id_usuario)->select('subtotal_producto')->get();
+        $total = 0;
+        foreach ($todos as $key => $t) {
+            $total = $total + $t->subtotal_producto;
+        }
+        return response()->json($total);
+
+    }
     public function carrito_contador($id_usuario){
         $user = Auth::user();
         $c = Carrito::where('id_usuario',$id_usuario)->get();

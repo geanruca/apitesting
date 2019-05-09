@@ -46,6 +46,7 @@ Route::middleware(['auth:api'])
     Route::post('carrito/{id_carrito}','CarritosController@update');
     Route::post('carrito/lista_de_deseados','CarritosController@deseados');
     Route::post('carrito/lista_de_comprados','CarritosController@comprados');
+    Route::post('carrito/total/{id_usuario}','CarritosController@total');
 
     
     /**
