@@ -143,7 +143,7 @@
       <div class="container">
         <form>
           <div class="row">
-            <div class="col s12"><h2 class="section-title">Te invitamos un café</h2></div>
+            <div class="col s12"><h2 class="section-title">Te invito un café</h2></div>
             <div class="input-field col s6">
               <input id="first_name" type="text">
               <label for="first_name">Nombre</label>

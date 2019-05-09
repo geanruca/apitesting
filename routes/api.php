@@ -40,7 +40,9 @@ Route::middleware(['auth:api'])
     Route::get('carrito/carrito_contador/{id_usuario}','CarritosController@carrito_contador');
     Route::get('carrito/{id_usuario}','CarritosController@show');
     Route::get('carrito/delete/{id_usuario}','CarritosController@delete');
+    Route::get('carrito/delete/producto/{id_carrito}','CarritosController@delete_producto');
     Route::post('carrito','CarritosController@store');
+    Route::post('carrito/{id_carrito}','CarritosController@update');
     Route::post('carrito/lista_de_deseados','CarritosController@deseados');
     Route::post('carrito/lista_de_comprados','CarritosController@comprados');
 
