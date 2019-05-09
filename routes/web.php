@@ -12,13 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('mobilechile.home');
 });
 
 Auth::routes();
 
 Route::get('/pagoconfirmado',function(){
     return view('flow.exito');
+});
+Route::middleware(['auth'])
+->group(function () {
+    Route::get('/aguaclean','adminpanel@index');
+    Route::get('/aguaclean/usuarios','adminpanel@usuarios');
 });
 Route::get('/fracaso',function(){
     return view('flow.fracaso');
@@ -35,3 +40,10 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -15,7 +15,9 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-            $users = User::All(); 
+            $users = User::join('comunas as c','users.id_comuna','=','c.id')
+            ->select('users.zona','users.name','users.id','users.celular','users.descuento','users.email','users.direccion','users.notas','users.role_id','c.nombre as comuna')
+            ->get(); 
             return response()->json($users, 200); 
     }
 
