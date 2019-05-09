@@ -70,6 +70,7 @@ class FlowController extends Controller
    
     public function create(Request $r)
     {
+        \Log::info('FLOW_CREATE_PEDIDO',[$r->all()]);
         // REAL
         // $apiKey    = '3C6FADD0-75CD-46BE-A3C8-2DLCAF645821';
         // $secretKey = '2ca0b7d495d64b21036b7e68e6d177af54cdded9';
@@ -132,7 +133,7 @@ class FlowController extends Controller
             curl_setopt($ch, CURLOPT_POST, TRUE);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data . '&s=' . $signature);
             $response = curl_exec($ch);
-            
+
             $info = curl_getinfo($ch);
            
             $response_final = str_replace('\\','',$response);

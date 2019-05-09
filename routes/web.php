@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/pagoconfirmado',function(){
+Route::post('/pagoconfirmado',function(){
     return view('flow.exito');
 });
 Route::middleware(['auth'])
@@ -25,7 +25,7 @@ Route::middleware(['auth'])
     Route::get('/aguaclean','adminpanel@index');
     Route::get('/aguaclean/usuarios','adminpanel@usuarios');
 });
-Route::get('/fracaso',function(){
+Route::post('/fracaso',function(){
     return view('flow.fracaso');
 });
 // Route::get('/pagoconfirmado',function(){
