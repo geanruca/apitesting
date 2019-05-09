@@ -1816,6 +1816,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('componente montado con éxito');
@@ -1824,7 +1858,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       users: [],
       nombre: '',
-      rol: ''
+      rol: '',
+      user: []
     };
   },
   created: function created() {
@@ -1835,9 +1870,19 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('./../api/usuarios').then(function (response) {
-        console.log(response.data);
+        // console.log(response.data);
         _this.users = response.data;
       });
+    },
+    modal: function modal(user) {
+      this.user = user;
+      console.log(user);
+    },
+    update: function update() {
+      axios.post('./../api/usuarios/' + this.user.id, {
+        'name': this.user.name,
+        '_method': 'PATCH'
+      }).then();
     }
   }
 });
@@ -37843,26 +37888,107 @@ var render = function() {
         _vm._m(0),
         _vm._v(" "),
         _vm._l(_vm.users, function(user) {
-          return _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" }, [
-              _vm._v(_vm._s(user.name))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" }, [
-              _vm._v(_vm._s(user.celular))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" }, [
-              _vm._v(_vm._s(user.zona))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" }, [
-              _vm._v(_vm._s(user.comuna))
-            ])
-          ])
+          return _c(
+            "div",
+            {
+              staticClass: "row",
+              attrs: { "data-toggle": "modal", "data-target": "#myModal" },
+              on: {
+                click: function($event) {
+                  return _vm.modal(user)
+                }
+              }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" },
+                [_vm._v(_vm._s(user.name))]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" },
+                [_vm._v(_vm._s(user.celular))]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" },
+                [_vm._v(_vm._s(user.zona))]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" },
+                [_vm._v(_vm._s(user.direccion) + ", " + _vm._s(user.comuna))]
+              )
+            ]
+          )
         })
       ],
       2
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "modal fade", attrs: { id: "myModal", role: "dialog" } },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-xs-8 col-sm-8 col-md-8 col-lg-8" },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.user.name,
+                          expression: "user.name"
+                        }
+                      ],
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.user.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.user, "name", $event.target.value)
+                        }
+                      }
+                    })
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-info btn-lg",
+                  attrs: { type: "button", "data-dismiss": "modal" },
+                  on: {
+                    click: function($event) {
+                      return _vm.update()
+                    }
+                  }
+                },
+                [_vm._v("Guardar")]
+              )
+            ])
+          ])
+        ])
+      ]
     )
   ])
 }
@@ -37887,6 +38013,31 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" }, [
         _c("b", [_vm._v("Comuna")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("×")]
+      ),
+      _vm._v(" "),
+      _c("h4", { staticClass: "modal-title" }, [_vm._v("Modal Header")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-xs-4 col-sm-4 col-md-4 col-lg-4" }, [
+      _c("b", [_vm._v("Nombre:")])
     ])
   }
 ]

@@ -116,10 +116,10 @@ return [
         ],
         [
             'text'        => 'Resumen de ventas',
-            'url'         => 'admin/pages',
+            'url'         => '/aguaclean/ventas',
             'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
+            // 'label'       => 4,
+            // 'label_color' => 'success',
         ],
         'USUARIOS',
         [
