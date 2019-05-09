@@ -40,10 +40,7 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 });
-Auth::routes();
+// Flow
+Route::get('signature','Api\FlowController@signature');
+Route::post('payments','Api\FlowController@create');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -17,7 +17,8 @@ use Illuminate\Http\Request;
 Route::post('login', 'Api\UserController@login');
 Route::post('register', 'Api\UserController@register');
 
-Route::middleware(['auth:api'])
+Route::middleware([])
+//Route::middleware(['auth:api'])
 // Route::middleware(['auth'])
 ->namespace('Api')
 ->group(function () {
@@ -56,8 +57,6 @@ Route::middleware(['auth:api'])
     Route::get('pedidos_por_conductor_y_fecha/{id_conductor}/{fecha}/{estado}','PedidosController@pedidos_por_conductor_y_fecha');
     Route::get('asignacion_manual/{id_pedido}/{id_conductor}','PedidosController@asignacion_manual');
 
-    // Flow
-    Route::get('signature','FlowController@signature');
-    Route::post('payments','FlowController@create');
+
 });
 

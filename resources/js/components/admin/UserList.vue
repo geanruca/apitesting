@@ -1,6 +1,6 @@
-<template lang="pug">
+<template lang="">
     <div>
-
+        <input type='text' v-model="busqueda" @change="buscar(busqueda)" placeholder="Buscar..">
         <div class="table table-striped">
             <div class="row">
                 <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3"><b>Nombre</b></div>
@@ -16,7 +16,6 @@
             </div>
         </div>
         <!-- Trigger the modal with a button -->
-        
 
         <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
@@ -59,10 +58,11 @@ export default {
     },
     data(){
         return{
-            users : [],
-            nombre: '',
-            rol: '',
-            user: [],
+            users   : [],
+            nombre  : '',
+            rol     : '',
+            user    : [],
+            busqueda: '',
         }
     },
     created(){
@@ -74,6 +74,10 @@ export default {
                 // console.log(response.data);
                 this.users = response.data;
             })
+        },
+        buscar(busqueda){
+            this.busqueda = busqueda
+            console.log(this.busqueda)
         },
         modal(user){
             this.user = user;
