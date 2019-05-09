@@ -9,7 +9,6 @@ class FlowController extends Controller
 {
    
     
-    
     public function signature()
     {
         // REAL
@@ -133,15 +132,16 @@ class FlowController extends Controller
             curl_setopt($ch, CURLOPT_POST, TRUE);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data . '&s=' . $signature);
             $response = curl_exec($ch);
+            
+            $info = curl_getinfo($ch);
+           
+            $response_final = str_replace('\\','',$response);
+            $coleccion = json_decode($response_final);
+            $coleccion->url_final = $coleccion->url.'?token='.$coleccion->token;
         if($response === false) {
             $error = curl_error($ch);
             throw new Exception($error, 1);
         } 
-        $info = curl_getinfo($ch);
-       
-        $response_final = str_replace('\\','',$response);
-        $coleccion = json_decode($response_final);
-        $coleccion->url_final = $coleccion->url.'?token='.$coleccion->token;
         return response()->json(
             $coleccion
         );

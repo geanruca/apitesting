@@ -57,6 +57,8 @@ Route::middleware([])
     Route::get('pedidos_por_conductor_y_fecha/{id_conductor}/{fecha}/{estado}','PedidosController@pedidos_por_conductor_y_fecha');
     Route::get('asignacion_manual/{id_pedido}/{id_conductor}','PedidosController@asignacion_manual');
 
-
+    // Flow
+    Route::get('signature','FlowController@signature');
+    Route::post('payments','FlowController@create');
 });
 
