@@ -141,8 +141,9 @@
     <!-- Contact Us -->
     <div class="section light valign-wrapper">
       <div class="container">
-        <form>
+        <form method="POST" action="#">
           <div class="row">
+            <form>
             <div class="col s12"><h2 class="section-title">Te invito un café</h2></div>
             <div class="input-field col s6">
               <input id="first_name" type="text">
@@ -161,6 +162,7 @@
               <label for="message">Cuéntame de tu negocio</label>
               <a class="waves-effect waves-light btn-large">Vamos por ese café!</a>
             </div>
+          </form>
           </div>
         </form>
       </div>
