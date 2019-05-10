@@ -72,6 +72,7 @@ class FlowController extends Controller
    
     public function create(Request $r)
     {
+        \Log::info('FLOW_INFO',[$r->all()]);
         // REAL
         // $apiKey    = '3C6FADD0-75CD-46BE-A3C8-2DLCAF645821';
         // $secretKey = '2ca0b7d495d64b21036b7e68e6d177af54cdded9';
