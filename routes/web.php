@@ -22,6 +22,7 @@ Route::get('/pagoconfirmado',function(){
 });
 Route::middleware(['auth'])
 ->group(function () {
+    
 });
 Route::get('/aguaclean/usuarios','adminpanel@usuarios');
 Route::get('/aguaclean','adminpanel@index');
