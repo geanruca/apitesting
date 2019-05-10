@@ -287,6 +287,15 @@ class PedidosController extends Controller
             "data"=>$a
         ]); 
     }
+    public function pedidos_usuario($id_usuario)
+    {
+        $a = Pedido::where('id_usuario',$id)->get();
+
+        return response()->json([
+            "status"=>true,
+            "data"=>$a
+        ]); 
+    }
 
     public function update(Request $r, $id)
     {
