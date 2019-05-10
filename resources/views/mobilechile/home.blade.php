@@ -160,7 +160,7 @@
             <div class="input-field col s12">
               <textarea id="message" class="materialize-textarea"></textarea>
               <label for="message">Cuéntame de tu negocio</label>
-              <a class="waves-effect waves-light btn-large">Vamos por ese café!</a>
+              <button type="submit" class="waves-effect waves-light btn-large">Vamos por ese café!</button>
             </div>
           </form>
           </div>

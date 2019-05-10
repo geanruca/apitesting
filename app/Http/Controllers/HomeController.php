@@ -23,6 +23,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('/aguaclean');
+        return view('/aguaclean'); 
+    }
+    public function contacto(Request $r)
+    {
+        $contacto = new Contacto();
+        $contacto->nombre = $r->nombre;
+        $contacto->telefono = $r->telefono;
+        $contacto->email = $r->email;
+        $contacto->negocio = $r->negocio;
+        $contacto->save();
+
+        return back()->with('Te econtactaremos lo antes posible!');; 
     }
 }
