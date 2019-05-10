@@ -15,12 +15,12 @@ Route::get('/', function () {
     return view('mobilechile.home');
 });
 
-//Auth::routes();
+Auth::routes();
 
 Route::get('/pagoconfirmado',function(){
     return view('flow.exito');
 });
-Route::middleware(['auth'])
+Route::middleware(['auth:api'])
 ->group(function () {
     Route::get('/aguaclean','adminpanel@index');
     Route::get('/aguaclean/usuarios','adminpanel@usuarios');
