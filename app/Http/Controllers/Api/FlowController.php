@@ -137,8 +137,9 @@ class FlowController extends Controller
             $info = curl_getinfo($ch);
            
             $response_final = str_replace('\\','',$response);
-            $coleccion = json_decode($response_final);
-            $coleccion->url_final = $coleccion->url.'?token='.$coleccion->token;
+            echo $response;
+            // $coleccion = json_decode($response_final);
+            // $coleccion->url_final = $coleccion->url.'?token='.$coleccion->token;
         if($response === false) {
             $error = curl_error($ch);
             throw new Exception($error, 1);
