@@ -38057,7 +38057,7 @@ var staticRenderFns = [
         [_vm._v("×")]
       ),
       _vm._v(" "),
-      _c("h4", { staticClass: "modal-title" }, [_vm._v("Modal Header")])
+      _c("h4", { staticClass: "modal-title" }, [_vm._v("Editar Usuario")])
     ])
   },
   function() {

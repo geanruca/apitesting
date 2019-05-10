@@ -17,9 +17,9 @@ use Illuminate\Http\Request;
 Route::post('login', 'Api\UserController@login');
 Route::post('register', 'Api\UserController@register');
 
-//Route::middleware([])
-Route::middleware(['auth:api'])
-// Route::middleware(['auth'])
+Route::middleware([])
+//Route::middleware(['auth:api'])
+//Route::middleware(['auth'])
 ->namespace('Api')
 ->group(function () {
     
