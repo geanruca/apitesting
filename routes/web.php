@@ -22,9 +22,9 @@ Route::get('/pagoconfirmado',function(){
 });
 Route::middleware(['auth'])
 ->group(function () {
-    Route::get('/aguaclean','adminpanel@index');
-    Route::get('/aguaclean/usuarios','adminpanel@usuarios');
 });
+Route::get('/aguaclean/usuarios','adminpanel@usuarios');
+Route::get('/aguaclean','adminpanel@index');
 Route::get('/fracaso',function(){
     return view('flow.fracaso');
 });
