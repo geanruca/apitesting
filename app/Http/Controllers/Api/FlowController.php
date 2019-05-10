@@ -70,7 +70,8 @@ class FlowController extends Controller
    
     public function create(Request $r)
     {
-        \Log::info('FLOW_CREATE_PEDIDO',[$r->all()]);
+        $user = Auth::user();
+        \Log::info("FLOW_CREATE_PEDIDO BY $user->name",[$r->all()]);
         // REAL
         // $apiKey    = '3C6FADD0-75CD-46BE-A3C8-2DLCAF645821';
         // $secretKey = '2ca0b7d495d64b21036b7e68e6d177af54cdded9';
@@ -143,9 +144,11 @@ class FlowController extends Controller
             $response_final = str_replace('\\','',$response);
             $coleccion = json_decode($response_final);
             $coleccion->url_final = $coleccion->url.'?token='.$coleccion->token;
+
         return response()->json(
             $coleccion
         );
+
         // echo()
         } catch (Exception $e) {
         echo 'Error: ' . $e->getCode() . ' - ' . $e->getMessage();
