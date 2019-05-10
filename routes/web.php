@@ -20,8 +20,9 @@ Auth::routes();
 Route::get('/pagoconfirmado',function(){
     return view('flow.exito');
 });
-Route::middleware(['auth:api'])
+Route::middleware(['auth'])
 ->group(function () {
+
     Route::get('/aguaclean','adminpanel@index');
     Route::get('/aguaclean/usuarios','adminpanel@usuarios');
 });
@@ -31,7 +32,6 @@ Route::get('/fracaso',function(){
 // Route::get('/pagoconfirmado',function(){
 //     return view('flow.exito');
 // });
-// Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/auth/facebook', 'SocialAuthController@facebook');
 Route::get('/auth/facebook/callback', 'SocialAuthController@callback');
 
