@@ -146,19 +146,19 @@
             <form>
             <div class="col s12"><h2 class="section-title">Te invito un café</h2></div>
             <div class="input-field col s6">
-              <input id="first_name" type="text">
+              <input name="nombre" id="first_name" type="text">
               <label for="first_name">Nombre</label>
             </div>
             <div class="input-field col s6">
-              <input id="email" type="text">
+              <input name="email" id="email" type="text">
               <label for="email">Email</label>
             </div>
             <div class="input-field col s6">
-              <input id="phone" type="text">
+              <input name="telefono" id="phone" type="text">
               <label for="phone">Celular</label>
             </div>
             <div class="input-field col s12">
-              <textarea id="message" class="materialize-textarea"></textarea>
+              <textarea name="negocio" id="message" class="materialize-textarea"></textarea>
               <label for="message">Cuéntame de tu negocio</label>
               <button type="submit" class="waves-effect waves-light btn-large">Vamos por ese café!</button>
             </div>
