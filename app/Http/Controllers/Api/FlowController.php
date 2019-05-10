@@ -134,16 +134,17 @@ class FlowController extends Controller
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data . '&s=' . $signature);
             $response = curl_exec($ch);
 
+            if($response === false) {
+                dd($response);
+                $error = curl_error($ch);
+                throw new Exception($error, 1);
+            } 
             $info = curl_getinfo($ch);
            
             $response_final = str_replace('\\','',$response);
-            echo $response;
+            dd($response);
             // $coleccion = json_decode($response_final);
             // $coleccion->url_final = $coleccion->url.'?token='.$coleccion->token;
-        if($response === false) {
-            $error = curl_error($ch);
-            throw new Exception($error, 1);
-        } 
         return response()->json(
             $coleccion
         );
