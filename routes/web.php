@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('mobilechile.home');
 });
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/pagoconfirmado',function(){
     return view('flow.exito');
