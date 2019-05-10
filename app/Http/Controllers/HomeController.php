@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contacto;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -27,13 +28,13 @@ class HomeController extends Controller
     }
     public function contacto(Request $r)
     {
-        $contacto = new Contacto();
-        $contacto->nombre = $r->nombre;
+        $contacto = new Contacto;
+        $contacto->nombre   = $r->nombre;
         $contacto->telefono = $r->telefono;
-        $contacto->email = $r->email;
-        $contacto->negocio = $r->negocio;
+        $contacto->email    = $r->email;
+        $contacto->negocio  = $r->negocio;
         $contacto->save();
 
-        return back()->with('Te econtactaremos lo antes posible!');; 
+        return back();
     }
 }

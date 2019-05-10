@@ -141,7 +141,8 @@
     <!-- Contact Us -->
     <div class="section light valign-wrapper">
       <div class="container">
-        <form method="POST" action="#">
+        <form method="POST" action="/contacto">
+          @csrf
           <div class="row">
             <form>
             <div class="col s12"><h2 class="section-title">Te invito un café</h2></div>
