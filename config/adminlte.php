@@ -111,7 +111,7 @@ return [
         'MI APP',
         [
             'text' => 'Usuarios',
-            'url'  => 'aguaclean/users',
+            'url'  => 'aguaclean/usuarios',
             'can'  => 'manage-blog',
         ],
         [
