@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -71,8 +72,6 @@ class FlowController extends Controller
    
     public function create(Request $r)
     {
-        $user = Auth::user();
-        \Log::info("FLOW_CREATE_PEDIDO BY $user->name",[$r->all()]);
         // REAL
         // $apiKey    = '3C6FADD0-75CD-46BE-A3C8-2DLCAF645821';
         // $secretKey = '2ca0b7d495d64b21036b7e68e6d177af54cdded9';
