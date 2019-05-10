@@ -29,7 +29,7 @@
         <div class="col s12 m10 offset-m1 valign-wrapper">
           <div class="valign">
             <h1>Mobile Chile!</h1>
-            <span class="tagline">Llevamos tu negocio a tu celular.</span>
+            <span class="tagline">Lleva tu negocio a la comodidad de tu celular.</span>
             <button class="read-more"><i class="icon-caret-down"></i></button>
           </div>
         </div>
@@ -153,8 +153,8 @@
               <label for="email">Email</label>
             </div>
             <div class="input-field col s6">
-              <input id="email" type="text">
-              <label for="email">Celular</label>
+              <input id="phone" type="text">
+              <label for="phone">Celular</label>
             </div>
             <div class="input-field col s12">
               <textarea id="message" class="materialize-textarea"></textarea>
@@ -175,11 +175,9 @@
             <p>Especializados en transformar tu negocio en una aplicación móvil.</p>
           </div>
           <div class="col s6 m3">
-            <h5>RRSS</h5>
+            <h5>Para emergencias y trabajos urgentes</h5>
             <ul>
-              <li><a href="#!">Twitter</a></li>
-              <li><a href="#!">Facebook</a></li>
-              <li><a href="#!">Github</a></li>
+              <h5>WSP: +569 45263469</h5>
             </ul>
           </div>
         </div>
