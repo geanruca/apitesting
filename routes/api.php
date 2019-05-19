@@ -25,8 +25,8 @@ Route::middleware([])
     
     Route::post('details', 'UserController@details');
     Route::apiResource('productos','ProductController');
-    Route::apiResource('usuarios','UsuariosController')->except('update');
-    //Route::apiResource('pedidos','PedidosController');
+    Route::apiResource('usuarios','UsuariosController');
+    Route::apiResource('pedidos','PedidosController')->except('update');
     Route::post('pedidos/{id_pedido}','PedidosController@update');
     Route::post('pedidos/delete/{id_pedido}','PedidosController@destroy');
     Route::get('comunas','ComunasController@index');
