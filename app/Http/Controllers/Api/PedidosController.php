@@ -255,11 +255,14 @@ class PedidosController extends Controller
         $pedido->horario_recepcion_final  = $r->horario_recepcion_final;
         $pedido->fecha_recepcion          = $r->fecha_recepcion;
         $pedido->notas                    = $r->notas;
-        
         $pedido->id_usuario               = $r->id_usuario;
         $pedido->id_comuna                = $r->id_comuna;
-        $pedido->id_conductor      = $r->id_conductor;
+        $pedido->id_conductor             = $r->id_conductor;
         $pedido->save();
+
+        $user = User::find($r->id_usuario);
+        $user->direccion = $r->user_direccion;
+        $user->save();
 
         if($pedido->save()){
             $limpa_carro = Carrito::where('id_usuario',$pedido->id_usuario)->first();
@@ -299,7 +302,7 @@ class PedidosController extends Controller
 
     public function update(Request $r, $id)
     {
-        $pedido = Pedido::find($id);
+        $pedido                           = Pedido::find($id);
         $pedido->estado_pago              = $r->estado_pago       ?? $pedido->estado_pago;
         $pedido->estado_despacho          = $r->estado_despacho   ?? $pedido->estado_despacho;
         $pedido->medio_de_pago            = $r->medio_de_pago     ?? $pedido->medio_de_pago;
@@ -310,12 +313,12 @@ class PedidosController extends Controller
         $pedido->notas                    = $r->notas             ?? $pedido->notas;
         $pedido->id_usuario               = $r->id_usuario        ?? $pedido->id_usuario;
         $pedido->id_comuna                = $r->id_comuna         ?? $pedido->id_comuna;
-        $pedido->fecha_recepcion          = $r->fecha_recepcion         ?? $pedido->fecha_recepcion;
+        $pedido->fecha_recepcion          = $r->fecha_recepcion   ?? $pedido->fecha_recepcion;
         $pedido->id_conductor             = $r->id_conductor      ?? $pedido->id_conductor;
         $pedido->save();
 
         if($pedido->save()){
-            $limpa_carro = Carrito::where('id_usuario',$pedido->id_usuario)->first();
+            $limpia_carro = Carrito::where('id_usuario',$pedido->id_usuario)->first();
             $limpia_carro->delete();
         }
 
