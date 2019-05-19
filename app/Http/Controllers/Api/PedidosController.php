@@ -265,7 +265,7 @@ class PedidosController extends Controller
         $user->save();
 
         if($pedido->save()){
-            $limpa_carro = Carrito::where('id_usuario',$pedido->id_usuario)->first();
+            $limpia_carro = Carrito::where('id_usuario',$pedido->id_usuario)->first();
             $limpia_carro->delete();
         }
 
