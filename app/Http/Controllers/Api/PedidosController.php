@@ -300,17 +300,18 @@ class PedidosController extends Controller
     public function update(Request $r, $id)
     {
         $pedido = Pedido::find($id);
-        $pedido->estado_pago       = $r->estado_pago       ?? $pedido->estado_pago;
-        $pedido->estado_despacho   = $r->estado_despacho   ?? $pedido->estado_despacho;
-        $pedido->medio_de_pago     = $r->medio_de_pago     ?? $pedido->medio_de_pago;
-        $pedido->total_pago        = $r->total_pago        ?? $pedido->total_pago;
-        $pedido->detalle_productos = $r->detalle_productos ?? $pedido->detalle_productos;
+        $pedido->estado_pago              = $r->estado_pago       ?? $pedido->estado_pago;
+        $pedido->estado_despacho          = $r->estado_despacho   ?? $pedido->estado_despacho;
+        $pedido->medio_de_pago            = $r->medio_de_pago     ?? $pedido->medio_de_pago;
+        $pedido->total_pago               = $r->total_pago        ?? $pedido->total_pago;
+        $pedido->detalle_productos        = $r->detalle_productos ?? $pedido->detalle_productos;
         $pedido->horario_recepcion_inicio = $r->horario_recepcion_inicio ?? $pedido->horario_recepcion_inicio;
-        $pedido->horario_recepcion_final = $r->horario_recepcion_final ?? $pedido->horario_recepcion_final;
-        $pedido->notas             = $r->notas             ?? $pedido->notas;
-        $pedido->id_usuario        = $r->id_usuario        ?? $pedido->id_usuario;
-        $pedido->id_comuna         = $r->id_comuna         ?? $pedido->id_comuna;
-        $pedido->id_conductor      = $r->id_conductor      ?? $pedido->id_conductor;
+        $pedido->horario_recepcion_final  = $r->horario_recepcion_final ?? $pedido->horario_recepcion_final;
+        $pedido->notas                    = $r->notas             ?? $pedido->notas;
+        $pedido->id_usuario               = $r->id_usuario        ?? $pedido->id_usuario;
+        $pedido->id_comuna                = $r->id_comuna         ?? $pedido->id_comuna;
+        $pedido->fecha_recepcion          = $r->fecha_recepcion         ?? $pedido->fecha_recepcion;
+        $pedido->id_conductor             = $r->id_conductor      ?? $pedido->id_conductor;
         $pedido->save();
 
         if($pedido->save()){
