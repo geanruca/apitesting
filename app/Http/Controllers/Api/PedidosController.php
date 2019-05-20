@@ -292,11 +292,11 @@ class PedidosController extends Controller
     }
     public function pedidos_usuario($id_usuario)
     {
-        $a = Pedido::where('id_usuario',$id)->get();
+        $a = Pedido::where('id_usuario',$id_usuario)->get();
 
         return response()->json([
-            "status"=>true,
-            "data"=>$a
+            "status" => true,
+            "data"   => $a
         ]); 
     }
 
