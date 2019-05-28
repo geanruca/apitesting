@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -52,7 +52,7 @@ class HomeController extends Controller
     }
 
     public function contactado(Request $r, $id){
-        $user = Auth::user();
+        $user               = Auth::user();
         $c                  = Contacto::find($id);
         $c->notas           = $r->notas;
         $c->estado          = $r->estado;
