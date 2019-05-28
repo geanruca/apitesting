@@ -199,7 +199,7 @@
                   <li class="pricing-feature"><i class="icon-accept"></i>Integración con redes sociales</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Notificaciones</li>
                   <li class="pricing-feature disabled"><i class="icon-close"></i>Unificación de todos los medios.</li>
-                  <li class="pricing-feature disabled"><i class="icon-close"></i>Generación de contenidos para marketing digital.</li>
+                  <li class="pricing-feature disabled"><i class="icon-close"></i>Generación de contenido digital.</li>
                   <li class="pricing-feature disabled"><i class="icon-close"></i>Carrito de venta</li>
                   <li class="pricing-feature disabled"><i class="icon-close"></i>Sistemas de gestión</li>
                 </ul>
@@ -223,7 +223,7 @@
                   <li class="pricing-feature"><i class="icon-accept"></i>Integración con redes sociales</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Notificaciones</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Unificación de todos los medios</li>
-                  <li class="pricing-feature"><i class="icon-accept"></i>Generación de contenidos para marketing digital</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Generación de contenido digital</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Carrito de venta</li>
                   <li class="pricing-feature disabled"><i class="icon-close"></i>Sistemas de gestión</li>
                 </ul>
@@ -247,7 +247,7 @@
                   <li class="pricing-feature"><i class="icon-accept"></i>Integración con redes sociales</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Notificaciones</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Unificación de todos los medios.</li>
-                  <li class="pricing-feature"><i class="icon-accept"></i>Generación de contenidos para marketing digital que comparten contenido.</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Generación de contenido digital.</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Carrito de venta.</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Sistemas de gestión.</li>
                 </ul>
