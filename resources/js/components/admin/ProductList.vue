@@ -1,6 +1,5 @@
 <template lang="">
     <div>
-
         <div class="row">
             <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">nombre</div>
             <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6"> <input class="form-control" type='text' v-model="nombre"></div>
@@ -111,9 +110,11 @@ export default {
         },
         update(){
             axios.post('./../api/productos/'+this.producto.id,{
-                
-                'nombre'   : this.producto.nombre,
-                '_method': 'PATCH',
+                'nombre'        : this.producto.nombre,
+                'descripcion'   : this.producto.descripcion,
+                'precio_inicial': this.producto.precio_inicial,
+                'img1'          : this.producto.img1,
+                '_method'       : 'PATCH',
             }
 
             ).then(
@@ -122,7 +123,10 @@ export default {
         },
         create(){
             axios.post('./../api/productos',{
-                
+                'nombre'        : this.producto.nombre,
+                'descripcion'   : this.producto.descripcion,
+                'precio_inicial': this.producto.precio_inicial,
+                'img1'          : this.producto.img1,
                
             }
 

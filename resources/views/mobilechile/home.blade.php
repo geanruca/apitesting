@@ -33,7 +33,7 @@
         <div class="col s12 m10 offset-m1 valign-wrapper">
           <div class="valign">
             <h2>Mobile Chile!</h2>
-            <span class="tagline">Lleva tu idea, o negocio al celular</span>
+            <span class="tagline">Vuelve realidad tu App</span>
             <button class="read-more"><i class="icon-caret-down"></i></button>
           </div>
         </div>
