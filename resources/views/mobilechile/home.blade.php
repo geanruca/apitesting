@@ -42,99 +42,99 @@
             
             <div class="phone-preview-sizer">
               <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/44.png)"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_1.png)"></div>
             </div>
             <div class="phone-preview-sizer">
                 <div class="phone-preview"></div>
-                <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/AguaClean/Login.png)"></div>
+                <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_2.png)"></div>
             </div>
             <div class="phone-preview-sizer">
               <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/AguaClean/Productos.png)"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_3.png)"></div>
             </div>
           </div>
           <div class="column-one">
                 <div class="phone-preview-sizer">
                     <div class="phone-preview"></div>
-                    <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/AutoConsulta/Login.png)"></div>
+                    <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_4.png)"></div>
                 </div>
             <div class="phone-preview-sizer">
               <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/AutoConsulta/Carro.png)"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_5.png)"></div>
             </div>
             <div class="phone-preview-sizer">
               <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/AutoConsulta/Consulta.png)"></div>
-            </div>
-          </div>
-          <div class="column-two">
-            <div class="phone-preview-sizer">
-              <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/AutoConsulta/Login.png)"></div>
-            </div>
-            <div class="phone-preview-sizer">
-              <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/1.png)"></div>
-            </div>
-            <div class="phone-preview-sizer">
-              <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/2.png)"></div>
-            </div>
-          </div>
-          <div class="column-one">
-            <div class="phone-preview-sizer">
-              <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/3.png)"></div>
-            </div>
-            <div class="phone-preview-sizer">
-              <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/4.png)"></div>
-            </div>
-            <div class="phone-preview-sizer">
-              <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/5.png)"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_6.png)"></div>
             </div>
           </div>
           <div class="column-two">
             <div class="phone-preview-sizer">
               <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/4.png)"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_7.png)"></div>
             </div>
             <div class="phone-preview-sizer">
               <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/gotitaroja.jpg)"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_8.png)"></div>
             </div>
             <div class="phone-preview-sizer">
               <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/5.png)"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_9.png)"></div>
             </div>
           </div>
           <div class="column-one">
             <div class="phone-preview-sizer">
               <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/mgv/5.png)"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_11.png)"></div>
+            </div>
+            <div class="phone-preview-sizer">
+              <div class="phone-preview"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_10.png)"></div>
+            </div>
+            <div class="phone-preview-sizer">
+              <div class="phone-preview"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_12.png)"></div>
+            </div>
+          </div>
+          <div class="column-two">
+            <div class="phone-preview-sizer">
+              <div class="phone-preview"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_13.png)"></div>
+            </div>
+            <div class="phone-preview-sizer">
+              <div class="phone-preview"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_14.png)"></div>
+            </div>
+            <div class="phone-preview-sizer">
+              <div class="phone-preview"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_15.png)"></div>
+            </div>
+          </div>
+          <div class="column-one">
+            <div class="phone-preview-sizer">
+              <div class="phone-preview"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/Screenshot_16.png)"></div>
             </div>
             <div class="phone-preview-sizer">
                     <div class="phone-preview"></div>
-                    <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/gotitazul.jpg)"></div>
+                    <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/0.jpg)"></div>
                   </div>
             <div class="phone-preview-sizer">
               <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/0.jpg"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/1.png"></div>
             </div>
           </div>
           <div class="column-two">
             <div class="phone-preview-sizer">
               <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/11.png)"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/2.png)"></div>
             </div>
             <div class="phone-preview-sizer">
               <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/22.png)"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/3.png)"></div>
             </div>
             <div class="phone-preview-sizer">
               <div class="phone-preview"></div>
-              <div class="image-container default" style="background-image:url({{ URL::to('/') }}/images/2.png)"></div>
+              <div class="image-container default" style="background-image:url({{ URL::to('/images') }}/5.png)"></div>
             </div>
           </div>
         </div>
