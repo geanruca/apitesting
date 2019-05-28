@@ -41,7 +41,7 @@ class HomeController extends Controller
 
         Mail::to('jose@mobilechile.app')->bcc('gerardo@mobilechile.app')->queue(new NuevoCliente($contacto,$otros));
 
-        return back()->with('flash','Muchas gracias. Te llamaremos enseguida');
+        return back()->with('flash','Muchas gracias. Te contactamos enseguida');
     }
 
     public function contactos(){
