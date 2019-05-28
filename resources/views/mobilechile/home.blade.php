@@ -141,6 +141,124 @@
       </div>
     </div>
 
+    <div class="section full-height">
+      <div class="container">
+        <div class="row">
+          <div class="col s12"><h2 class="section-title">Servicios</h2></div>
+          <div class="row">
+            <div class="col s12 m6 l4">
+              <h4><i class="icon-light-bulb"></i></h4>
+              <p class="caption">Realizamos tu página web, pero además nos aseguramos de que seas contactado a través de ella, para que ésta te sirva para vender realmente, y no sea un gasto, sino una inversión.</p>
+            </div>
+            <div class="col s12 m6 l4">
+              <h4><i class="icon-bolt"></i></h4>
+              <p class="caption">Unificamos tus redes sociales, por lo que si compartes una foto en instagram, ésta se publicará en Facebook, Twitter, Linkedin, etc.</p>
+            </div>
+            <div class="col s12 m6 l4">
+              <h4><i class="icon-rocket"></i></h4>
+              <p class="caption">Automatizamos procesos complejos, con implementaciones sencillas y ágiles.</p>
+            </div>
+          </div>
+          <div class="row">
+          <div class="col s12 m6 l4">
+            <h4><i class="icon-settings"></i></h4>
+            <p class="caption">Modalidad SASS, si no te sientes conforme con el servicio, simplemente puedes dejar de pagar.</p>
+          </div>
+          <div class="col s12 m6 l4">
+            <h4><i class="icon-umbrella"></i></h4>
+            <p class="caption">Resultados inmediatos desde la implementación.</p>
+          </div>
+          <div class="col s12 m6 l4">
+            <h4><i class="icon-compass"></i></h4>
+            <p class="caption">Desarrollamos la aplicación móvil de tus sueños.</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Tables -->
+    <div class="section valign-wrapper full-height">
+        <div class="container">
+          <div class="row">
+  
+            <div class="col s12 m4">
+              <div class="pricing-table">
+                <div class="pricing-header">
+                  <i class="icon-paper-plane"></i>
+                  <h4>Web Simple</h4>
+                  <div class="price">
+                    <span class="currency">UF</span>
+                    <span class="dollars">2</span>
+                    <span class="cents">/mes</span>
+                  </div>
+                </div>
+                <ul class="pricing-features">
+                  <li class="pricing-feature"><i class="icon-accept"></i>Página de venta con diseño responsivo</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Mínimo 10 contactos al mes para su negocio</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Integración con redes sociales</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Notificaciones</li>
+                  <li class="pricing-feature disabled"><i class="icon-close"></i>Unificación de todos los medios.</li>
+                  <li class="pricing-feature disabled"><i class="icon-close"></i>Generación de contenidos para marketing digital.</li>
+                  <li class="pricing-feature disabled"><i class="icon-close"></i>Carrito de venta</li>
+                  <li class="pricing-feature disabled"><i class="icon-close"></i>Sistemas de gestión</li>
+                </ul>
+              </div>
+            </div>
+  
+            <div class="col s12 m4">
+              <div class="pricing-table">
+                <div class="pricing-header">
+                  <i class="icon-paper-plane"></i>
+                  <h4>Campaña agresiva</h4>
+                  <div class="price">
+                    <span class="currency">UF</span>
+                    <span class="dollars">5</span>
+                    <span class="cents">/mes</span>
+                  </div>
+                </div>
+                <ul class="pricing-features">
+                  <li class="pricing-feature"><i class="icon-accept"></i>Página de venta con diseño responsivo</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Mínimo 30 contactos al mes para su negocio</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Integración con redes sociales</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Notificaciones</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Unificación de todos los medios</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Generación de contenidos para marketing digital</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Carrito de venta</li>
+                  <li class="pricing-feature disabled"><i class="icon-close"></i>Sistemas de gestión</li>
+                </ul>
+              </div>
+            </div>
+  
+            <div class="col s12 m4">
+              <div class="pricing-table">
+                <div class="pricing-header">
+                  <i class="icon-paper-plane"></i>
+                  <h4>Deluxe service</h4>
+                  <div class="price">
+                    <span class="currency">UF</span>
+                    <span class="dollars">10</span>
+                    <span class="cents">/mes</span>
+                  </div>
+                </div>
+                <ul class="pricing-features">
+                  <li class="pricing-feature"><i class="icon-accept"></i>Página de venta con diseño responsivo</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Mínimo 80 contactos al mes para su negocio</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Integración con redes sociales</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Notificaciones</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Unificación de todos los medios.</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Generación de contenidos para marketing digital que comparten contenido.</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Carrito de venta.</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Sistemas de gestión.</li>
+                </ul>
+              </div>
+            </div>
+  
+  
+          </div>
+          
+        </div>
+      </div>
     
     <!-- Contact Us -->
     
@@ -150,7 +268,7 @@
           @csrf
           <div class="row">
             <form>
-            <div class="col s12"><h2 class="section-title">Te invito un café</h2>
+            <div class="col s12"><h2 class="section-title">Tomamos un café?</h2>
               
            </div>
             <div class="input-field col s6">
