@@ -8,4 +8,5 @@
 
 @section('content')
     <p>Bienevenido</p>
+    <p> Resumen de ventas por rango de fechas</p>
 @stop

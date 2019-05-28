@@ -4,6 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139428697-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-139428697-1');
+    </script>
     <title>@yield('title_prefix', config('adminlte.title_prefix', ''))
 @yield('title', config('adminlte.title', 'Agua Clean'))
 @yield('title_postfix', config('adminlte.title_postfix', ''))</title>

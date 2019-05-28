@@ -22,10 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique()->nullable();
             $table->string('name');
             $table->string('last_name')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('rut')->nullable();
-            $table->string('celular')->nullable();
+            $table->string('celular')->unique();
             $table->string('direccion')->nullable();
             $table->string('notas')->nullable();
             $table->string('cargo')->nullable();
@@ -40,10 +40,9 @@ class CreateUsersTable extends Migration
             // For drivers
             $table->string('zona')->nullable();
             //INDEXES
-            $table->index(['id','email','zona']);
-
-                        
-            $table->string('password');
+            $table->index(['id', 'celular']);
+            
+            $table->string('password')->default(bcrypt('RyR.CadaDiaMejorando'));
             $table->rememberToken();
             $table->timestamps();
         });

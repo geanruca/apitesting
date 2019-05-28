@@ -23,13 +23,17 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
+      @if((session()->has("flash")))
+        <div class="alert alert-success"><span class="green-text">{{session("flash")}}</span></div>
+      @endif
+    
     <div class="phone-wall-intro header white full-height">
       <div class="header-background"></div>
       <div class="header-wrapper row">
         <div class="col s12 m10 offset-m1 valign-wrapper">
           <div class="valign">
-            <h1>Mobile Chile!</h1>
-            <span class="tagline">Lleva tu negocio a la comodidad de tu celular.</span>
+            <h2>Mobile Chile!</h2>
+            <span class="tagline">Lleva tu idea, o negocio al celular</span>
             <button class="read-more"><i class="icon-caret-down"></i></button>
           </div>
         </div>
@@ -139,13 +143,16 @@
 
     
     <!-- Contact Us -->
-    <div class="section light valign-wrapper">
+    
+    <div class="section light valign-wrapper" id="#cafe">
       <div class="container">
         <form method="POST" action="/contacto">
           @csrf
           <div class="row">
             <form>
-            <div class="col s12"><h2 class="section-title">Te invito un café</h2></div>
+            <div class="col s12"><h2 class="section-title">Te invito un café</h2>
+              
+           </div>
             <div class="input-field col s6">
               <input name="nombre" id="first_name" type="text">
               <label for="first_name">Nombre</label>

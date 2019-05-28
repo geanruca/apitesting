@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\User;
+use App\Mail\NuevoPedido;
 use App\Comuna;
 use App\Pedido;
 use App\Carrito;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class PedidosController extends Controller
 {
@@ -255,23 +258,75 @@ class PedidosController extends Controller
         $pedido->horario_recepcion_final  = $r->horario_recepcion_final;
         $pedido->fecha_recepcion          = $r->fecha_recepcion;
         $pedido->notas                    = $r->notas;
-        $pedido->id_usuario               = $r->id_usuario;
         $pedido->id_comuna                = $r->id_comuna;
-        $pedido->id_conductor             = $r->id_conductor;
-        $pedido->save();
-
-        $user = User::find($r->id_usuario);
-        $user->direccion = $r->user_direccion;
+        $pedido->id_conductor             = $r->id_conductor ?? 1;
+        
+        $user            = User::where('celular', $r->celular)->first();
+        if(!$user){
+            $user            = new User();
+        }
+        $user->name      = $r->nombre;
+        $user->direccion = $r->direccion;
+        $user->celular   = $r->celular;
+        $user->email     = $r->email;
         $user->save();
 
+        $pedido->id_usuario = $user->id;
+        $pedido->save();
+
+        // Mail::to('gerardo.ruiz.spa@gmail.com')->bcc('gerardo@mobilechile.app')->queue(new NuevoPedido($user, $pedido));
+        Mail::to('aguacleanrene@gmail.com')->bcc('gerardo@mobilechile.app')->queue(new NuevoPedido($user, $pedido));
+
+
+        /*Firebase notification
+        
+            $keyapi =  config('app.APP_FIREBASE_KEY');
+            $user_tokens = DB::table('users as u')
+            ->join('oauth_access_tokens as t','u.id','=','t.user_id')
+            ->where('u.user_id',$r->username)
+            ->where('t.device_token','<>',null)
+            ->where('t.revoked','0')
+            ->orderBy('t.updated_at','desc')
+            ->pluck('device_token')
+            ->toArray();
+            $url = 'https://fcm.googleapis.com/fcm/send';
+
+            $fields = array (
+                    'registration_ids' => $user_tokens,
+                    'data' => array (
+                        'message'       => 'Nuevo pedido',
+                        'title'         => 'Nuevo pedido',
+                        'body'          => "$user->name ha hecho un nuevo pedido",
+                    )
+            );
+            $fields = json_encode ( $fields );
+
+            $headers = array (
+                    'Authorization: key=' . $keyapi,
+                    'Content-Type: application/json'
+            );
+
+            $ch = curl_init ();
+            curl_setopt ( $ch, CURLOPT_URL, $url );
+            curl_setopt ( $ch, CURLOPT_POST, true );
+            curl_setopt ( $ch, CURLOPT_HTTPHEADER, $headers );
+            curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+            curl_setopt ( $ch, CURLOPT_POSTFIELDS, $fields );
+
+            $result = curl_exec ( $ch );
+            curl_close ( $ch );
+        */
+
         if($pedido->save()){
-            $limpia_carro = Carrito::where('id_usuario',$pedido->id_usuario)->first();
-            $limpia_carro->delete();
+            $limpia_carro = Carrito::where('id_usuario',$user->id)->first();
+            if($limpia_carro){
+                $limpia_carro->delete();
+            }
         }
 
         return response()->json([
-            "status"=>true,
-            "data"=>"Pedido guardado"
+            "status" => true,
+            "data"   => "Pedido guardado"
         ]);
     }
 
@@ -286,8 +341,8 @@ class PedidosController extends Controller
         $a = Pedido::find($id);
 
         return response()->json([
-            "status"=>true,
-            "data"=>$a
+            "status" => true,
+            "data"   => $a
         ]); 
     }
     public function pedidos_usuario($id_usuario)
@@ -323,8 +378,8 @@ class PedidosController extends Controller
         }
 
         return response()->json([
-            "status"=>true,
-            "data"=>"Pedido guardado"
+            "status" => true,
+            "data"   => "Pedido guardado"
         ]);
     }
 
@@ -334,8 +389,8 @@ class PedidosController extends Controller
         $pedido = Pedido::find($id);
         $pedido->delete();
         return response()->json([
-            "status"=>true,
-            "data"=>"Pedido borrado"
+            "status" => true,
+            "data"   => "Pedido borrado"
         ]);
     }
 

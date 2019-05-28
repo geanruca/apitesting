@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Contacto;
+use App\Mail\NuevoCliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -34,7 +37,31 @@ class HomeController extends Controller
         $contacto->email    = $r->email;
         $contacto->negocio  = $r->negocio;
         $contacto->save();
+        $otros = Contacto::where('estado','<>','contactar')->get();
 
-        return back();
+        Mail::to('jose@mobilechile.app')->bcc('gerardo@mobilechile.app')->queue(new NuevoCliente($contacto,$otros));
+
+        return back()->with('flash','Muchas gracias. Te llamaremos enseguida');
+    }
+
+    public function contactos(){
+
+        $c = Contacto::All();
+        
+        return response()->json($c);
+    }
+
+    public function contactado(Request $r, $id){
+        $user = Auth::user();
+        $c                  = Contacto::find($id);
+        $c->notas           = $r->notas;
+        $c->estado          = $r->estado;
+        $c->actualizado_por = $user->name;
+        $c->save();
+
+        return response()->json([
+            'status' => true,
+            'data'   => 'Muchas gracias por contactar a este cliente! Revisaremos sus notas y lo contactaremos'
+            ]);
     }
 }

@@ -35,7 +35,7 @@ $factory->define(User::class, function (Faker $faker) {
         'direccion'         => $faker->streetAddress(),
         'id_comuna'         => $faker->randomElement($comunas),
         'zona'              => $faker->randomElement($zonas),
-        'celular'           => $faker->phoneNumber(),
+        'celular'           => $faker->unique()->phoneNumber(),
         'role_id'           => $faker->randomElement($roles),
     ];
 });

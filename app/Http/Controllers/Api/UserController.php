@@ -72,6 +72,7 @@ class UserController extends Controller
             'name' => 'required', 
             'email' => 'required|email', 
             'password' => 'required', 
+            'celular' => 'required', 
             // 'c_password' => 'required|same:password', 
         ]);
 
@@ -85,6 +86,7 @@ class UserController extends Controller
         $user->name           = $request->name;
         $user->role_id        = 2;
         $user->email          = $request->email;
+        $user->celular        = $request->celular;
         $user->password       = bcrypt($request->password);
         // $user->remember_token = $token,
         $user->save();
@@ -110,8 +112,8 @@ class UserController extends Controller
         
 
         return response()->json([
-            'status' => true,
-            'token' => $accessToken,
+            'status'  => true,
+            'token'   => $accessToken,
             'role_id' => $user->role_id,
         ], 
             200); 

@@ -25,8 +25,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 
 import UserList from './components/admin/UserList.vue';
+import ProductList from './components/admin/ProductList.vue';
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('user-list', require('./components/admin/UserList.vue').default);
+Vue.component('product-list', require('./components/admin/ProductList.vue').default);
 
 /**resources\js\components\admin\UserList.vue
  * Next, we will create a fresh Vue application instance and attach it to

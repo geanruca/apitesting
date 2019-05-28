@@ -12,11 +12,11 @@ return [
     | your application here. By default, Laravel is setup for SMTP mail.
     |
     | Supported: "smtp", "sendmail", "mailgun", "mandrill", "ses",
-    |            "sparkpost", "postmark", "log", "array"
+    |            "sparkpost", "log", "array"
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'mail'),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.app'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'noresponder@mobilechile.app'),
+        'name' => env('MAIL_FROM_NAME', 'Mobile Chile'),
     ],
 
     /*
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('MAIL_USERNAME','gerardo.ruiz.spa@gmail.com'),
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('MAIL_PASSWORD','asintotota1871.hyz'),
 
     /*
     |--------------------------------------------------------------------------
@@ -119,18 +119,5 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Log Channel
-    |--------------------------------------------------------------------------
-    |
-    | If you are using the "log" driver, you may specify the logging channel
-    | if you prefer to keep mail messages separate from other log entries
-    | for simpler reading. Otherwise, the default channel will be used.
-    |
-    */
-
-    'log_channel' => env('MAIL_LOG_CHANNEL'),
 
 ];

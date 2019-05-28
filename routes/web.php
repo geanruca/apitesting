@@ -21,11 +21,12 @@ Auth::routes();
 Route::get('/pagoconfirmado',function(){
     return view('flow.exito');
 });
-Route::middleware(['auth'])
+Route::middleware(['auth'])->prefix('aguaclean')
 ->group(function () {
 
-    Route::get('/aguaclean','adminpanel@index');
-    Route::get('/aguaclean/usuarios','adminpanel@usuarios');
+    Route::get('/','adminpanel@index');
+    Route::get('usuarios','adminpanel@usuarios');
+    Route::get('productos','adminpanel@productos');
 });
 Route::get('/fracaso',function(){
     return view('flow.fracaso');

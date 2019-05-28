@@ -19,6 +19,9 @@ class CreateContactoTable extends Migration
             $table->string('telefono')->nullable();
             $table->string('email')->nullable();
             $table->string('negocio')->nullable();
+            $table->string('notas')->nullable();
+            $table->string('actualizado_por')->nullable();
+            $table->string('estado')->default('contactar');
             $table->timestamps();
         });
     }

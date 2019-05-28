@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'layout' => 'top-nav',
+    'layout' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -95,131 +95,76 @@ return [
 
     'register_url' => 'register',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Menu Items
-    |--------------------------------------------------------------------------
-    |
-    | Specify your menu items to display in the left sidebar. Each menu item
-    | should have a text and and a URL. You can also specify an icon from
-    | Font Awesome. A string instead of an array represents a header in sidebar
-    | layout. The 'can' is a filter on Laravel's built in Gate functionality.
-    |
-    */
+    
 
     'menu' => [
-        'MI APP',
-        [
-            'text' => 'Usuarios',
-            'url'  => 'aguaclean/usuarios',
-            'can'  => 'manage-blog',
-        ],
         [
             'text'        => 'Resumen de ventas',
             'url'         => '/aguaclean/ventas',
             'icon'        => 'file',
             // 'label'       => 4,
-            // 'label_color' => 'success',
+            'label_color' => 'danger' 
+            // 'icon_color' => 'aqua',
         ],
         'USUARIOS',
         [
-            'text' => 'Usuarios',
-            'url'  => '/aguaclean/usuarios',
+            'text'          => 'Usuarios',
+            'url'           => '/aguaclean/usuarios',
+            'icon'          => 'user',
+            // 'label'         => 4,
+            'label_color'   => 'danger' 
+            // 'icon_color' => 'yellow',
+        ],
+        'PRODUCTOS',
+        [
+            'text'          => 'Productos',
+            'url'           => '/aguaclean/productos',
+            'icon'          => 'user',
+            // 'label'         => 4,
+            'label_color'   => 'danger' 
+            // 'icon_color' => 'yellow',
+        ],
+        'PEDIDOS',
+        [
+            'text'        => 'Ver pedidos',
+            'url'         => '/aguaclean/pedidos',
+            'icon'        => 'fas fa-truck',
+            // 'label'       => 4,
+            'label_color' => 'danger' 
+        ],
+        [
+            'text'        => 'Asignar pedidos',
+            'url'         => '/aguaclean/asignar',
+            'icon'        => 'far     fa-list-alt',
+            // 'label'       => 4,
+            'label_color' => 'danger' 
+        ],
+        
+        'CONDUCTORES',
+        [
+            'text' => 'Vista Conductor',
+            'url'  => '/aguaclean/conductor',
+            'icon' => 'fa fa-car',
+        ],
+        
+        'TERRITORIO',
+        [
+            'text' => 'Comunas',
+            'url'  => '/aguaclean/comunas',
+            'icon' => 'fas fa-building',
+        ],
+        [
+            'text' => 'Zonas',
+            'url'  => '/aguaclean/zonas',
+            'icon' => 'far fa-building',
+        ],
+        'SOPORTE',
+        [
+            'text' => 'Solicitar cambios',
+            'url'  => '/aguaclean/soporte',
             'icon' => 'user',
         ],
-        // 'PEDIDOS',
-        // [
-        //     'text' => 'Ver pedidos',
-        //     'url'  => '/aguaclean',
-        //     'icon' => 'user',
-        // ],
-        // [
-        //     'text' => 'Asignar pedidos',
-        //     'url'  => '/aguaclean',
-        //     'icon' => 'lock',
-        // ],
-        
-        // 'CONDUCTORES',
-        // [
-        //     'text' => 'Vista Conductor',
-        //     'url'  => '/aguaclean',
-        //     'icon' => 'user',
-        // ],
-        // [
-        //     'text' => 'Zonas',
-        //     'url'  => '/aguaclean',
-        //     'icon' => 'lock',
-        // ],
-        // 'TERRITORIO',
-        // [
-        //     'text' => 'Comunas',
-        //     'url'  => '/aguaclean',
-        //     'icon' => 'user',
-        // ],
-        // [
-        //     'text' => 'Zonas',
-        //     'url'  => '/aguaclean',
-        //     'icon' => 'lock',
-        // ],
-        // 'SOPORTE',
-        // [
-        //     'text' => 'Solicitar cambios',
-        //     'url'  => '/aguaclean',
-        //     'icon' => 'user',
-        // ],
-        // [
-        //     'text'    => 'Multilevel',
-        //     'icon'    => 'share',
-        //     'submenu' => [
-        //         [
-        //             'text' => 'Level One',
-        //             'url'  => '#',
-        //         ],
-        //         [
-        //             'text'    => 'Level One',
-        //             'url'     => '#',
-        //             'submenu' => [
-        //                 [
-        //                     'text' => 'Level Two',
-        //                     'url'  => '#',
-        //                 ],
-        //                 [
-        //                     'text'    => 'Level Two',
-        //                     'url'     => '#',
-        //                     'submenu' => [
-        //                         [
-        //                             'text' => 'Level Three',
-        //                             'url'  => '#',
-        //                         ],
-        //                         [
-        //                             'text' => 'Level Three',
-        //                             'url'  => '#',
-        //                         ],
-        //                     ],
-        //                 ],
-        //             ],
-        //         ],
-        //         [
-        //             'text' => 'Level One',
-        //             'url'  => '#',
-        //         ],
-        //     ],
-        // ],
-        // 'LABELS',
-        // [
-        //     'text'       => 'Important',
-        //     'icon_color' => 'red',
-        // ],
-        // [
-        //     'text'       => 'Warning',
-        //     'icon_color' => 'yellow',
-        // ],
-        // [
-        //     'text'       => 'Information',
-        //     'icon_color' => 'aqua',
-        // ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Menu Filters
