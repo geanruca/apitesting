@@ -10,7 +10,7 @@
 
       gtag('config', 'UA-139428697-1');
     </script>
-
+    <link rel="shortcut icon" type="image/png" href="/images/telefono-inteligente.png" />
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Mobile Chile - Aplicaciones móviles para tu celular</title>
