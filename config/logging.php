@@ -36,7 +36,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['daily'],
+            'channels' => ['daily','slack'],
             'ignore_exceptions' => false,
         ],
 
@@ -55,7 +55,7 @@ return [
 
         'slack' => [
             'driver' => 'slack',
-            'url' => env('LOG_SLACK_WEBHOOK_URL'),
+            'url' => 'https://ryrtecnologia.slack.com/messages/CHD5223FV',
             'username' => 'Laravel Log',
             'emoji' => ':boom:',
             'level' => 'critical',
