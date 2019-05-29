@@ -162,7 +162,7 @@
           <div class="row">
           <div class="col s12 m6 l4">
             <h4><i class="icon-settings"></i></h4>
-            <p class="caption">Modalidad SASS, si no te sientes conforme con el servicio, simplemente puedes dejar de pagar.</p>
+            <p class="caption">Modalidad SaaS, si no te sientes conforme con el servicio, simplemente puedes dejar de pagar.</p>
           </div>
           <div class="col s12 m6 l4">
             <h4><i class="icon-umbrella"></i></h4>
@@ -201,7 +201,7 @@
                   <li class="pricing-feature disabled"><i class="icon-close"></i>Unificación de todos los medios.</li>
                   <li class="pricing-feature disabled"><i class="icon-close"></i>Generación de contenido digital.</li>
                   <li class="pricing-feature disabled"><i class="icon-close"></i>Carrito de venta</li>
-                  <li class="pricing-feature disabled"><i class="icon-close"></i>Sistemas de gestión</li>
+                  <li class="pricing-feature disabled"><i class="icon-close"></i>Desarrollo de sistemas de gestión personalizados</li>
                 </ul>
               </div>
             </div>
@@ -225,7 +225,7 @@
                   <li class="pricing-feature"><i class="icon-accept"></i>Unificación de todos los medios</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Generación de contenido digital</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Carrito de venta</li>
-                  <li class="pricing-feature disabled"><i class="icon-close"></i>Sistemas de gestión</li>
+                  <li class="pricing-feature disabled"><i class="icon-close"></i>Desarrollo de sistemas de gestión personalizados</li>
                 </ul>
               </div>
             </div>
@@ -249,7 +249,7 @@
                   <li class="pricing-feature"><i class="icon-accept"></i>Unificación de todos los medios.</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Generación de contenido digital.</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Carrito de venta.</li>
-                  <li class="pricing-feature"><i class="icon-accept"></i>Sistemas de gestión.</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Desarrollo de sistemas de gestión personalizados.</li>
                 </ul>
               </div>
             </div>
