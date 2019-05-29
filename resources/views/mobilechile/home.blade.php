@@ -24,7 +24,7 @@
   </head>
   <body>
       @if((session()->has("flash")))
-        <div class="alert alert-success"><span class="green-text">{{session("flash")}}</span></div>
+        <div class="alert alert-success"><span class="white-text">{{session("flash")}}</span></div>
       @endif
     
     <div class="phone-wall-intro header white full-height">
