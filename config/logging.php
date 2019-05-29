@@ -38,12 +38,13 @@ return [
             'driver' => 'stack',
             'channels' => ['daily','slack'],
             'ignore_exceptions' => false,
+            'level'=>'notice'
         ],
 
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),
-            'level' => 'debug',
+            'level' => 'error',
         ],
 
         'daily' => [
@@ -55,10 +56,10 @@ return [
 
         'slack' => [
             'driver' => 'slack',
-            'url' => 'https://ryrtecnologia.slack.com/messages/CHD5223FV',
-            'username' => 'Laravel Log',
-            'emoji' => ':boom:',
-            'level' => 'critical',
+            'url' => env('LOG_SLACK_WEBHOOK_URL'),
+            'username' => 'MobileBot',
+            'emoji' => ':lul:',
+            'level' => 'notice',
         ],
 
         'papertrail' => [

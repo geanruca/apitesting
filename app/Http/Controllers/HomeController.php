@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contacto;
 use App\Mail\NuevoCliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -37,11 +38,14 @@ class HomeController extends Controller
         $contacto->email    = $r->email;
         $contacto->negocio  = $r->negocio;
         $contacto->save();
-        $otros = Contacto::where('estado','<>','contactar')->get();
+        $otros = Contacto::where('estado','contactar')->get();
+        
+        \Log::notice('Nuevo cliente. Preparen las nalgas. Revisen su email');
 
         Mail::to('jose@mobilechile.app')
             ->bcc('gerardo@mobilechile.app')
             ->bcc('gero17.grc@gmail.com')
+            ->bcc('catalinaaruiz.13@gmail.com')
             ->queue(new NuevoCliente($contacto,$otros));
 
         return back()->with('flash','Muchas gracias. Te contactamos enseguida');
