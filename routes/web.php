@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('mobilechile.home');
 });
 
-Route::post('contacto','HomeController@contacto');
+Route::post('/contacto','HomeController@contacto');
 
 Auth::routes();
 
