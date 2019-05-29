@@ -39,7 +39,10 @@ class HomeController extends Controller
         $contacto->save();
         $otros = Contacto::where('estado','<>','contactar')->get();
 
-        Mail::to('jose@mobilechile.app')->bcc('gerardo@mobilechile.app')->queue(new NuevoCliente($contacto,$otros));
+        Mail::to('jose@mobilechile.app')
+            ->bcc('gerardo@mobilechile.app')
+            ->bcc('gero17.grc@gmail.com')
+            ->queue(new NuevoCliente($contacto,$otros));
 
         return back()->with('flash','Muchas gracias. Te contactamos enseguida');
     }

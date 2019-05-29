@@ -299,7 +299,7 @@
       <div class="container">
         <div class="row">
           <div class="col s6 m3">
-            <img class="materialize-logo" src="images/materialize-teal.png)" alt="">
+            <img class="materialize-logo" src="" alt="">
             <p>Especializados en transformar tu negocio en una aplicación móvil.</p>
           </div>
           <div class="col s6 m3">

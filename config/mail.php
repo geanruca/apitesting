@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'noresponder@mobilechile.app'),
+        'address' => env('MAIL_FROM_ADDRESS', 'gerardo.ruiz.spa@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'Mobile Chile'),
     ],
 
