@@ -3,12 +3,12 @@
 @section('title', 'Productos')
 
 @section('content_header')
-    <h1>Administración de productos</h1>
+    <h1>Administración de comunas</h1>
 @stop
 
 @section('content')
  <div id='app'>
-     <product-list></product-list>
+     <lista-de-comunas></lista-de-comunas>
      {{-- <image-input></image-input> --}}
  </div>
 @stop

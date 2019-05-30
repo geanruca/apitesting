@@ -152,11 +152,11 @@
             </div>
             <div class="col s12 m6 l4">
               <h4><i class="small material-icons">thumb_up </i></h4>
-              <p class="caption">Unificamos tus redes sociales, por lo que si compartes una foto en instagram, ésta se publicará en Facebook, Twitter, Linkedin, etc.</p>
+              <p class="caption">Unificamos tus redes sociales, por lo que si compartes una foto en instagram, lo mismo se publicará en Facebook, Twitter, Linkedin, etc. De forma automática.</p>
             </div>
             <div class="col s12 m6 l4">
               <h4><i class="small material-icons"> free_breakfast</i></h4>
-              <p class="caption">Automatizamos procesos complejos, con implementaciones sencillas y ágiles.</p>
+              <p class="caption">Automatizamos procesos complejos, con implementaciones sencillas y ágiles. El ideal es llevar todo a un botón, o no?</p>
             </div>
           </div>
           <div class="row">
@@ -186,7 +186,7 @@
               <div class="pricing-table">
                 <div class="pricing-header">
                   <i class="icon-paper-plane"></i>
-                  <h4>Web Simple</h4>
+                  <h4>Página para crecer</h4>
                   <div class="price">
                     <span class="currency">UF</span>
                     <span class="dollars">2</span>

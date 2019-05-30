@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\User;
+use App\Comuna;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,35 +13,23 @@ class UsuariosController extends Controller
     public function index()
     {
             $users = User::join('comunas as c','users.id_comuna','=','c.id')
-            ->select('users.zona','users.name','users.id','users.celular','users.descuento','users.email','users.direccion','users.notas','users.role_id','c.nombre as comuna')
+            ->select('users.zona','users.name','users.id','users.celular','users.descuento','users.direccion','users.notas','users.role_id','c.nombre as comuna')
+            ->orderBy('users.name','asc')
             ->get(); 
             return response()->json($users, 200); 
     }
 
+    public function sacar_descuento_personal($celular){
+            $descuento = User::where('celular', $celular)->select('descuento')->first();
 
-    public function create()
-    {
-        //
+            return response()->json($descuento, 200); 
     }
+
+
 
 
     public function store(Request $request)
     {
-        // $user->role_id           = $request->role_id;
-        // $user->name              = $request->name;
-        // $user->last_name         = $request->last_name;
-        // $user->email             = $request->email;
-        // $user->avatar            = $request->avatar;
-        // $user->email_verified_at = $request->email_verified_at;
-        // $user->rut               = $request->rut;
-        // $user->celular           = $request->celular;
-        // $user->direccion         = $request->direccion;
-        // $user->notas             = $request->notas;
-        // $user->api_token         = $request->api_token;
-        // $user->id_comuna         = $request->id_comuna;
-        // $user->zona              = $request->zona;
-        // $user->save();
-        // return response()->json(['success' => $user], 200); 
     }
 
 
@@ -51,20 +40,33 @@ class UsuariosController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $r, $id)
     {
-        // dd($request->name);
-        $user = User::findOrFail($id); 
-        $user->name              = $request->name ?? $user->name;
-        $user->role_id           = $request->role_id ?? $user->role_id;
-        $user->last_name         = $request->last_name ?? $user->last_name;
-        $user->email             = $request->email ?? $user->email;
-        $user->avatar            = $request->avatar ?? $user->avatar;
-        $user->celular           = $request->celular ?? $user->celular;
-        $user->direccion         = $request->direccion ?? $user->direccion;
-        $user->notas             = $request->notas ?? $user->notas;
-        $user->id_comuna         = $request->id_comuna ?? $user->id_comuna;
-        $user->zona              = $request->zona ?? $user->zona;
+        $r->validate([
+            'descuento'=>'numeric',
+        ]);
+        $user = User::findOrFail($id);
+        if($r->comuna){
+            $comuna = Comuna::where('nombre', $r->comuna)->first();
+            if(!$comuna){
+                $comuna = new Comuna();
+                $comuna->nombre   = $r->comuna;
+                $comuna->se_cubre = 1;
+                $comuna->save();
+            }
+        }
+        
+        $user->name      = $r->name           ?? $user->name;
+        $user->role_id   = $r->role_id        ?? $user->role_id;
+        $user->last_name = $r->last_name      ?? $user->last_name;
+        $user->email     = $r->email          ?? $user->email;
+        $user->avatar    = $r->avatar         ?? $user->avatar;
+        $user->celular   = $r->celular        ?? $user->celular;
+        $user->direccion = $r->direccion      ?? $user->direccion;
+        $user->notas     = $r->notas          ?? $user->notas;
+        $user->id_comuna = $r->id_comuna      ?? $comuna->id;
+        $user->zona      = $r->zona           ?? $user->zona;
+        $user->descuento = $r->descuento      ?? $user->descuento;
         $user->save();
         
         return response()->json(['success' => $user], 200); 

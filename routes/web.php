@@ -22,16 +22,19 @@ Auth::routes();
 Route::get('/pagoconfirmado',function(){
     return view('flow.exito');
 });
+
 Route::middleware(['auth'])->prefix('aguaclean')
 ->group(function () {
-
     Route::get('/','adminpanel@index');
     Route::get('usuarios','adminpanel@usuarios');
     Route::get('productos','adminpanel@productos');
+    Route::get('comunas','adminpanel@comunas');
 });
+
 Route::get('/fracaso',function(){
     return view('flow.fracaso');
 });
+
 // Route::get('/pagoconfirmado',function(){
 //     return view('flow.exito');
 // });

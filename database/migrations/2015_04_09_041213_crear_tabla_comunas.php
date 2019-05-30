@@ -15,10 +15,10 @@ class CrearTablaComunas extends Migration
     {
         Schema::create('comunas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre')->nullable();
+            $table->string('nombre')->unique();
             $table->string('cargo_por_producto')->nullable();
             $table->string('pedido_minimo')->nullable();
-            $table->string('se_cubre')->nullable();
+            $table->boolean('se_cubre')->default(1);
             $table->string('dias_de_despacho')->nullable();
             $table->string('pais')->nullable();
             $table->string('region')->nullable();

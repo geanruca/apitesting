@@ -248,6 +248,13 @@ class PedidosController extends Controller
 
     public function store(Request $r)
     {
+        // if($r->comuna){
+        //     $comuna = Comunas::where('nombre',$r->comuna)->first();
+        //     if(!$comuna){
+        //         $comuna = new Comuna();
+
+        //     }
+        // }
         $pedido                           = new Pedido();
         $pedido->estado_pago              = $r->estado_pago;
         $pedido->estado_despacho          = $r->estado_despacho;
@@ -258,7 +265,9 @@ class PedidosController extends Controller
         $pedido->horario_recepcion_final  = $r->horario_recepcion_final;
         $pedido->fecha_recepcion          = $r->fecha_recepcion;
         $pedido->notas                    = $r->notas;
+        //comuna
         $pedido->id_comuna                = $r->id_comuna;
+
         $pedido->id_conductor             = $r->id_conductor ?? 1;
         
         $user            = User::where('celular', $r->celular)->first();
@@ -269,6 +278,7 @@ class PedidosController extends Controller
         $user->direccion = $r->direccion;
         $user->celular   = $r->celular;
         $user->email     = $r->email;
+
         $user->save();
 
         $pedido->id_usuario = $user->id;

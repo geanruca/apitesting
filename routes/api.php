@@ -22,13 +22,14 @@ Route::middleware([])
 //Route::middleware(['auth'])
 ->namespace('Api')
 ->group(function () {
-    
+    Route::get('sacar_descuento_personal','UsuariosController@sacar_descuento_personal');
     Route::post('details', 'UserController@details');
     Route::apiResource('productos','ProductController');
+    Route::apiResource('comunas','ComunasController');
     Route::apiResource('usuarios','UsuariosController');
     Route::apiResource('pedidos','PedidosController');
+    // Route::get('comunas','ComunasController@index');
     Route::post('pedidos/delete/{id_pedido}','PedidosController@destroy');
-    Route::get('comunas','ComunasController@index');
     Route::get('conductor_asignado','PedidosController@conductor_asignado');
     Route::get('pedidos_sin_conductor_asignado','PedidosController@pedidos_sin_conductor_asignado');
     Route::get('conductores_disponibles_hoy','PedidosController@conductores_disponibles_hoy');

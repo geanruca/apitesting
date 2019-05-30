@@ -2,16 +2,21 @@
     <div>
         <div class="table table-striped">
             <div class="row">
-                <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3"><b>Nombre</b></div>
-                <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3"><b>Teléfono</b></div>
-                <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3"><b>Zona</b></div>
-                <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3"><b>Comuna</b></div>
+                <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2"><b>nombre</b></div>
+                <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2"><b>cargo por producto</b></div>
+                <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2"><b>pedido minimo</b></div>
+                <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2"><b>se cubre</b></div>
+                <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2"><b>dias de despacho</b></div>
             </div>
-            <div class="row" v-for="user in users" @click="modal(user)" data-toggle="modal" data-target="#myModal">
-                <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">{{user.name}}</div>
-                <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">{{user.celular}}</div>
-                <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">{{user.zona}}</div>
-                <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">{{user.direccion}}, {{user.comuna}}</div>
+            <div class="row" v-for="comuna in comunas" @click="modal(comuna)" data-toggle="modal" data-target="#myModal">
+                <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">{{comuna.nombre}}</div>
+                <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">{{comuna.cargo_por_producto}}</div>
+                <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">{{comuna.pedido_minimo}}</div>
+                <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
+                    <span v-if="comuna.se_cubre==1"> Sí </span>
+                    <span v-else> No </span>
+                </div>
+                <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">{{comuna.dias_de_despacho}}</div>
             </div>
         </div>
         <!-- Trigger the modal with a button -->
@@ -24,67 +29,51 @@
             <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Editar Usuario</h4>
+                <h4 class="modal-title">Editar Comuna</h4>
             </div>
             <div class="modal-body">
                 
                 <div class="row">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <b>Nombre:</b>
+                        <b>nombre:</b>
                     </div>
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <input class="form-control" type="text" v-model="user.name">
+                        <input class="form-control" type="text" v-model="comuna.nombre">
                     </div>
                 </div>
                 
                 <div class="row">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <b>Teléfono:</b>
+                        <b>cargo_por_producto:</b>
                     </div>
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <input class="form-control" type="text" v-model="user.celular">
+                        <input class="form-control" type="text" v-model="comuna.cargo_por_producto">
                     </div>
                 </div>
                 
                 <div class="row">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <b>Zona:</b>
+                        <b>pedido_minimo:</b>
                     </div>
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <input class="form-control" type="text" v-model="user.zona">
+                        <input class="form-control" type="text" v-model="comuna.pedido_minimo">
                     </div>
                 </div>
                 
                 <div class="row">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <b>Comuna:</b>
+                        <b>se_cubre:</b>
                     </div>
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <input class="form-control" type="text" v-model="user.comuna">
+                        <input class="form-control" type="text" v-model="comuna.se_cubre">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <b>Descuento personal al total:</b>
+                        <b>dias_de_despacho:</b>
                     </div>
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <input class="form-control" type="text" v-model="user.descuento">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <b>Notas:</b>
-                    </div>
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <input class="form-control" type="text" v-model="user.notas">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <b>Rol:</b>
-                    </div>
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <input class="form-control" type="text" v-model="user.role_id">
+                        <input class="form-control" type="text" v-model="comuna.dias_de_despacho">
                     </div>
                 </div>
 
@@ -108,10 +97,10 @@ export default {
     },
     data(){
         return{
-            users   : [],
+            comunas   : [],
             nombre  : '',
             rol     : '',
-            user    : [],
+            comuna    : [],
             busqueda: '',
         }
     },
@@ -120,29 +109,28 @@ export default {
     },
     methods: {
         fetch(){
-            axios.get('./../api/usuarios').then(response=>{
+            axios.get('./../api/comunas').then(response=>{
                 // console.log(response.data);
-                this.users = response.data;
+                this.comunas = response.data;
             })
         },
         buscar(busqueda){
             this.busqueda = busqueda
             console.log(this.busqueda)
         },
-        modal(user){
-            this.user = user;
-            console.log(user);
+        modal(comuna){
+            this.comuna = comuna;
+            console.log(comuna);
         },
         update(){
-            axios.post('./../api/usuarios/'+this.user.id,{
+            axios.post('./../api/usuarios/'+this.comuna.id,{
                 
-                'name'   : this.user.name,
-                'celular': this.user.celular,
-                'zona'   : this.user.zona,
-                'comuna' : this.user.comuna,
-                'notas'  : this.user.notas,
-                'descuento'  : this.user.descuento,
-                '_method': 'PATCH',
+                'nombre'            : this.comuna.nombre,
+                'cargo_por_producto': this.comuna.cargo_por_producto,
+                'pedido_minimo'     : this.comuna.pedido_minimo,
+                'se_cubre'          : this.comuna.se_cubre,
+                'dias_de_despacho'  : this.comuna.dias_de_despacho,
+                '_method'           : 'PATCH',
             }
 
             ).then(
