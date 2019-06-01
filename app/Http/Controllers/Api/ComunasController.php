@@ -17,6 +17,11 @@ class ComunasController extends Controller
 
     public function store(Request $r)
     {
+        $r->validate([
+            'nombre'             => 'required',
+            'pedido_minimo'      => 'numeric',
+            'cargo_por_producto' => 'numeric',
+        ]);
         $comuna = new Comuna();
         $comuna->nombre             = $r->nombre;
         $comuna->cargo_por_producto = $r->cargo_por_producto;
@@ -34,6 +39,11 @@ class ComunasController extends Controller
 
     public function update(Request $r, $id)
     {
+        $r->validate([
+            'nombre'             => 'required',
+            'pedido_minimo'      => 'numeric',
+            'cargo_por_producto' => 'numeric',
+        ]);
         $comuna = Comuna::findOrFail($id);
         $comuna->nombre             = $r->nombre;
         $comuna->cargo_por_producto = $r->cargo_por_producto;
@@ -51,6 +61,11 @@ class ComunasController extends Controller
     
     public function destroy($id)
     {
-        //
+        $c = Comuna::find($id);
+        $c->delete();
+        return response()->json([
+            'status' => true,
+            'msg'    => 'Comuna eliminada'
+        ]);
     }
 }

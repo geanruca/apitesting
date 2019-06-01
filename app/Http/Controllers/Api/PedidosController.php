@@ -23,32 +23,67 @@ class PedidosController extends Controller
     public function index()
     {
         $pedidos = Pedido::join('users as u','id_usuario','=','u.id')
-        ->join('comunas as c','c.id','pedidos.id_comuna')
-        ->select(
-            'pedidos.id as id_pedido',
-            'u.id as id_usuario',
-            'pedidos.id_conductor as id_conductor',
-            'pedidos.id_comuna as id_comuna_from_pedido',
-            'c.nombre as nombre_comuna',
-            'u.direccion as user_direccion',
-            'u.zona as user_zona',
-            'u.cargo as user_cargo',
-            'u.descuento as user_descuento',
-            'u.celular as user_celular',
-            'u.email as user_email',
-            'u.name as user_name',
-            'estado_pago',
-            'estado_despacho',
-            'medio_de_pago',
-            'total_pago',
-            'detalle_productos',
-            'horario_recepcion_inicio',
-            'horario_recepcion_final',
-            'fecha_recepcion'
-        )->orderBy('id_pedido','desc')
-        ->get();
+            ->join('comunas as c','c.id','pedidos.id_comuna')
+            ->select(
+                'pedidos.id as id_pedido',
+                'u.id as id_usuario',
+                'pedidos.id_conductor as id_conductor',
+                'pedidos.id_comuna as id_comuna_from_pedido',
+                'c.nombre as nombre_comuna',
+                'u.direccion as user_direccion',
+                'u.zona as user_zona',
+                'u.cargo as user_cargo',
+                'u.descuento as user_descuento',
+                'u.celular as user_celular',
+                'u.email as user_email',
+                'u.name as user_name',
+                'estado_pago',
+                'estado_despacho',
+                'medio_de_pago',
+                'total_pago',
+                'detalle_productos',
+                'horario_recepcion_inicio',
+                'horario_recepcion_final',
+                'fecha_recepcion'
+            )->orderBy('id_pedido','desc')
+            ->get();
 
         return response()->json($pedidos);
+    }
+    public function vista_de_pedidos(){
+        $pedidos = Pedido::join('users as u','id_usuario','=','u.id')
+            ->join('comunas as c','c.id','pedidos.id_comuna')
+            ->select(
+                'pedidos.id as id_pedido',
+                'u.id as id_usuario',
+                'pedidos.id_conductor as id_conductor',
+                'pedidos.id_comuna as id_comuna_from_pedido',
+                'c.nombre as nombre_comuna',
+                'u.direccion as user_direccion',
+                'u.zona as user_zona',
+                'u.cargo as user_cargo',
+                'u.descuento as user_descuento',
+                'u.celular as user_celular',
+                'u.email as user_email',
+                'u.name as user_name',
+                'estado_pago',
+                'estado_despacho',
+                'medio_de_pago',
+                'total_pago',
+                'detalle_productos',
+                'horario_recepcion_inicio',
+                'horario_recepcion_final',
+                'fecha_recepcion'
+            )->orderBy('id_pedido','desc')
+            ->get();
+            // falta crear la ruta
+        // return response()->json([
+        //     'status'          => true,
+        //     'pedidos'         => $pedidos,
+        //     'zonas'           => $zonas,
+        //     'fechas'          => $fechas,
+        //     'estado_despacho' => $estado_despacho,
+        // ]);
     }
     public function pedidos_sin_conductor_asignado()
     {
@@ -112,6 +147,7 @@ class PedidosController extends Controller
                 )
                 ->get();
         }
+
 
         return response()->json($pedidos);
     }
@@ -255,6 +291,8 @@ class PedidosController extends Controller
 
         //     }
         // }
+        $conductores = User::where('role_id','3')->first();
+
         $pedido                           = new Pedido();
         $pedido->estado_pago              = $r->estado_pago;
         $pedido->estado_despacho          = $r->estado_despacho;
@@ -268,7 +306,7 @@ class PedidosController extends Controller
         //comuna
         $pedido->id_comuna                = $r->id_comuna;
 
-        $pedido->id_conductor             = $r->id_conductor ?? 1;
+        $pedido->id_conductor             = $r->id_conductor ?? $conductor->id;
         
         $user            = User::where('celular', $r->celular)->first();
         if(!$user){

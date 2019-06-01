@@ -12,8 +12,9 @@ class UsuariosController extends Controller
  
     public function index()
     {
-            $users = User::join('comunas as c','users.id_comuna','=','c.id')
+            $users = User::leftjoin('comunas as c','users.id_comuna','=','c.id')
             ->select('users.zona','users.name','users.id','users.celular','users.descuento','users.direccion','users.notas','users.role_id','c.nombre as comuna')
+            ->orderBy('users.role_id','asc')
             ->orderBy('users.name','asc')
             ->get(); 
             return response()->json($users, 200); 
@@ -69,7 +70,9 @@ class UsuariosController extends Controller
         $user->descuento = $r->descuento      ?? $user->descuento;
         $user->save();
         
-        return response()->json(['success' => $user], 200); 
+        return response()->json([
+            'msg' => "Actualizado"
+            ]); 
     }
 
 

@@ -167,9 +167,14 @@ export default {
             axios.post('./../api/productos', formData)
             
             .then(response=>{
-
+                this.img1 ='';
+                this.nombre ='';
+                this.descripcion ='';
+                this.precio_inicial ='';
+                miniToastr.success(response.msg, 'Producto creado');
                 this.fetch();
-                }
+                },
+
             )
         },
         onImageChange(e){

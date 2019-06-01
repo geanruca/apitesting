@@ -18,4 +18,7 @@ class adminpanel extends Controller
     public function index(){
         return view('aguaclean.index');
     }
+    public function pedidos(){
+        return view('aguaclean.pedidos');
+    }
 }

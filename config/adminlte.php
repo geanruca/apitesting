@@ -153,11 +153,6 @@ return [
             'url'  => '/aguaclean/comunas',
             'icon' => 'fas fa-building',
         ],
-        [
-            'text' => 'Zonas',
-            'url'  => '/aguaclean/zonas',
-            'icon' => 'far fa-building',
-        ],
         'SOPORTE',
         [
             'text' => 'Solicitar cambios',

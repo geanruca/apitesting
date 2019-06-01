@@ -3,11 +3,11 @@
 @section('title', 'Aguaclean - Usuarios')
 
 @section('content_header')
-    <h1>Administración de usuarios</h1>
+    <h1>Administración de pedidos</h1>
 @stop
 
 @section('content')
  <div id='app'>
-     <user-list></user-list>
+     <lista-de-pedidos></lista-de-pedidos>
  </div>
 @stop

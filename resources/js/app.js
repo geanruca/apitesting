@@ -30,11 +30,13 @@ import UserList from './components/admin/UserList.vue';
 import ProductList from './components/admin/ProductList.vue';
 import ImageInput from './components/admin/ImageInput.vue';
 import ListaDeComunas from './components/admin/ListaDeComunas.vue';
+import ListaDePedidos from './components/admin/ListaDePedidos.vue';
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('user-list', require('./components/admin/UserList.vue').default);
 Vue.component('image-input', require('./components/admin/ImageInput.vue').default);
 Vue.component('product-list', require('./components/admin/ProductList.vue').default);
 Vue.component('lista-de-comunas', require('./components/admin/ListaDeComunas.vue').default);
+Vue.component('lista-de-pedidos', require('./components/admin/ListaDePedidos.vue').default);
 
 /**resources\js\components\admin\UserList.vue
  * Next, we will create a fresh Vue application instance and attach it to

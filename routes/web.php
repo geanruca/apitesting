@@ -29,6 +29,7 @@ Route::middleware(['auth'])->prefix('aguaclean')
     Route::get('usuarios','adminpanel@usuarios');
     Route::get('productos','adminpanel@productos');
     Route::get('comunas','adminpanel@comunas');
+    Route::get('pedidos','adminpanel@pedidos');
 });
 
 Route::get('/fracaso',function(){

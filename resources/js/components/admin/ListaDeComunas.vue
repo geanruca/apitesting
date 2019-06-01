@@ -4,19 +4,21 @@
             <div class="row">
                 <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2"><b>nombre</b></div>
                 <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2"><b>cargo por producto</b></div>
-                <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2"><b>pedido minimo</b></div>
                 <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2"><b>se cubre</b></div>
                 <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2"><b>dias de despacho</b></div>
             </div>
-            <div class="row" v-for="comuna in comunas" @click="modal(comuna)" data-toggle="modal" data-target="#myModal">
+            <div class="row" v-for="comuna in comunas">
                 <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">{{comuna.nombre}}</div>
                 <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">{{comuna.cargo_por_producto}}</div>
-                <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">{{comuna.pedido_minimo}}</div>
                 <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
                     <span v-if="comuna.se_cubre==1"> Sí </span>
                     <span v-else> No </span>
                 </div>
                 <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">{{comuna.dias_de_despacho}}</div>
+                 <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
+                    <a @click="eliminar(comuna)" class="btn btn-xs btn-danger"> Eliminar </a>  
+                    <a @click="modal(comuna)" data-toggle="modal" data-target="#myModal" class="btn btn-xs btn-primary"> Modificar </a>
+                </div>
             </div>
         </div>
         <!-- Trigger the modal with a button -->
@@ -76,6 +78,7 @@
                         <input class="form-control" type="text" v-model="comuna.dias_de_despacho">
                     </div>
                 </div>
+                
 
 
 
@@ -91,17 +94,24 @@
     </div>
 </template>
 <script>
+import miniToastr from 'mini-toastr';
+miniToastr.init();
 export default {
     mounted(){
         console.log('componente montado con éxito')
     },
     data(){
         return{
-            comunas   : [],
-            nombre  : '',
-            rol     : '',
-            comuna    : [],
-            busqueda: '',
+            comunas           : [],
+            nombre            : '',
+            rol               : '',
+            comuna            : [],
+            busqueda          : '',
+            nombre            : '',
+            cargo_por_producto: '',
+            pedido_minimo     : '',
+            se_cubre          : '',
+            dias_de_despacho  : '',
         }
     },
     created(){
@@ -116,14 +126,42 @@ export default {
         },
         buscar(busqueda){
             this.busqueda = busqueda
-            console.log(this.busqueda)
+            // console.log(this.busqueda)
         },
         modal(comuna){
             this.comuna = comuna;
-            console.log(comuna);
+            // console.log(comuna);
+        },
+        create(){
+            // e.preventDefault();
+            let settings = { headers: { 'cache-control'   : 'no-cache',
+                'content-type'    : 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW',
+                'Accept'          : 'application/json' } };
+            // let imageURL = URL.createObjectURL(imageFile);
+            // this.$emit('input', { formData, imageURL })
+            var formData = new FormData();
+            formData.append('nombre',this.nombre);
+            formData.append('cargo_por_producto',this.cargo_por_producto);
+            formData.append('pedido_minimo',this.pedido_minimo);
+            formData.append('se_cubre',this.se_cubre);
+            formData.append('dias_de_despacho',this.dias_de_despacho);
+            axios.post('./../api/productos', formData)
+            
+            .then(response=>{
+                this.nombre             = '';
+                this.cargo_por_producto = '';
+                this.pedido_minimo      = '';
+                this.se_cubre           = '';
+                this.dias_de_despacho   = '';
+                miniToastr.success(response.msg, 'Comuna creada');
+                this.fetch();
+                },
+
+
+            )
         },
         update(){
-            axios.post('./../api/usuarios/'+this.comuna.id,{
+            axios.post('./../api/comunas/'+this.comuna.id,{
                 
                 'nombre'            : this.comuna.nombre,
                 'cargo_por_producto': this.comuna.cargo_por_producto,
@@ -133,10 +171,44 @@ export default {
                 '_method'           : 'PATCH',
             }
 
-            ).then(
+            ).then(response=>{
+                
+                miniToastr.info(response.msg, 'Actualizado');
+                this.fetch();
+            }
             
-            )
-        }
+            ).catch(error=>{
+                if(error.response.status == 422){
+                    miniToastr.error('No ingrese valores vacíos', 'Error');
+                }else{
+                    miniToastr.error(error, 'Error');
+                }
+                console.log(error)
+                console.log(error.response.status)
+            })
+        },
+        eliminar(comuna){
+            // console.log(comuna);
+            // console.log(comuna.id);
+            if(confirm('Seguro que quiere eliminar el comuna?')){
+                axios.delete('./../api/comunas/'+comuna.id,{
+                    'id'        : comuna.id,
+                    '_method'       : 'DELETE',
+                }
+    
+                ).then(
+                    this.comunas.splice(this.comunas.indexOf(comuna), 1),
+                    // miniToastr.error(response.msg, 'Eliminado')
+                ).catch((error)=>{
+                    if(error.response.status == 500){
+                        miniToastr.error('No puede eliminar un producto con pedidos asignados', 'Error');
+                    }else{
+                        miniToastr.error(error, 'Error');
+                    }
+                }
+                )
+            }
+        },
     }
 }
 </script>
