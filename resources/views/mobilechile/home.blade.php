@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Mobile Chile - Aplicaciones móviles para tu celular</title>
-    <meta name="description" content="Lleva tu negocio al siguiente nivel. Automatiza tus procesos y comanda las notificaciones de todo desde la comodidad de tu smartphone">
+    <meta name="description" content="Lleva tu negocio al siguiente nivel. Automatiza procesos y comanda las notificaciones desde tu smartphone">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="css/startup-materialize.min.css">
