@@ -23,10 +23,10 @@ class ProductController extends Controller
     {
         // dd($r->img1);
         $r->validate([
-            'img1'=>'required',
-            'nombre'=>'required',
-            'precio_inicial'=>'required',
-            'descripcion'=>'required',
+            'img1'           => 'required',
+            'nombre'         => 'required',
+            'precio_inicial' => 'required',
+            'descripcion'    => 'required',
         ]);
         $producto = new Producto;
         $producto->nombre         = $r->nombre;

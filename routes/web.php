@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/pagoconfirmado',function(){
     return view('flow.exito');
-});
+})->name('pagoconfirmado');
 
 Route::middleware(['auth'])->prefix('aguaclean')
 ->group(function () {
@@ -30,6 +30,9 @@ Route::middleware(['auth'])->prefix('aguaclean')
     Route::get('productos','adminpanel@productos');
     Route::get('comunas','adminpanel@comunas');
     Route::get('pedidos','adminpanel@pedidos');
+    Route::get('vsoporte','adminpanel@vsoporte');
+    Route::post('soporte','adminpanel@soporte')->name("soporte");
+    // Route::get('datagraficos','adminpanel@pedidos');
 });
 
 Route::get('/fracaso',function(){

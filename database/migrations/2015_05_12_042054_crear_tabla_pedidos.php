@@ -6,16 +6,13 @@ use Illuminate\Database\Migrations\Migration;
 
 class CrearTablaPedidos extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
+            //$estados_pago     = ['PAGADO','PORPAGAR'];
+            //$medio_de_pago    = ['EFECTIVO','REDCOMPRA'];
+            //$estados_despacho = ['ENTREGADO','ENCAMINO','CANCELADO','SINASIGNAR','ASIGNADO'];
             $table->string('estado_pago')->nullable();
             $table->string('estado_despacho')->nullable();
             $table->string('medio_de_pago')->nullable();

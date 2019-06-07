@@ -132,13 +132,13 @@ return [
             // 'label'       => 4,
             'label_color' => 'danger' 
         ],
-        [
-            'text'        => 'Asignar pedidos',
-            'url'         => '/aguaclean/asignar',
-            'icon'        => 'far     fa-list-alt',
-            // 'label'       => 4,
-            'label_color' => 'danger' 
-        ],
+        // [
+        //     'text'        => 'Asignar pedidos',
+        //     'url'         => '/aguaclean/asignar',
+        //     'icon'        => 'far     fa-list-alt',
+        //     // 'label'       => 4,
+        //     'label_color' => 'danger' 
+        // ],
         
         'CONDUCTORES',
         [
@@ -153,12 +153,13 @@ return [
             'url'  => '/aguaclean/comunas',
             'icon' => 'fas fa-building',
         ],
-        'SOPORTE',
-        [
-            'text' => 'Solicitar cambios',
-            'url'  => '/aguaclean/soporte',
-            'icon' => 'user',
-        ],
+        
+        // 'SOPORTE',
+        // [
+        //     'text' => 'Solicitar cambios',
+        //     'url'  => '/aguaclean/soporte',
+        //     'icon' => 'user',
+        // ],
     ],
     /*
     |--------------------------------------------------------------------------
