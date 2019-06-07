@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Pedido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
@@ -77,7 +78,17 @@ class FlowController extends Controller
         $secretKey = '2ca0b7d495d64b21036b7e68e6d177af54cdded9';
         // $apiKey          = '4F97F6EC-8D67-4383-B5B3-322L977F97BA';
         // $secretKey       = '432cb51b224dad7cb18d6455e045769c7bdd51c8';
-        $commerceOrder   = $r->commerceOrder;
+        $id_comercio = Pedido::join('users as u','u.id','=','pedidos.id_usuario')->where('u.email',$r->email)
+        ->orderBy('pedidos.created_at','desc')
+        ->select('pedidos.id as id_pedido')->first();
+        
+        if($id_comercio){
+
+            $commerceOrder   = $id_comercio->id_pedido;
+        }else{
+            $commerceOrder = Pedido::orderBy('pedidos.created_at','desc')->select('pedidos.id as id_pedido')->first()->id_pedido;
+            // return response()->json('Error, el usuario no existe');
+        }
         $subject         = $r->subject;
         $amount          = $r->amount;
         $email           = $r->email;
