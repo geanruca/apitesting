@@ -171,107 +171,25 @@ class PedidosController extends Controller
         $pedido->id_usuario = $user->id;
         $pedido->save();
 
-        Mail::to('gerardo.ruiz.spa@gmail.com')->bcc('gerardo@mobilechile.app')->queue(new NuevoPedido($user, $pedido));
-        // Mail::to('aguacleanrene@gmail.com')
-        //     ->bcc('gerardo@mobilechile.app')
-        //     ->queue(new NuevoPedido($user, $pedido));
-        \Log::info('FLOW_INFO',[$r->all()]);
+        // Mail::to('gerardo.ruiz.spa@gmail.com')->bcc('gerardo@mobilechile.app')->queue(new NuevoPedido($user, $pedido));
+        Mail::to('aguacleanrene@gmail.com')
+            ->bcc('gerardo@mobilechile.app')
+            ->queue(new NuevoPedido($user, $pedido));
 
-        // REAL
-        $apiKey    = '3C6FADD0-75CD-46BE-A3C8-2DLCAF645821';
-        $secretKey = '2ca0b7d495d64b21036b7e68e6d177af54cdded9';
 
-        //FLOW SANDBOX
-        // $apiKey          = '4F97F6EC-8D67-4383-B5B3-322L977F97BA';
-        // $secretKey       = '432cb51b224dad7cb18d6455e045769c7bdd51c8';
-        $commerceOrder   = $pedido->id;
-        if($commerceOrder){
-            $commerceOrder = $commerceOrder->commerceOrder;
-        }else{
-            return response()->json('Error en la generación de commerceOrder');
-        }
-        $commerceOrder   = $r->commerceOrder;
-        $subject         = $pedido->detalle_productos;
-        $amount          = $pedido->total_pago;
-        $email           = $pedido->email;
-        $paymentMethod   = 1;
-        $urlConfirmation = route('pagoconfirmado');
-        $urlReturn       = route('pagoconfirmado');
-        // $signature = hash_hmac('sha256', $string_to_sign, $secretKey);
-        
 
-        // $url = 'https://sandbox.flow.cl/api/payment/create';
-        $url = 'https://www.flow.cl/api/payment/create';
-        // $url = $url . '/payment/create';
-        
-        $data='';
-        $params = [
-            'apiKey'          => $apiKey,
-            'commerceOrder'   => $commerceOrder,
-            'subject'         => $subject,
-            'amount'          => $amount,
-            'email'           => $email,
-            'paymentMethod'   => 1,
-            'urlConfirmation' => $urlConfirmation,
-            'urlReturn'       => $urlReturn,
-            // 's'=>$signature
-        ];
-        ksort($params);
-        
-        foreach($params as $key => $value) {
-            // $value=hash_hmac('sha256', $value, $secretKey);
-            $data .= '&' . $key . '=' . $value;
-        }
-        // Elimina el primer ampersand
-        $data = substr($data, 1);
-        // dd($data);
-        $signature=hash_hmac('sha256', $data, $secretKey);
-        //Agrega los parametros y la firma
-        $url = $url . '?' . $data . '?s=' . $signature;
-        $params = [
-            'apiKey'          => $apiKey,
-            'commerceOrder'   => $commerceOrder,
-            'subject'         => $subject,
-            'amount'          => $amount,
-            'email'           => $email,
-            'paymentMethod'   => 9,
-            'urlConfirmation' => $urlConfirmation,
-            'urlReturn'       => $urlReturn,
-            's'               => $signature
-        ];
-        sort($params);
-        try {
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            curl_setopt($ch, CURLOPT_POST, TRUE);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data . '&s=' . $signature);
-            $response = curl_exec($ch);
-
-            if($response === false) {
-                $error = curl_error($ch);
-                throw new Exception($error, 1);
-            } 
-            $info = curl_getinfo($ch);
-           
-            $response_final       = str_replace('\\','',$response);
-            $coleccion            = json_decode($response_final);
-            $coleccion->url_final = $coleccion->url.'?token = '.$coleccion->token;
-
-        return response()->json(
-            $coleccion->url_final
-        );
-        // echo()
-        } catch (Exception $e) {
-            echo 'Error: ' . $e->getCode() . ' - ' . $e->getMessage();
+        if($pedido->save()){
+            $limpia_carro = Carrito::where('id_usuario',$user->id)->first();
+            if($limpia_carro){
+                $limpia_carro->delete();
             }
+        }
+
+        return response()->json([
+            "status" => true,
+            "data"   => "Pedido realizado"
+        ]);
     }
-    
-
-
-
-
-    
 
 
     public function show($id)

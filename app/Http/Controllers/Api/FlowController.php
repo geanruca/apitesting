@@ -73,17 +73,10 @@ class FlowController extends Controller
     {
         \Log::info('FLOW_INFO',[$r->all()]);
         // REAL
-        // $apiKey    = '3C6FADD0-75CD-46BE-A3C8-2DLCAF645821';
-        // $secretKey = '2ca0b7d495d64b21036b7e68e6d177af54cdded9';
-        $apiKey          = '4F97F6EC-8D67-4383-B5B3-322L977F97BA';
-        $secretKey       = '432cb51b224dad7cb18d6455e045769c7bdd51c8';
-        $commerceOrder   = Pedido::join('users as u ','u.id','=','pedidos.id')->where('u.email',$r->email)
-        ->orderBy('pedidos.created_at','desc')
-        ->select('pedidos.id as commerceOrder')
-        ->first();
-        if($commerceOrder){
-            $commerceOrder = $commerceOrder->commerceOrder;
-        }
+        $apiKey    = '3C6FADD0-75CD-46BE-A3C8-2DLCAF645821';
+        $secretKey = '2ca0b7d495d64b21036b7e68e6d177af54cdded9';
+        // $apiKey          = '4F97F6EC-8D67-4383-B5B3-322L977F97BA';
+        // $secretKey       = '432cb51b224dad7cb18d6455e045769c7bdd51c8';
         $commerceOrder   = $r->commerceOrder;
         $subject         = $r->subject;
         $amount          = $r->amount;
@@ -94,8 +87,8 @@ class FlowController extends Controller
         // $signature = hash_hmac('sha256', $string_to_sign, $secretKey);
         
 
-        $url = 'https://sandbox.flow.cl/api/payment/create';
-        // $url = 'https://www.flow.cl/api';
+        // $url = 'https://sandbox.flow.cl/api/payment/create';
+        $url = 'https://www.flow.cl/api/payment/create';
         // $url = $url . '/payment/create';
         
         $data='';
@@ -148,12 +141,12 @@ class FlowController extends Controller
             } 
             $info = curl_getinfo($ch);
            
-            $response_final       = str_replace('\\','',$response);
-            $coleccion            = json_decode($response_final);
-            $coleccion->url_final = $coleccion->url.'?token = '.$coleccion->token;
+            $response_final = str_replace('\\','',$response);
+            $coleccion = json_decode($response_final);
+            $coleccion->url_final = $coleccion->url.'?token='.$coleccion->token;
 
         return response()->json(
-            $coleccion
+            $coleccion->url_final
         );
 
         // echo()
