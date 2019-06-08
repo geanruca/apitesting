@@ -329,11 +329,38 @@ class PedidosController extends Controller
         ]);
     }
 
-    public function update_with_email(Request $r){
+    public function update_with_flow_order(Request $r){
         $r->validate([
-            'email'=>'required',
-            'status_flowOrder'=>'required',
+            'flowOrder'=>'required',
+            'estado_pago'=>'required',
         ]);
+
+        $pedido = Pedido::where('florOrder',$r->flowOrder)->first();
+        switch ($r->estado_pago) {
+            case '1':
+                $pedido->estado_pago = "PENDIENTE";
+                break;
+            
+            case '2':
+                $pedido->estado_pago = "PAGADO";
+                return redirect()->route('pagoconfirmado');
+                break;
+            
+            case '3':
+                $pedido->estado_pago = "RECHAZADA";
+                break;
+            
+            case '4':
+                $pedido->estado_pago = "ANULADA";
+                break;
+            
+            default:
+                $pedido->estado_pago = "PENDIENTE";
+                break;
+        }
+
+        return response()->json('estado de pago actualizado');
+        
     }
 
 
