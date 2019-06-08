@@ -173,6 +173,7 @@ class FlowController extends Controller
            
             $response_final = str_replace('\\','',$response);
             $coleccion = json_decode($response_final);
+            dd($coleccion);
             $coleccion->url_final = $coleccion->url.'?token='.$coleccion->token;
             $params_status = [
                 'flowOrder'=>$coleccion->flowOrder,
