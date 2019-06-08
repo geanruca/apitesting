@@ -74,10 +74,11 @@ class FlowController extends Controller
     {
         \Log::info('FLOW_INFO',[$r->all()]);
         // REAL
-        $apiKey    = '3C6FADD0-75CD-46BE-A3C8-2DLCAF645821';
-        $secretKey = '2ca0b7d495d64b21036b7e68e6d177af54cdded9';
-        // $apiKey          = '4F97F6EC-8D67-4383-B5B3-322L977F97BA';
-        // $secretKey       = '432cb51b224dad7cb18d6455e045769c7bdd51c8';
+        // $apiKey    = '3C6FADD0-75CD-46BE-A3C8-2DLCAF645821';
+        // $secretKey = '2ca0b7d495d64b21036b7e68e6d177af54cdded9';
+        //SANDBOX
+        $apiKey          = '4F97F6EC-8D67-4383-B5B3-322L977F97BA';
+        $secretKey       = '432cb51b224dad7cb18d6455e045769c7bdd51c8';
         $usuario = Pedido::join('users as u','u.id','=','pedidos.id_usuario')
         ->where('u.email',$r->email)
         ->orderBy('pedidos.created_at','desc')
@@ -100,8 +101,8 @@ class FlowController extends Controller
         // $signature = hash_hmac('sha256', $string_to_sign, $secretKey);
         
 
-        // $url = 'https://sandbox.flow.cl/api/payment/create';
-        $url = 'https://www.flow.cl/api/payment/create';
+        $url = 'https://sandbox.flow.cl/api/payment/create';
+        // $url = 'https://www.flow.cl/api/payment/create';
         // $url = $url . '/payment/create';
         
         $data='';
@@ -174,7 +175,8 @@ class FlowController extends Controller
             $new_signature=hash_hmac('sha256', $new_data, $secretKey);
             $coleccion->s = $new_signature;
 
-            $coleccion->urlGetStatus = "https://www.flow.cl/api/payment/getStatusByFlowOrder?flowOrder=$coleccion->flowOrder&apiKey=$apiKey&s=$new_signature";
+            // $coleccion->urlGetStatus = "https://www.flow.cl/api/payment/getStatusByFlowOrder?flowOrder=$coleccion->flowOrder&apiKey=$apiKey&s=$new_signature";
+            $coleccion->urlGetStatus = "https://sandbox.flow.cl/api/payment/getStatusByFlowOrder?flowOrder=$coleccion->flowOrder&apiKey=$apiKey&s=$new_signature";
 
             // $this->flow_status($coleccion->urlGetStatus);
             // dd($coleccion->flowOrder);
