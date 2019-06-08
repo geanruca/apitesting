@@ -156,7 +156,7 @@ class PedidosController extends Controller
         //comuna
         $pedido->id_comuna                = $r->id_comuna;
 
-        $pedido->id_conductor             = $r->id_conductor ?? $conductor->id;
+        $pedido->id_conductor             = $conductor->id ?? 1;
         
         $user            = User::where('celular', $r->celular)->first();
         if(!$user){
