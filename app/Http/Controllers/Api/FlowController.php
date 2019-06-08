@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\User;
 use App\Pedido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -79,6 +80,12 @@ class FlowController extends Controller
         //SANDBOX
         $apiKey          = '4F97F6EC-8D67-4383-B5B3-322L977F97BA';
         $secretKey       = '432cb51b224dad7cb18d6455e045769c7bdd51c8';
+
+        // Creación de usuario si es que no existe el usuario
+        // if(){
+        //     User::where('celular',$r->celular)->first();
+        // }
+
         $usuario = Pedido::join('users as u','u.id','=','pedidos.id_usuario')
         ->where('u.email',$r->email)
         ->orderBy('pedidos.created_at','desc')
@@ -88,8 +95,16 @@ class FlowController extends Controller
         if($usuario){
             $commerceOrder   = $usuario->id_pedido;
         }else{
-            $usuario = Pedido::orderBy('pedidos.created_at','desc')->select('pedidos.id as id_pedido')->first();
-            $commerceOrder = $usuario->id_pedido;
+            $email = User::where('email', $r->email)->first();
+            if(!$email){
+                return response()->json('Error. No existe usuario con ese email.',401);
+            }
+            $usuario = new Pedido();
+            $usuario->pago_total = $r->amount;
+            $usuario->email = $email->email;
+            $usuario->save();
+            // ::orderBy('pedidos.created_at','desc')->select('pedidos.id as id_pedido')->first();
+            $commerceOrder = $usuario->id;
             // return response()->json('Error, el usuario no existe');
         }
         $subject         = $r->subject;
