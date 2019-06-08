@@ -13,10 +13,11 @@ class CrearTablaPedidos extends Migration
             //$estados_pago     = ['PAGADO','PORPAGAR'];
             //$medio_de_pago    = ['EFECTIVO','REDCOMPRA'];
             //$estados_despacho = ['ENTREGADO','ENCAMINO','CANCELADO','SINASIGNAR','ASIGNADO'];
-            $table->string('estado_pago')->nullable();
             $table->string('estado_despacho')->nullable();
             $table->string('medio_de_pago')->nullable();
             $table->string('total_pago')->nullable();
+            
+            $table->string('estado_pago')->nullable();
 
 
             $table->string('detalle_productos')->nullable();

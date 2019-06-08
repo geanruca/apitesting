@@ -78,15 +78,17 @@ class FlowController extends Controller
         $secretKey = '2ca0b7d495d64b21036b7e68e6d177af54cdded9';
         // $apiKey          = '4F97F6EC-8D67-4383-B5B3-322L977F97BA';
         // $secretKey       = '432cb51b224dad7cb18d6455e045769c7bdd51c8';
-        $id_comercio = Pedido::join('users as u','u.id','=','pedidos.id_usuario')->where('u.email',$r->email)
+        $usuario = Pedido::join('users as u','u.id','=','pedidos.id_usuario')
+        ->where('u.email',$r->email)
         ->orderBy('pedidos.created_at','desc')
-        ->select('pedidos.id as id_pedido')->first();
+        ->select('pedidos.id as id_pedido')
+        ->first();
         
-        if($id_comercio){
-
-            $commerceOrder   = $id_comercio->id_pedido;
+        if($usuario){
+            $commerceOrder   = $usuario->id_pedido;
         }else{
-            $commerceOrder = Pedido::orderBy('pedidos.created_at','desc')->select('pedidos.id as id_pedido')->first()->id_pedido;
+            $usuario = Pedido::orderBy('pedidos.created_at','desc')->select('pedidos.id as id_pedido')->first();
+            $commerceOrder = $usuario->id_pedido;
             // return response()->json('Error, el usuario no existe');
         }
         $subject         = $r->subject;
@@ -126,18 +128,18 @@ class FlowController extends Controller
         $signature=hash_hmac('sha256', $data, $secretKey);
         //Agrega los parametros y la firma
         $url = $url . '?' . $data . '?s=' . $signature;
-        $params = [
-            'apiKey'=> $apiKey,
-            'commerceOrder'=>$commerceOrder,
-            'subject'=>$subject,
-            'amount'=>$amount,
-            'email'=>$email,
-            'paymentMethod' => 9,
-            'urlConfirmation'=>$urlConfirmation,
-            'urlReturn'=>$urlReturn,
-            's'=>$signature
-        ];
-        sort($params);
+        // $params = [
+        //     'apiKey'=> $apiKey,
+        //     'commerceOrder'=>$commerceOrder,
+        //     'subject'=>$subject,
+        //     'amount'=>$amount,
+        //     'email'=>$email,
+        //     'paymentMethod' => 9,
+        //     'urlConfirmation'=>$urlConfirmation,
+        //     'urlReturn'=>$urlReturn,
+        //     's'=>$signature
+        // ];
+        // sort($params);
         try {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
@@ -151,18 +153,92 @@ class FlowController extends Controller
                 throw new Exception($error, 1);
             } 
             $info = curl_getinfo($ch);
+            
            
             $response_final = str_replace('\\','',$response);
             $coleccion = json_decode($response_final);
             $coleccion->url_final = $coleccion->url.'?token='.$coleccion->token;
+            $params_status = [
+                'flowOrder'=>$coleccion->flowOrder,
+                'apiKey'=>$apiKey,
+            ];
+            ksort($params_status);
+            $new_data = '';
+            foreach($params_status as $key => $value) {
+                // $value=hash_hmac('sha256', $value, $secretKey);
+                $new_data .= '&' . $key . '=' . $value;
+            }
+            // Elimina el primer ampersand
+            $new_data = substr($new_data, 1);
+
+            $new_signature=hash_hmac('sha256', $new_data, $secretKey);
+            $coleccion->s = $new_signature;
+
+            $coleccion->urlGetStatus = "https://www.flow.cl/api/payment/getStatusByFlowOrder?flowOrder=$coleccion->flowOrder&apiKey=$apiKey&s=$new_signature";
+
+            // $this->flow_status($coleccion->urlGetStatus);
+            // dd($coleccion->flowOrder);
+            $pedido = Pedido::find($usuario->id_pedido);
+            $pedido->flowOrder   = $coleccion->flowOrder;
+            $pedido->estado_pago = 'PENDIENTE';
+            // dd($pedido->save());
+            $pedido->save();
 
         return response()->json(
-            $coleccion->url_final
+            $coleccion
         );
 
         // echo()
         } catch (Exception $e) {
-        echo 'Error: ' . $e->getCode() . ' - ' . $e->getMessage();
+            echo 'Error: ' . $e->getCode() . ' - ' . $e->getMessage();
         }
     }
+    
+    public function flow_status($url){
+        try {
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            // curl_setopt($ch, CURLOPT_POSTFIELDS, $data . '&s=' . $signature);
+            $response = curl_exec($ch);
+
+            if($response === false) {
+                $error = curl_error($ch);
+                throw new Exception($error, 1);
+            } 
+            $info = curl_getinfo($ch);
+            
+            $coleccion = json_decode($response);
+            // dd($coleccion);
+            $coleccion->url_final = $coleccion->url.'?token='.$coleccion->token;
+            $params_status = [
+                'flowOrder'=>$coleccion->flowOrder,
+                'apiKey'=>$apiKey,
+            ];
+            ksort($params_status);
+            $new_data = '';
+            foreach($params_status as $key => $value) {
+                // $value=hash_hmac('sha256', $value, $secretKey);
+                $new_data .= '&' . $key . '=' . $value;
+            }
+            // Elimina el primer ampersand
+            $new_data = substr($new_data, 1);
+
+            $new_signature=hash_hmac('sha256', $new_data, $secretKey);
+            $coleccion->s = $new_signature;
+
+            $coleccion->urlGetStatus = "https://www.flow.cl/api/payment/getStatusByFlowOrder?flowOrder=$coleccion->flowOrder&apiKey=$apiKey&s=$new_signature";
+
+            $this->flow_status($coleccion->urlGetStatus);
+
+        return response()->json(
+            $coleccion
+        );
+
+        // echo()
+        } catch (Exception $e) {
+            echo 'Error: ' . $e->getCode() . ' - ' . $e->getMessage();
+        }
+    }
+
 }

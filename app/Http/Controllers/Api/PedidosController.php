@@ -329,6 +329,13 @@ class PedidosController extends Controller
         ]);
     }
 
+    public function update_with_email(Request $r){
+        $r->validate([
+            'email'=>'required',
+            'status_flowOrder'=>'required',
+        ]);
+    }
+
 
 
 }
