@@ -140,6 +140,7 @@ class PedidosController extends Controller
 
     public function store(Request $r)
     {
+        \Log::info('store_pedido',[$r->all()]);
         $conductor = User::where('role_id','3')->first();
 
         $pedido                           = new Pedido();
@@ -169,8 +170,9 @@ class PedidosController extends Controller
         $user->save();
 
         $pedido->id_usuario = $user->id;
-        $pedido->save();
 
+        $pedido->save();
+        \Log::info('pedido_save()',[$pedido->save()]);
         // Mail::to('gerardo.ruiz.spa@gmail.com')->bcc('gerardo@mobilechile.app')->queue(new NuevoPedido($user, $pedido));
         Mail::to('aguacleanrene@gmail.com')
             ->bcc('gerardo@mobilechile.app')
@@ -339,23 +341,30 @@ class PedidosController extends Controller
         switch ($r->estado_pago) {
             case '1':
                 $pedido->estado_pago = "PENDIENTE";
+                $pedido->save();
                 break;
             
             case '2':
                 $pedido->estado_pago = "PAGADO";
+                $pedido->save();
+
                 return redirect()->route('pagoconfirmado');
+
                 break;
             
             case '3':
                 $pedido->estado_pago = "RECHAZADA";
+                $pedido->save();
                 break;
             
             case '4':
                 $pedido->estado_pago = "ANULADA";
+                $pedido->save();
                 break;
             
             default:
                 $pedido->estado_pago = "PENDIENTE";
+                $pedido->save();
                 break;
         }
 

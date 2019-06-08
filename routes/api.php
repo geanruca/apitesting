@@ -31,6 +31,7 @@ Route::middleware([])
     Route::get('/pedidos_de_hoy','PedidosController@hoy');
     Route::get('/vista_de_pedidos','PedidosController@vista_de_pedidos');
     Route::get('/graficos','PedidosController@graficos');
+    Route::post('/update_with_flow_order','PedidosController@update_with_flow_order');
     // Route::get('comunas','ComunasController@index');
     // Route::post('pedidos/delete/{id_pedido}','PedidosController@destroy');
     // Route::get('pedidos/user/{celular}','PedidosController@pedidos_usuario');
@@ -46,23 +47,23 @@ Route::middleware([])
     // Route::get('auto_asignacion_de_pedidos_por_fecha_y_comuna/{fecha}','PedidosController@auto_asignacion_de_pedidos_por_fecha_y_comuna');
 
     //Carrito de compras
-    Route::get('carrito/carrito_contador/{id_usuario}','CarritosController@carrito_contador');
-    Route::get('carrito/{id_usuario}','CarritosController@show');
-    Route::get('carrito/delete/{id_usuario}','CarritosController@delete');
-    Route::get('carrito/delete/producto/{id_carrito}','CarritosController@delete_producto');
-    Route::post('carrito','CarritosController@store');
-    Route::post('carrito/{id_carrito}','CarritosController@update');
-    Route::post('carrito/lista_de_deseados','CarritosController@deseados');
-    Route::post('carrito/lista_de_comprados','CarritosController@comprados');
-    Route::get('carrito/total/{id_usuario}','CarritosController@total');
+    // Route::get('carrito/carrito_contador/{id_usuario}','CarritosController@carrito_contador');
+    // Route::get('carrito/{id_usuario}','CarritosController@show');
+    // Route::get('carrito/delete/{id_usuario}','CarritosController@delete');
+    // Route::get('carrito/delete/producto/{id_carrito}','CarritosController@delete_producto');
+    // Route::post('carrito','CarritosController@store');
+    // Route::post('carrito/{id_carrito}','CarritosController@update');
+    // Route::post('carrito/lista_de_deseados','CarritosController@deseados');
+    // Route::post('carrito/lista_de_comprados','CarritosController@comprados');
+    // Route::get('carrito/total/{id_usuario}','CarritosController@total');
 
     
     /**
      @ESTADOS: ['ENTREGADO','ENCAMINO','CANCELADO','SINASIGNAR','ASIGNADO']
      Ejemplo: api/pedidos_por_conductor_y_fecha/5/2019-5-1/ASIGNADO
      */
-    Route::get('pedidos_por_conductor_y_fecha/{id_conductor}/{fecha}/{estado}','PedidosController@pedidos_por_conductor_y_fecha');
-    Route::get('asignacion_manual/{id_pedido}/{id_conductor}','PedidosController@asignacion_manual');
+    // Route::get('pedidos_por_conductor_y_fecha/{id_conductor}/{fecha}/{estado}','PedidosController@pedidos_por_conductor_y_fecha');
+    // Route::get('asignacion_manual/{id_pedido}/{id_conductor}','PedidosController@asignacion_manual');
 
     // Flow
     Route::get('signature','FlowController@signature');
