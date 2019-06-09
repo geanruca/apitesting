@@ -78,8 +78,8 @@ class FlowController extends Controller
         // $apiKey    = '3C6FADD0-75CD-46BE-A3C8-2DLCAF645821';
         // $secretKey = '2ca0b7d495d64b21036b7e68e6d177af54cdded9';
         //SANDBOX
-        $apiKey          = '4F97F6EC-8D67-4383-B5B3-322L977F97BA';
-        $secretKey       = '432cb51b224dad7cb18d6455e045769c7bdd51c8';
+        $apiKey    = '4F97F6EC-8D67-4383-B5B3-322L977F97BA';
+        $secretKey = '432cb51b224dad7cb18d6455e045769c7bdd51c8';
 
         // Creación de usuario si es que no existe el usuario
         // if(){

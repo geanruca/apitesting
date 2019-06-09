@@ -173,10 +173,10 @@ class PedidosController extends Controller
 
         $pedido->save();
         \Log::info('pedido_save()',[$pedido->save()]);
-        // Mail::to('gerardo.ruiz.spa@gmail.com')->bcc('gerardo@mobilechile.app')->queue(new NuevoPedido($user, $pedido));
-        Mail::to('aguacleanrene@gmail.com')
-            ->bcc('gerardo@mobilechile.app')
-            ->queue(new NuevoPedido($user, $pedido));
+        Mail::to('gerardo.ruiz.spa@gmail.com')->bcc('gerardo@mobilechile.app')->queue(new NuevoPedido($user, $pedido));
+        // Mail::to('aguacleanrene@gmail.com')
+        //     ->bcc('gerardo@mobilechile.app')
+        //     ->queue(new NuevoPedido($user, $pedido));
 
 
 
