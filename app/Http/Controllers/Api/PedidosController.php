@@ -158,7 +158,7 @@ class PedidosController extends Controller
 
         $pedido->id_conductor             = $conductor->id ?? 1;
         
-        $user            = User::where('celular', $r->celular)->first();
+        $user            = User::where('celular', $r->celular)->orWhere('email',$r->email)->first();
         if(!$user){
             $user            = new User();
         }
