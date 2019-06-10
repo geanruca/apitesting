@@ -140,12 +140,12 @@ return [
         //     'label_color' => 'danger' 
         // ],
         
-        'CONDUCTORES',
-        [
-            'text' => 'Vista Conductor',
-            'url'  => '/aguaclean/conductor',
-            'icon' => 'fa fa-car',
-        ],
+        // 'CONDUCTORES',
+        // [
+        //     'text' => 'Vista Conductor',
+        //     'url'  => '/aguaclean/conductor',
+        //     'icon' => 'fa fa-car',
+        // ],
         
         'TERRITORIO',
         [
