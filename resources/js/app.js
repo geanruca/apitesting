@@ -116,7 +116,7 @@ var ctx = document.getElementById('myChart').getContext('2d');
         
         labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
         datasets: [{
-            label: '# of Votes',
+            label: '# de ventas por mes',
             // label2: '# of Votes',
             data: [Enero, Febrero, Marzo, Abril, Mayo, Junio,Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre],
             // data2: [MontoEnero, MontoFebrero, MontoMarzo, MontoAbril, MontoMayo, MontoJunio,MontoJulio, MontoAgosto, MontoSeptiembre, MontoOctubre, MontoNoviembre, MontoDiciembre],
