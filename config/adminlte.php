@@ -119,7 +119,7 @@ return [
         [
             'text'          => 'Productos',
             'url'           => '/aguaclean/productos',
-            'icon'          => 'user',
+            'icon'          => 'fa fa-shopping-cart',
             // 'label'         => 4,
             'label_color'   => 'danger' 
             // 'icon_color' => 'yellow',
