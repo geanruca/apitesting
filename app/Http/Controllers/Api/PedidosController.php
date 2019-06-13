@@ -173,19 +173,19 @@ class PedidosController extends Controller
 
         $pedido->save();
         \Log::info('pedido_save()',[$pedido->save()]);
-        Mail::to('gerardo.ruiz.spa@gmail.com')->bcc('gerardo@mobilechile.app')->queue(new NuevoPedido($user, $pedido));
-        // Mail::to('aguacleanrene@gmail.com')
-        //     ->bcc('gerardo@mobilechile.app')
-        //     ->queue(new NuevoPedido($user, $pedido));
+        // Mail::to('gerardo.ruiz.spa@gmail.com')->bcc('gerardo@mobilechile.app')->queue(new NuevoPedido($user, $pedido));
+        Mail::to('aguacleanrene@gmail.com')
+            ->bcc('gerardo@mobilechile.app')
+            ->queue(new NuevoPedido($user, $pedido));
 
 
 
-        if($pedido->save()){
-            $limpia_carro = Carrito::where('id_usuario',$user->id)->first();
-            if($limpia_carro){
-                $limpia_carro->delete();
-            }
-        }
+        // if($pedido->save()){
+        //     $limpia_carro = Carrito::where('id_usuario',$user->id)->first();
+        //     if($limpia_carro){
+        //         $limpia_carro->delete();
+        //     }
+        // }
 
         return response()->json([
             "status" => true,
@@ -279,7 +279,7 @@ class PedidosController extends Controller
         // dd($pedido);
         $user   = User  ::where('celular',$r->user_celular)->first();
         // $user->id_comuna = $r->id_comuna ?? $user->id_comuna;
-        $comuna = Comuna::findOrFail($r->id_comuna)->first();
+        $comuna = Comuna::where('id',$r->id_comuna)->orWhere('nombre',$r->nombre_comuna)->first();
         if(!$comuna){
             $comuna = new Comuna();
         }
@@ -307,6 +307,11 @@ class PedidosController extends Controller
         $pedido->horario_recepcion_final  = $r->horario_recepcion_final  ?? $pedido->horario_recepcion_final;
         $pedido->fecha_recepcion          = $r->fecha_recepcion          ?? $pedido->fecha_recepcion;
 
+        // if($r->estado_pago == "PAGADO"){
+        //     Mail::to('aguacleanrene@gmail.com')
+        //     ->bcc('gerardo@mobilechile.app')
+        //     ->queue(new NuevoPedidoPagado($user, $pedido));
+        // }
         $pedido->save();
 
         // if($pedido->save()){

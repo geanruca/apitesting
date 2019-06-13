@@ -98,14 +98,14 @@ return [
     
 
     'menu' => [
-        [
-            'text'        => 'Resumen de ventas',
-            'url'         => '/aguaclean/ventas',
-            'icon'        => 'file',
-            // 'label'       => 4,
-            'label_color' => 'danger' 
-            // 'icon_color' => 'aqua',
-        ],
+        // [
+        //     'text'        => 'Resumen de ventas',
+        //     'url'         => '/aguaclean/ventas',
+        //     'icon'        => 'file',
+        //     // 'label'       => 4,
+        //     'label_color' => 'danger' 
+        //     // 'icon_color' => 'aqua',
+        // ],
         'USUARIOS',
         [
             'text'          => 'Usuarios',
