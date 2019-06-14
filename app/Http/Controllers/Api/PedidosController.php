@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\User;
-use App\Mail\NuevoPedido;
 use App\Comuna;
 use App\Pedido;
 use App\Carrito;
 use Carbon\Carbon;
+use App\Mail\NuevoPedido;
 use Illuminate\Http\Request;
+use App\Mail\NuevoPedidoPagado;
+use App\Mail\NuevoPedidoEntregado;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
@@ -307,11 +309,18 @@ class PedidosController extends Controller
         $pedido->horario_recepcion_final  = $r->horario_recepcion_final  ?? $pedido->horario_recepcion_final;
         $pedido->fecha_recepcion          = $r->fecha_recepcion          ?? $pedido->fecha_recepcion;
 
-        // if($r->estado_pago == "PAGADO"){
-        //     Mail::to('aguacleanrene@gmail.com')
-        //     ->bcc('gerardo@mobilechile.app')
-        //     ->queue(new NuevoPedidoPagado($user, $pedido));
-        // }
+        if($r->estado_pago == "PAGADO"){
+            Mail::to('aguacleanrene@gmail.com')
+            ->bcc('gerardo@mobilechile.app')
+            ->subject("Pago online de $user->name")
+            ->queue(new NuevoPedidoPagado($user, $pedido));
+        }
+        if($r->estado_despacho == "ENTREGADO"){
+            Mail::to('aguacleanrene@gmail.com')
+            ->bcc('gerardo@mobilechile.app')
+            ->subject("Pedido entregado a $user->name")
+            ->queue(new NuevoPedidoEntregado($user, $pedido));
+        }
         $pedido->save();
 
         // if($pedido->save()){

@@ -122,15 +122,15 @@ class FlowController extends Controller
         
         $data='';
         $params = [
-            'apiKey'=> $apiKey,
-            'commerceOrder'=>$commerceOrder,
-            'subject'=>$subject,
-            'amount'=>$amount,
-            'email'=>$email,
-            'paymentMethod' => 1,
-            'urlConfirmation'=>$urlConfirmation,
-            'urlReturn'=>$urlReturn,
-            // 's'=>$signature
+            'apiKey'            => $apiKey,
+            'commerceOrder'     => $commerceOrder,
+            'subject'           => $subject,
+            'amount'            => $amount,
+            'email'             => $email,
+            'paymentMethod'     => 1,
+            'urlConfirmation'   => $urlConfirmation,
+            'urlReturn'         => $urlReturn,
+            //'s' => $signature
         ];
         ksort($params);
         
