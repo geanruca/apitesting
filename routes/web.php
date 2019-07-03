@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::post('/contacto','HomeController@contacto');
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/pagoconfirmado',function(){
     return view('flow.exito');
