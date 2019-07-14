@@ -166,7 +166,6 @@ return [
         /*
          * Package Service Providers...
          */
-        TCG\Voyager\VoyagerServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,

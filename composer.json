@@ -20,8 +20,7 @@
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
         "rap2hpoutre/laravel-log-viewer": "^1.1",
-        "robloach/component-installer": "^0.2.3",
-        "tcg/voyager": "^1.2"
+        "robloach/component-installer": "^0.2.3"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
