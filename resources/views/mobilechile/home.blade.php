@@ -178,7 +178,7 @@
     </div>
 
     <!-- Pricing Tables -->
-    <div class="section valign-wrapper full-height">
+    {{-- <div class="section valign-wrapper full-height">
         <div class="container">
           <div class="row">
   
@@ -258,7 +258,7 @@
           </div>
           
         </div>
-      </div>
+      </div> --}}
     
     <!-- Contact Us -->
     
