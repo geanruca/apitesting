@@ -42,11 +42,11 @@ class HomeController extends Controller
         
         \Log::notice('Nuevo cliente. Preparen las nalgas. Revisen su email');
 
-        Mail::to('jose@mobilechile.app')
-            ->bcc('gerardo@mobilechile.app')
-            ->bcc('gero17.grc@gmail.com')
-            ->bcc('catalinaaruiz.13@gmail.com')
-            ->queue(new NuevoCliente($contacto,$otros));
+        // Mail::to('jose@mobilechile.app')
+        //     ->bcc('gerardo@mobilechile.app')
+        //     ->bcc('gero17.grc@gmail.com')
+        //     ->bcc('catalinaaruiz.13@gmail.com')
+        //     ->queue(new NuevoCliente($contacto,$otros));
 
         return back()->with('flash','Muchas gracias. Te contactamos enseguida');
     }
