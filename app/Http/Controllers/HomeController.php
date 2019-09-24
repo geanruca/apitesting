@@ -40,7 +40,8 @@ class HomeController extends Controller
         $contacto->save();
         $otros = Contacto::where('estado','contactar')->get();
         
-        \Log::notice('Nuevo cliente. Preparen las nalgas. Revisen su email');
+        // \Log::notice('Nuevo cliente. Preparen las nalgas. Revisen su email');
+        \Log::notice($contacto);
 
         // Mail::to('jose@mobilechile.app')
         //     ->bcc('gerardo@mobilechile.app')
