@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::post('/contacto','HomeController@contacto');
 
-// Auth::routes();
+Auth::routes();
 
 Route::get('/pagoconfirmado',function(){
     return view('flow.exito');
@@ -47,9 +47,10 @@ Route::get('/auth/facebook/callback', 'SocialAuthController@callback');
 
 Route::post('/auth/facebook/register', 'SocialAuthController@register');
 Route::group(['prefix' => 'admin'], function () {
-    // Voyager::routes();
+    Voyager::routes();
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 });
+
 // Flow
 Route::get('signature','Api\FlowController@signature');
 Route::post('payments','Api\FlowController@create');
