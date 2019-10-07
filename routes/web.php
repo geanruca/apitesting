@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('soporte','HomeController@vista_soporte');
+Route::get('terminosycondiciones','HomeController@terminosycondiciones');
 Route::post('soporte','HomeController@contacto_soporte');
 
 Route::post('/contacto','HomeController@contacto');

@@ -76,6 +76,9 @@ class HomeController extends Controller
     public function vista_soporte(){
         return view('mobilechile.soporte');
     }
+    public function terminosycondiciones(){
+        return view('mobilechile.terminosycondiciones');
+    }
 
     public function contactos(){
 
