@@ -302,12 +302,12 @@
             <img class="materialize-logo" src="" alt="">
             <p>Especializados en transformar tu negocio en una aplicación móvil.</p>
           </div>
-          <div class="col s6 m3">
+          {{-- <div class="col s6 m3">
             <h5>Para emergencias y trabajos urgentes</h5>
             <ul>
               <h5>WSP: +569 45263469</h5>
             </ul>
-          </div>
+          </div> --}}
         </div>
       </div>
     </footer>

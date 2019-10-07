@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Soporte;
 use App\Contacto;
+use App\Mail\EmailSoporte;
 use App\Mail\NuevoCliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -40,16 +42,39 @@ class HomeController extends Controller
         $contacto->save();
         $otros = Contacto::where('estado','contactar')->get();
         
-        // \Log::notice('Nuevo cliente. Preparen las nalgas. Revisen su email');
+        \Log::notice('Nuevo cliente. Preparen las nalgas. Revisen su email');
         \Log::notice($contacto);
 
-        // Mail::to('jose@mobilechile.app')
-        //     ->bcc('gerardo@mobilechile.app')
-        //     ->bcc('gero17.grc@gmail.com')
-        //     ->bcc('catalinaaruiz.13@gmail.com')
-        //     ->queue(new NuevoCliente($contacto,$otros));
+        Mail::to('jriquelme92@gmail.com')
+            ->bcc('gerardo.ruiz.spa@gmail.com')
+            ->queue(new NuevoCliente($contacto,$otros));
 
         return back()->with('flash','Muchas gracias. Te contactamos enseguida');
+    }
+
+    public function contacto_soporte(Request $r)
+    {
+        $soporte = new Contacto;
+        $soporte->nombre   = $r->nombre;
+        $soporte->telefono = $r->telefono;
+        $soporte->email    = $r->email;
+        $soporte->negocio  = $r->mensaje;
+        $soporte->save();
+        
+        
+        \Log::notice('Nuevo ticket de Soporte. Preparen las nalgas. Revisen su email');
+        \Log::notice($soporte);
+
+        Mail::to('jriquelme92@gmail.com')
+            ->bcc('gerardo.ruiz.spa@gmail.com')
+            ->bcc($soporte->email)
+            ->queue(new EmailSoporte($soporte));
+
+        return back()->with('flash','Muchas gracias. Te contactamos enseguida');
+    }
+
+    public function vista_soporte(){
+        return view('mobilechile.soporte');
     }
 
     public function contactos(){
