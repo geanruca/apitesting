@@ -86,6 +86,14 @@ class HomeController extends Controller
         
         return response()->json($c);
     }
+    public function vista_contactos(){
+
+        $c = Contacto::All();
+        
+        return view('mobilechile.contactos',[
+            'c'=>$c
+        ]);
+    }
 
     public function contactado(Request $r, $id){
         $user               = Auth::user();

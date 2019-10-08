@@ -20,6 +20,7 @@ Route::get('terminosycondiciones','HomeController@terminosycondiciones');
 Route::post('soporte','HomeController@contacto_soporte');
 
 Route::post('/contacto','HomeController@contacto');
+Route::get('/admin/contactos','HomeController@vista_contactos');
 
 Auth::routes();
 
