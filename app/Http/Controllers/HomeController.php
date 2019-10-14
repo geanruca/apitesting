@@ -45,8 +45,8 @@ class HomeController extends Controller
         \Log::notice('Nuevo cliente. Preparen las nalgas. Revisen su email');
         \Log::notice($contacto);
 
-        Mail::to('jriquelme92@gmail.com')
-            ->bcc('gerardo.ruiz.spa@gmail.com')
+        Mail::to('jose.riquelme@mobilechile.app')
+            ->bcc('gerardo.ruiz@mobilechile.app')
             ->queue(new NuevoCliente($contacto,$otros));
 
         return back()->with('flash','Muchas gracias. Te contactamos enseguida');
