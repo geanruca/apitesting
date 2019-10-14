@@ -19,6 +19,7 @@
 
                 <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
                     <span v-if="user.role_id==1">Administrador </span>
+                    <span v-if="user.role_id==2">Moderador </span>
                     <span v-if="user.role_id==3">Conductor </span>
                     <span v-if="user.role_id==4">Cliente </span>
                 </div>
@@ -105,7 +106,12 @@
                         <b>Rol:</b>
                     </div>
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <input class="form-control" type="text" v-model="user.role_id">
+                        <select class="form-control" v-model="user.role_id">
+                            <option value="1">ADMIN</option>
+                            <option value="2">MODERADOR</option>
+                            <option value="3">CONDUCTOR</option>
+                            <option value="4">CLIENTE</option>
+                        </select>
                     </div>
                 </div>
 
@@ -134,7 +140,7 @@ export default {
         return{
             users   : [],
             nombre  : '',
-            rol     : '',
+            role_id : '',
             user    : [],
             busqueda: '',
         }
@@ -184,7 +190,8 @@ export default {
                 'comuna'   : this.user.comuna,
                 'notas'    : this.user.notas,
                 'descuento': this.user.descuento,
-                '_method': 'PATCH',
+                'role_id'  : this.user.role_id,
+                '_method'  : 'PATCH',
             }
 
             ).then(response=>{

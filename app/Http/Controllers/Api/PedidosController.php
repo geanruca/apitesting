@@ -175,10 +175,12 @@ class PedidosController extends Controller
 
         $pedido->save();
         \Log::info('pedido_save()',[$pedido->save()]);
-        // Mail::to('gerardo.ruiz.spa@gmail.com')->bcc('gerardo@mobilechile.app')->queue(new NuevoPedido($user, $pedido));
-        Mail::to('aguacleanrene@gmail.com')
+        Mail::to('gerardo.ruiz.spa@gmail.com')
             ->bcc('gerardo@mobilechile.app')
             ->queue(new NuevoPedido($user, $pedido));
+        // Mail::to('aguacleanrene@gmail.com')
+        //     ->bcc('gerardo@mobilechile.app')
+        //     ->queue(new NuevoPedido($user, $pedido));
 
 
 
@@ -207,43 +209,32 @@ class PedidosController extends Controller
     }
 
     public function graficos(){
-        $Enero      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-01-01','2019-01-31'])->get()->count();
-        $Febrero    = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-02-01','2019-02-31'])->get()->count();
-        $Marzo      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-03-01','2019-03-31'])->get()->count();
-        $Abril      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-04-01','2019-04-31'])->get()->count();
-        $Mayo       = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-05-01','2019-05-31'])->get()->count();
-        $Junio      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-06-01','2019-06-31'])->get()->count();
-        $Julio      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-07-01','2019-07-31'])->get()->count();
-        $Agosto     = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-08-01','2019-08-31'])->get()->count();
-        $Septiembre = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-09-01','2019-09-31'])->get()->count();
-        $Octubre    = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-10-01','2019-10-31'])->get()->count();
-        $Noviembre  = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-11-01','2019-11-31'])->get()->count();
-        $Diciembre  = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-12-01','2019-12-31'])->get()->count();
+        $ano = date("Y");
+        $Enero      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-01-01',$ano.'-01-31'])->get()->count();
+        $Febrero    = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-02-01',$ano.'-02-31'])->get()->count();
+        $Marzo      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-03-01',$ano.'-03-31'])->get()->count();
+        $Abril      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-04-01',$ano.'-04-31'])->get()->count();
+        $Mayo       = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-05-01',$ano.'-05-31'])->get()->count();
+        $Junio      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-06-01',$ano.'-06-31'])->get()->count();
+        $Julio      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-07-01',$ano.'-07-31'])->get()->count();
+        $Agosto     = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-08-01',$ano.'-08-31'])->get()->count();
+        $Septiembre = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-09-01',$ano.'-09-31'])->get()->count();
+        $Octubre    = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-10-01',$ano.'-10-31'])->get()->count();
+        $Noviembre  = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-11-01',$ano.'-11-31'])->get()->count();
+        $Diciembre  = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-12-01',$ano.'-12-31'])->get()->count();
 
-        $MontoEnero      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-01-01','2019-01-31'])
-        ->select('total_pago')->get()->sum('total_pago');
-        $MontoFebrero    = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-02-01','2019-02-31'])
-        ->select('total_pago')->get()->sum('total_pago');
-        $MontoMarzo      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-03-01','2019-03-31'])
-        ->select('total_pago')->get()->sum('total_pago');
-        $MontoAbril      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-04-01','2019-04-31'])
-        ->select('total_pago')->get()->sum('total_pago');
-        $MontoMayo       = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-05-01','2019-05-31'])
-        ->select('total_pago')->get()->sum('total_pago');
-        $MontoJunio      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-06-01','2019-06-31'])
-        ->select('total_pago')->get()->sum('total_pago');
-        $MontoJulio      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-07-01','2019-07-31'])
-        ->select('total_pago')->get()->sum('total_pago');
-        $MontoAgosto     = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-08-01','2019-08-31'])
-        ->select('total_pago')->get()->sum('total_pago');
-        $MontoSeptiembre = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-09-01','2019-09-31'])
-        ->select('total_pago')->get()->sum('total_pago');
-        $MontoOctubre    = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-10-01','2019-10-31'])
-        ->select('total_pago')->get()->sum('total_pago');
-        $MontoNoviembre  = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-11-01','2019-11-31'])
-        ->select('total_pago')->get()->sum('total_pago');
-        $MontoDiciembre  = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',['2019-12-01','2019-12-31'])
-        ->select('total_pago')->get()->sum('total_pago');
+        $MontoEnero      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-01-01',$ano.'-01-31'])->select('total_pago')->get()->sum('total_pago');
+        $MontoFebrero    = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-02-01',$ano.'-02-31'])->select('total_pago')->get()->sum('total_pago');
+        $MontoMarzo      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-03-01',$ano.'-03-31'])->select('total_pago')->get()->sum('total_pago');
+        $MontoAbril      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-04-01',$ano.'-04-31'])->select('total_pago')->get()->sum('total_pago');
+        $MontoMayo       = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-05-01',$ano.'-05-31'])->select('total_pago')->get()->sum('total_pago');
+        $MontoJunio      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-06-01',$ano.'-06-31'])->select('total_pago')->get()->sum('total_pago');
+        $MontoJulio      = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-07-01',$ano.'-07-31'])->select('total_pago')->get()->sum('total_pago');
+        $MontoAgosto     = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-08-01',$ano.'-08-31'])->select('total_pago')->get()->sum('total_pago');
+        $MontoSeptiembre = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-09-01',$ano.'-09-31'])->select('total_pago')->get()->sum('total_pago');
+        $MontoOctubre    = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-10-01',$ano.'-10-31'])->select('total_pago')->get()->sum('total_pago');
+        $MontoNoviembre  = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-11-01',$ano.'-11-31'])->select('total_pago')->get()->sum('total_pago');
+        $MontoDiciembre  = Pedido::where('estado_pago','PAGADO')->whereBetween('fecha_recepcion',[$ano.'-12-01',$ano.'-12-31'])->select('total_pago')->get()->sum('total_pago');
         
         return response()->json([
             'Enero'           => $Enero,
@@ -278,7 +269,6 @@ class PedidosController extends Controller
     public function update(Request $r, $id_pedido)
     {
         $pedido = Pedido::findOrFail($id_pedido);
-        // dd($pedido);
         $user   = User  ::where('celular',$r->user_celular)->first();
         // $user->id_comuna = $r->id_comuna ?? $user->id_comuna;
         $comuna = Comuna::where('id',$r->id_comuna)->orWhere('nombre',$r->nombre_comuna)->first();
@@ -310,15 +300,13 @@ class PedidosController extends Controller
         $pedido->fecha_recepcion          = $r->fecha_recepcion          ?? $pedido->fecha_recepcion;
 
         if($r->estado_pago == "PAGADO"){
-            Mail::to('aguacleanrene@gmail.com')
-            ->bcc('gerardo@mobilechile.app')
-            ->subject("Pago online de $user->name")
+            Mail::to('gerardo.ruiz.spa@gmail.com')
+            ->bcc('gerardo.ruiz@mobilechile.app')
             ->queue(new NuevoPedidoPagado($user, $pedido));
         }
         if($r->estado_despacho == "ENTREGADO"){
-            Mail::to('aguacleanrene@gmail.com')
-            ->bcc('gerardo@mobilechile.app')
-            ->subject("Pedido entregado a $user->name")
+            Mail::to('gerardo.ruiz.spa@gmail.com')
+            ->bcc('gerardo.ruiz@mobilechile.app')
             ->queue(new NuevoPedidoEntregado($user, $pedido));
         }
         $pedido->save();

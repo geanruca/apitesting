@@ -33,20 +33,20 @@ class UsersTableSeeder extends Seeder
                 'remember_token' => Str::random(60),
                 'role_id'        => $role->id,
             ]);
-            // User::create([
-            //     'name'           => 'Secretaria',
-            //     'email'          => 'secretaria@aguaclean.app',
-            //     'password'       => bcrypt('password'),
-            //     'remember_token' => Str::random(60),
-            //     'role_id'        => 2,
-            // ]);
-            // User::create([
-            //     'name'           => 'Conductor',
-            //     'email'          => 'conductor@aguaclean.app',
-            //     'password'       => bcrypt('password'),
-            //     'remember_token' => Str::random(60),
-            //     'role_id'        => 3,
-            // ]);
+            User::create([
+                'name'           => 'Moderador',
+                'email'          => 'moderador@aguaclean.app',
+                'password'       => bcrypt('password'),
+                'remember_token' => Str::random(60),
+                'role_id'        => 2,
+            ]);
+            User::create([
+                'name'           => 'Conductor',
+                'email'          => 'conductor@aguaclean.app',
+                'password'       => bcrypt('password'),
+                'remember_token' => Str::random(60),
+                'role_id'        => 3,
+            ]);
             
         }
     }

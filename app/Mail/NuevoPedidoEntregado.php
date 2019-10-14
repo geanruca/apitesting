@@ -35,8 +35,8 @@ class NuevoPedidoEntregado extends Mailable
     {
         $user   = $this->user;
         $pedido = $this->pedido;
-        return $this->from('contacto@aguaclean.app')
-                    //->subject('Pedido entregado')
+        return $this->replyTo($user->email)
+                    ->subject("Pedido entregado a: $user->name")
                     ->markdown('emails.notificaciones.NuevoPedidoEntregado',compact('user','pedido'));
     }
 }

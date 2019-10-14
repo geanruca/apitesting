@@ -78,17 +78,16 @@
                 <div class="row"><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><span><b>Celular:</b></span></div><div class="col-xs-7 col-sm-7 col-md-7 col-lg-7"><input class="form-control" type="text" v-model="pedido.user_celular"></div></div>
                 <div class="row"><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><span><b>Email: </b></span></div><div class="col-xs-7 col-sm-7 col-md-7 col-lg-7"><input class="form-control" type="text" v-model="pedido.user_email"></div></div>
 
-                <div class="row"><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><span><b>Estado Pago</b></span></div>
+                <div class="row"><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><span><b>PAGADO</b></span></div>
                     <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                         <select class="form-control" v-model="pedido.estado_pago">
-                            <option disabled value="">Pagado:</option>
                             <option value="PAGADO">SI</option>
                             <option value="NOPAGADO">NO</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="row"><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><span><b>Estado Despacho</b></span></div>
+                <div class="row"><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><span><b>ENTREGADO</b></span></div>
                     <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                         <select class="form-control" v-model="pedido.estado_despacho">
                             <!-- <option disabled value="">Entregado:</option> -->

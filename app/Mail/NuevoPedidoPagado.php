@@ -35,8 +35,8 @@ class NuevoPedidoPagado extends Mailable
     {
         $user   = $this->user;
         $pedido = $this->pedido;
-        return $this->from('contacto@aguaclean.app')
-                    //->subject('Pedido pagado')
+        return $this->replyTo($user->email)
+                    ->subject("Pedido pagado por: $user->name")
                     ->markdown('emails.notificaciones.NuevoPedidoPagado',compact('user','pedido'));
     }
 }

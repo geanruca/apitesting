@@ -16,6 +16,7 @@ php artisan migrate:fresh
 php artisan voyager:install --with-dummy
 php artisan passport:client --personal
 personal
+php artisan db:seed --class=DatabaseSeeder
 php artisan db:seed --class=ComunasSeeder
 php artisan db:seed --class=ProductosSeeder
 php artisan db:seed --class=PedidosSeeder
