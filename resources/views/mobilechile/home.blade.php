@@ -184,7 +184,7 @@
     <div class="section valign-wrapper full-height">
         <div class="container">
           <div class="row">
-  
+            <div class="col m4"></div>
             <div class="col s12 m4">
               <div class="pricing-table">
                 <div class="pricing-header">
