@@ -184,7 +184,48 @@
     <div class="section valign-wrapper full-height">
         <div class="container">
           <div class="row">
-            <div class="col m4"></div>
+            <div class="col m2"></div>
+            <div class="col s12 m4">
+              <div class="pricing-table">
+                <div class="pricing-header">
+                  <i class="icon-paper-plane"></i>
+                  <h4>Desarrollador movil senior</h4>
+                  <div class="price">
+                    <span class="currency">USD</span>
+                    <span class="dollars">25</span>
+                    <span class="cents">/hora</span>
+                  </div>
+                </div>
+                <ul class="pricing-features">
+                  <li class="pricing-feature"><i class="icon-accept"></i>Creación rápida de módulos nativos</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Control de calidad y buenas prácticas en la programación</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Automatización de documentación con fotografías in-situ</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Automatización de procesos con GPS</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Publicación de la aplicación en AppStore y PlayStore</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Sistemas de push notification</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Uso de funcionalidades propias del sistema android y iOS</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Gestión de permisos de acceso al smartphone</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Manejo del Hardware de cada dispositivos</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Manejo de compatibilidad entre dispositivos</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Experto en funcionamiento asincrónico</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Sistemas de geolocalización</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Sistemas de autenticación</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Sistemas de administración y gestión en tiempo real</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Experto en obtención de información e interacción con el usuario</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Experto en integración ágil de contenido móvil</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Manejo en las tendencias del diseño móvil</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Desarrollo de sistemas personalizados</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Integración con redes sociales</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Visualización de Notificaciones</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Despliegue de elementos interactivos</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Consumo de APIs para obtención de información. </li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Manejo de bases de datos locales</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Pagos online</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Delivery</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Y un largo etc..</li>
+                </ul>
+              </div>
+            </div>
             <div class="col s12 m4">
               <div class="pricing-table">
                 <div class="pricing-header">
@@ -206,7 +247,8 @@
                   <li class="pricing-feature"><i class="icon-accept"></i>Administración y gestión de emails</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Envíos de email masivos</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Sistemas de autenticación</li>
-                  <li class="pricing-feature"><i class="icon-accept"></i>Sistemas de administración</li><li class="pricing-feature"><i class="icon-accept"></i>Experto en obtención de información e interacción con el usuario</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Sistemas de administración</li>
+                  <li class="pricing-feature"><i class="icon-accept"></i>Experto en obtención de información e interacción con el usuario</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Experto en integración ágil de contenido variado</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Manejo en diseño responsivo</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Desarrollo de sistemas de gestión personalizados</li>
@@ -221,7 +263,6 @@
                   <li class="pricing-feature"><i class="icon-accept"></i>Testing de integración entre plataformas vía postman</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Pagos online</li>
                   <li class="pricing-feature"><i class="icon-accept"></i>Y un largo etc..</li>
-                  <li class="pricing-feature disabled"><i class="icon-close"> No es un diseñador</i></li>
                 </ul>
               </div>
             </div>
