@@ -18,9 +18,13 @@
     <meta name="description" content="Lleva tu negocio al siguiente nivel. Automatiza procesos y comanda las notificaciones desde tu smartphone">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:title" content="Mobile Chile!" />
-    <meta property="og:type" content="development.mobile" />
-    <meta property="og:url" content="https://mobilechile.xl/images/telefono-inteligente-min.png" />
-    <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="mobilechile.app">
+    <meta property="og:app_id" content="2665227023587677" />
+    <meta property="og:description" content="Automatización y digitalización móvil" />
+    <meta property="og:url" content="https://mobilechile.xl/" />
+    <meta property="og:updated_time" content="1440432930" />
+    <meta property="og:image:secure_url" itemprop="image" content="https://mobilechile.xl/images/telefono-inteligente-min.png" />
 
     <link rel="stylesheet" href="css/startup-materialize.min.css">
 
