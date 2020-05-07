@@ -171,7 +171,7 @@
           </div>
           <div class="col s12 m6 l4">
             <h4><i class="small material-icons"> phone_android</i></h4>
-            <p class="caption">Mobile First! Desarrollamos tu aplicación, ya se web, nativa o híbrida pensando en el smarthphone como herramienta principal para cualquier interacción con su plataforma.</p>
+            <p class="caption">Mobile First! Desarrollamos tu aplicación, ya sea web, nativa o híbrida, pensando en el smarthphone como herramienta principal para cualquier interacción con su plataforma.</p>
           </div>
         </div>
         </div>
