@@ -3,6 +3,7 @@
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139428697-1"></script>
+    <script data-ad-client="ca-pub-4358643457914464" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -147,22 +148,22 @@
           <div class="col s12"><h2 class="section-title">Servicios</h2></div>
           <div class="row">
             <div class="col s12 m6 l4">
-              <h4><i class="small material-icons">monetization_on </i></h4>
-              <p class="caption">Nos aseguramos de que tu app sea una inversión, y no un gasto innecesario. Serás contactado muchas veces a través de la web.</p>
+              <h4><i class="small material-icons">money_off </i></h4>
+              <p class="caption">No cobramos por implementación, y si no te sientes conforme con el servicio, simplemente puedes dejar de pagar, sin compromisos.</p>
             </div>
             <div class="col s12 m6 l4">
               <h4><i class="small material-icons">thumb_up </i></h4>
-              <p class="caption">Unificamos tus redes sociales, por lo que si compartes una foto en instagram, lo mismo se publicará en Facebook, Twitter, Linkedin, etc. De forma automática.</p>
+              <p class="caption">Unificamos tus redes sociales con tu aplicación de forma automática. De ésta manera tu aplicación estará siempre actualizándose.</p>
             </div>
             <div class="col s12 m6 l4">
               <h4><i class="small material-icons"> free_breakfast</i></h4>
-              <p class="caption">Automatizamos procesos complejos, con implementaciones sencillas y ágiles. El ideal es llevar todo a un botón, o no?</p>
+              <p class="caption">Automatizamos procesos complejos, con implementaciones sencillas y ágiles. El ideal es llevar todo a un botón, pero es incluso mejor si ese botón se vuelve prescindible.</p>
             </div>
           </div>
           <div class="row">
           <div class="col s12 m6 l4">
-            <h4><i class="small material-icons">money_off </i></h4>
-            <p class="caption">No cobramos por implementación, y si no te sientes conforme con el servicio, simplemente puedes dejar de pagar.</p>
+            <h4><i class="small material-icons">monetization_on </i></h4>
+            <p class="caption">Nos aseguramos de que tu app sea una inversión, y de que sientas que cada peso que se gastó estuvo muy bien invertido. Estarás bien posicionado y serás contactado muchas veces a través de tu app si contratas nuestros servicios.</p>
           </div>
           <div class="col s12 m6 l4">
             <h4><i class="small material-icons">whatshot </i></h4>
@@ -170,7 +171,7 @@
           </div>
           <div class="col s12 m6 l4">
             <h4><i class="small material-icons"> phone_android</i></h4>
-            <p class="caption">Desarrollamos la aplicación móvil de tus sueños.</p>
+            <p class="caption">Mobile First! Desarrollamos tu aplicación, ya se web, nativa o híbrida pensando en el smarthphone como herramienta principal para cualquier interacción con su plataforma.</p>
           </div>
         </div>
         </div>
