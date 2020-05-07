@@ -39,7 +39,7 @@
       <div class="header-wrapper row">
         <div class="col s12 m5 l4 offset-l4 valign-wrapper">
           <div class="valign">
-            <h2> <img src="/images/MobileChile.png" width="100%" alt="" sizes="" srcset=""> </h2>
+            <h2> <img src="/images/logoOG.png" width="100%" alt="" sizes="" srcset=""> </h2>
             <span class="tagline">Automatización y digitalización desde tu smarthphone</span>
             <button class="read-more"><i class="icon-caret-down"></i></button>
           </div>
