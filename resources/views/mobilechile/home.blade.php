@@ -14,9 +14,13 @@
     <link rel="shortcut icon" type="image/png" href="/images/telefono-inteligente-min.png" />
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Mobile Chile - Aplicaciones móviles para tu celular</title>
+    <title>Mobile Chile - Automatización y digitalización móvil</title>
     <meta name="description" content="Lleva tu negocio al siguiente nivel. Automatiza procesos y comanda las notificaciones desde tu smartphone">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Mobile Chile!" />
+    <meta property="og:type" content="development.mobile" />
+    <meta property="og:url" content="https://mobilechile.xl/images/telefono-inteligente-min.png" />
+    <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
 
     <link rel="stylesheet" href="css/startup-materialize.min.css">
 
@@ -33,10 +37,10 @@
     <div class="phone-wall-intro header white full-height">
       <div class="header-background"></div>
       <div class="header-wrapper row">
-        <div class="col s12 m10 offset-m1 valign-wrapper">
+        <div class="col s12 m5 l4 offset-l4 valign-wrapper">
           <div class="valign">
-            <h2>Mobile Chile!</h2>
-            <span class="tagline">Automatización desde tu smarthphone</span>
+            <h2> <img src="/images/MobileChile.png" width="100%" alt="" sizes="" srcset=""> </h2>
+            <span class="tagline">Automatización y digitalización desde tu smarthphone</span>
             <button class="read-more"><i class="icon-caret-down"></i></button>
           </div>
         </div>
