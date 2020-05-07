@@ -326,5 +326,6 @@
     <!-- Initialization script -->
     <script src="js/startup.js"></script>
     <script src="js/init.js"></script>
+    <!-- Código de instalación Cliengo para geanruca@gmail.com --> <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/5eb41745c44c590028aaecf2/5eb41746c44c590028aaecf6.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })();</script>
   </body>
 </html>
