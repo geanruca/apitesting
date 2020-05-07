@@ -46,7 +46,7 @@ class HomeController extends Controller
         \Log::notice($contacto);
 
         Mail::to('jose.riquelme@mobilechile.app')
-            ->cc('gerardo.ruiz@mobilechile.app')
+            ->bcc('gerardo.ruiz@mobilechile.app')
             ->queue(new NuevoCliente($contacto,$otros));
 
         return back()->with('flash','Muchas gracias. Te contactamos enseguida');
@@ -66,7 +66,7 @@ class HomeController extends Controller
         \Log::notice($soporte);
 
         Mail::to('jose.riquelme@mobilechile.app')
-            ->cc('gerardo.ruiz@mobilechile.app')
+            ->bcc('gerardo.ruiz@mobilechile.app')
             ->bcc($soporte->email)
             ->queue(new EmailSoporte($soporte));
 
