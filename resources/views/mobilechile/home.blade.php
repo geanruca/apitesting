@@ -24,7 +24,7 @@
     <meta property="og:description" content="Automatización y digitalización móvil" />
     <meta property="og:url" content="https://mobilechile.app/" />
     <meta property="og:updated_time" content="1440432930" />
-    <meta property="og:image:secure_url" itemprop="image" content="https://mobilechile.app/images/telefono-inteligente-min.png" />
+    <meta property="og:image:secure_url" itemprop="image" content="https://mobilechile.app/images/logoOG.png" />
 
     <link rel="stylesheet" href="css/startup-materialize.min.css">
 
@@ -43,7 +43,7 @@
       <div class="header-wrapper row">
         <div class="col s12 m5 l4 offset-l4 valign-wrapper">
           <div class="valign">
-            <h2> <img src="/images/logoOG.png" width="100%" alt="" sizes="" srcset=""> </h2>
+            <h2> <img src="/images/MobileChile.png" width="100%" alt="" sizes="" srcset=""> </h2>
             <span class="tagline">Automatización y digitalización desde tu smarthphone</span>
             <button class="read-more"><i class="icon-caret-down"></i></button>
           </div>
