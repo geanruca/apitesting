@@ -254,47 +254,47 @@
       <div class="container">
         <div class="row">
           <div class="col s12 center">
-            <h1>blog</h1>
+            <h1>Portafolio</h1>
             <div class="row masonry-grid">
               <div class="col s12 m6 l4">
                 <div class="card">
                   <div class="card-image">
-                    <a href="blog.html"><img src="{{ URL::to('/images') }}/portafolio6-min.png"></a>
+                    <a href="#cafe"><img src="{{ URL::to('/images') }}/portafolio6-min.png"></a>
                   </div>
                 </div>
               </div>
               <div class="col s12 m6 l4">
                 <div class="card">
                   <div class="card-image">
-                    <a href="blog.html"><img src="{{ URL::to('/images') }}/portafolio1-min.png"></a>
+                    <a href="#cafe"><img src="{{ URL::to('/images') }}/portafolio1-min.png"></a>
                   </div>
                 </div>
               </div>
               <div class="col s12 m6 l4">
                 <div class="card">
                   <div class="card-image">
-                    <a href="blog.html"><img src="{{ URL::to('/images') }}/portafolio2-min.png"></a>
+                    <a href="#cafe"><img src="{{ URL::to('/images') }}/portafolio2-min.png"></a>
                   </div>
                 </div>
               </div>
               <div class="col s12 m6 l4">
                 <div class="card">
                   <div class="card-image">
-                    <a href="blog.html"><img src="{{ URL::to('/images') }}/portafolio3-min.png"></a>
+                    <a href="#cafe"><img src="{{ URL::to('/images') }}/portafolio3-min.png"></a>
                   </div>
                 </div>
               </div>
               <div class="col s12 m6 l4">
                 <div class="card">
                   <div class="card-image">
-                    <a href="blog.html"><img src="{{ URL::to('/images') }}/portafolio7-min.png"></a>
+                    <a href="#cafe"><img src="{{ URL::to('/images') }}/portafolio7-min.png"></a>
                   </div>
                 </div>
               </div>
               <div class="col s12 m6 l4">
                 <div class="card">
                   <div class="card-image">
-                    <a href="blog.html"><img src="{{ URL::to('/images') }}/portafolio5-min.jpg"></a>
+                    <a href="#cafe"><img src="{{ URL::to('/images') }}/portafolio4-min.jpg"></a>
                   </div>
                 </div>
               </div>
