@@ -22,9 +22,9 @@
     <meta property="og:site_name" content="mobilechile.app">
     <meta property="og:app_id" content="2665227023587677" />
     <meta property="og:description" content="Automatización y digitalización móvil" />
-    <meta property="og:url" content="https://mobilechile.xl/" />
+    <meta property="og:url" content="https://mobilechile.app/" />
     <meta property="og:updated_time" content="1440432930" />
-    <meta property="og:image:secure_url" itemprop="image" content="https://mobilechile.xl/images/telefono-inteligente-min.png" />
+    <meta property="og:image:secure_url" itemprop="image" content="https://mobilechile.app/images/telefono-inteligente-min.png" />
 
     <link rel="stylesheet" href="css/startup-materialize.min.css">
 
