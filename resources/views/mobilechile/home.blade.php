@@ -1,15 +1,16 @@
 <!doctype html>
 <html>
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139428697-1"></script>
     <script data-ad-client="ca-pub-4358643457914464" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140788038-2">
+    </script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'UA-139428697-1');
+      gtag('config', 'UA-140788038-2');
     </script>
     <link rel="shortcut icon" type="image/png" href="/images/telefono-inteligente-min.png" />
     <meta charset="utf-8">
@@ -26,7 +27,9 @@
     <meta property="og:updated_time" content="1440432930" />
     <meta property="og:image:secure_url" itemprop="image" content="https://mobilechile.app/images/logoOG.png" />
     <meta property="og:image" itemprop="image" content="https://mobilechile.app/images/logoOG.png" />
-
+    <style>
+      /* #popupIframe, #chatIframe {float:right!important;right:auto!important;} */
+      </style>
     <link rel="stylesheet" href="css/startup-materialize.min.css">
 
     <!-- Material Icons -->
@@ -405,6 +408,7 @@
     <!-- Initialization script -->
     <script src="js/startup.js"></script>
     <script src="js/init.js"></script>
-    <!-- Código de instalación Cliengo para geanruca@gmail.com --> <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/5eb41745c44c590028aaecf2/5eb41746c44c590028aaecf6.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })();</script>
+    <!-- Código de instalación Cliengo para geanruca@gmail.com --> 
+    <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/5eb41745c44c590028aaecf2/5eb41746c44c590028aaecf6.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })();</script>
   </body>
 </html>
