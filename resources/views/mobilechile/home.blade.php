@@ -1,17 +1,20 @@
 <!doctype html>
 <html>
   <head>
-    <script data-ad-client="ca-pub-4358643457914464" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140788038-2">
-    </script>
+      <!-- Global site tag (gtag.js) - Google Ads: 741438136 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-741438136"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'UA-140788038-2');
+      gtag('config', 'AW-741438136');
     </script>
+    <!-- Event snippet for Website lead conversion page -->
+    <script>
+      gtag('event', 'conversion', {'send_to': 'AW-741438136/yF1lCMPg7M8BELjlxeEC'});
+    </script>
+
     <link rel="shortcut icon" type="image/png" href="/images/telefono-inteligente-min.png" />
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
