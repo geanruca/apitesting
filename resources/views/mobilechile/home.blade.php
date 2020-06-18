@@ -207,7 +207,7 @@
                   <h4>Desarrollador movil senior</h4>
                   <div class="price">
                     <span class="currency">UF</span>
-                    <span class="dollars">1</span>
+                    <span class="dollars">1.5</span>
                     <span class="cents">/hora</span>
                   </div>
                 </div>
@@ -248,7 +248,7 @@
                   <h4>Desarrollador Fullstack senior</h4>
                   <div class="price">
                     <span class="currency">UF</span>
-                    <span class="dollars">1.5</span>
+                    <span class="dollars">1</span>
                     <span class="cents">/hora</span>
                   </div>
                 </div>
