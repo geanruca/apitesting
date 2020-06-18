@@ -206,8 +206,8 @@
                   <i class="icon-paper-plane"></i>
                   <h4>Desarrollador movil senior</h4>
                   <div class="price">
-                    <span class="currency">USD</span>
-                    <span class="dollars">25</span>
+                    <span class="currency">UF</span>
+                    <span class="dollars">1</span>
                     <span class="cents">/hora</span>
                   </div>
                 </div>
@@ -247,8 +247,8 @@
                   <i class="icon-paper-plane"></i>
                   <h4>Desarrollador Fullstack senior</h4>
                   <div class="price">
-                    <span class="currency">USD</span>
-                    <span class="dollars">20</span>
+                    <span class="currency">UF</span>
+                    <span class="dollars">1.5</span>
                     <span class="cents">/hora</span>
                   </div>
                 </div>
