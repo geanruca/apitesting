@@ -1,6 +1,19 @@
 <!doctype html>
 <html>
   <head>
+      <!-- Global site tag (gtag.js) - Google Ads: 741438136 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-741438136"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-741438136');
+    </script>
+    <!-- Event snippet for Website lead conversion page -->
+    <script>
+      gtag('event', 'conversion', {'send_to': 'AW-741438136/yF1lCMPg7M8BELjlxeEC'});
+    </script>
 
     <link rel="shortcut icon" type="image/png" href="/images/telefono-inteligente-min.png" />
     <meta charset="utf-8">
@@ -399,6 +412,6 @@
     <script src="js/startup.js"></script>
     <script src="js/init.js"></script>
     <!-- Código de instalación Cliengo para geanruca@gmail.com --> 
-    {{-- <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/5eb41745c44c590028aaecf2/5eb41746c44c590028aaecf6.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })();</script> --}}
+    <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/5eb41745c44c590028aaecf2/5eb41746c44c590028aaecf6.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })();</script>
   </body>
 </html>

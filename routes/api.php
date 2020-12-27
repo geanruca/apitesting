@@ -24,14 +24,14 @@ Route::middleware([])
 ->group(function () {
     // Route::get('sacar_descuento_personal','UsuariosController@sacar_descuento_personal');
     // Route::post('details', 'UserController@details');
-    Route::apiResource('productos','ProductController');
-    Route::apiResource('comunas','ComunasController');
-    Route::apiResource('usuarios','UsuariosController');
-    Route::apiResource('pedidos','PedidosController');
-    Route::get('/pedidos_de_hoy','PedidosController@hoy');
-    Route::get('/vista_de_pedidos','PedidosController@vista_de_pedidos');
-    Route::get('/graficos','PedidosController@graficos');
-    Route::post('/update_with_flow_order','PedidosController@update_with_flow_order');
+    // Route::apiResource('productos','ProductController');
+    // Route::apiResource('comunas','ComunasController');
+    // Route::apiResource('usuarios','UsuariosController');
+    // Route::apiResource('pedidos','PedidosController');
+    // Route::get('/pedidos_de_hoy','PedidosController@hoy');
+    // Route::get('/vista_de_pedidos','PedidosController@vista_de_pedidos');
+    // Route::get('/graficos','PedidosController@graficos');
+    // Route::post('/update_with_flow_order','PedidosController@update_with_flow_order');
     // Route::get('comunas','ComunasController@index');
     // Route::post('pedidos/delete/{id_pedido}','PedidosController@destroy');
     // Route::get('pedidos/user/{celular}','PedidosController@pedidos_usuario');
@@ -66,7 +66,7 @@ Route::middleware([])
     // Route::get('asignacion_manual/{id_pedido}/{id_conductor}','PedidosController@asignacion_manual');
 
     // Flow
-    Route::get('signature','FlowController@signature');
-    Route::post('payments','FlowController@create');
+    // Route::get('signature','FlowController@signature');
+    // Route::post('payments','FlowController@create');
 });
 
