@@ -1,19 +1,6 @@
 <!doctype html>
 <html>
   <head>
-      <!-- Global site tag (gtag.js) - Google Ads: 741438136 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-741438136"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'AW-741438136');
-    </script>
-    <!-- Event snippet for Website lead conversion page -->
-    <script>
-      gtag('event', 'conversion', {'send_to': 'AW-741438136/yF1lCMPg7M8BELjlxeEC'});
-    </script>
 
     <link rel="shortcut icon" type="image/png" href="/images/telefono-inteligente-min.png" />
     <meta charset="utf-8">
